@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="SignUpWindows" prefHeight="451.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.SignUp.Sign_UpController">
+    <children>
+        <Label layoutX="10.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION">
+            <font>
+                <Font name="Elephant" size="14.0" />
+            </font>
+        </Label>
+      
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="160.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
+            </image>
+        </ImageView>
+      
+        <Label layoutX="164.0" layoutY="145.0" text="WPA TEAM">
+            <font>
+                <Font name="Elephant" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="NamaText" layoutX="172.0" layoutY="191.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nama" />
+        <Label layoutX="76.0" layoutY="195.0" text="Nama                  : " />
+        <Label layoutX="76.0" layoutY="235.0" text="Email                  : " />
+        <TextField fx:id="EmailText" layoutX="172.0" layoutY="231.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Email" />
+        <TextField fx:id="AlamatText" layoutX="173.0" layoutY="269.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Alamat" />
+        <TextField fx:id="NomorTeleponText" layoutX="172.0" layoutY="308.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nomor Telepon" />
+        <Label layoutX="77.0" layoutY="273.0" text="Alamat               : " />
+        <Label layoutX="76.0" layoutY="312.0" text="Nomor Telepon : " />
+        <Label layoutX="76.0" layoutY="352.0" text="Password           :" />
+        <TextField fx:id="PasswordText" layoutX="172.0" layoutY="348.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Password" />
+        <Button fx:id="SignupButton" layoutX="107.0" layoutY="399.0" mnemonicParsing="false" onAction="#SignupButtonClick" text="Sign Up">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="CancelButton" layoutX="221.0" layoutY="399.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <Glow level="0.15" />
+            </effect>
+        </Button>
+    </children>      
+</AnchorPane>

@@ -10,8 +10,8 @@ package Models;
  */
 public class RAMModels {
     private String ID_RAM,Nama_RAM,Frequency,Capacity;
-    private int DDR;
-    private double harga;
+    private int DDR,harga;
+
 
     public String getID_RAM() {
         return ID_RAM;
@@ -53,11 +53,11 @@ public class RAMModels {
         this.DDR = DDR;
     }
 
-    public double getHarga() {
+    public int getHarga() {
         return harga;
     }
 
-    public void setHarga(double harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
 }

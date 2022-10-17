@@ -9,48 +9,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.Parent;
+import javafx.stage.Modality;
 
 /**
  *
  * @author mariq
  */
 public class Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036 extends Application {
-    
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/MainMenu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 230);
-        stage.setTitle("Main Menu");
-        stage.setScene(scene);
-        stage.show(); 
-        stage.setScene(scene);
-        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/FirstDisplay/MainMenu.fxml"));
+        Parent root = (Parent) loader.load();
+        Scene scene = new Scene(root);
+        Stage stg = new Stage();
+        stg.setTitle("Main Menu");
+        stg.initModality(Modality.APPLICATION_MODAL);
+        stg.setResizable(false);
+        stg.setIconified(false);
+        stg.setScene(scene);
+        stg.show();
     }
-    
-       /**
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    
-    
 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package FXML_AND_CONTROLLERS;
+package FXML_AND_CONTROLLERS.Input.Master;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author mariq
  */
-public class Main_Menu2Controller implements Initializable {
+public class Input_SSDController implements Initializable {
 
     /**
      * Initializes the controller class.
