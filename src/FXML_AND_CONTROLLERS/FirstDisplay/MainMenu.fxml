@@ -7,15 +7,22 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
 
-<AnchorPane id="AnchorPane" prefHeight="230.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.MainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="230.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.FirstDisplay.MainMenuController">
     <children>
-      <ImageView fitHeight="200.0" fitWidth="238.0" layoutX="76.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="200.0" fitWidth="238.0" layoutX="83.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
          </image></ImageView>
-        <Button fx:id="Login_Button" layoutX="20.0" layoutY="188.0" onAction="#Login_Click" text="Login" />
-      <Button fx:id="Sign_Up_Button" layoutX="248.0" layoutY="188.0" mnemonicParsing="false" onAction="#Sign_Up_Click" text="Sign Up" />
+        <Button fx:id="Login_Button" layoutX="20.0" layoutY="188.0" onAction="#Login_Click" text="Login">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Sign_Up_Button" layoutX="248.0" layoutY="188.0" mnemonicParsing="false" onAction="#Sign_Up_Click" text="Sign Up">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label layoutX="131.0" layoutY="200.0" text="WPA TEAM">
          <font>
             <Font name="Elephant" size="12.0" />

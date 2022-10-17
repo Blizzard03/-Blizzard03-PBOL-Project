@@ -9,9 +9,9 @@ package Models;
  * @author mariq
  */
 public class CPUModels {
-    private String ID_CPU, Nama_CPU,Frequency,TDP;
-    private int Cores,Thread;
-    private double Harga;
+    private String ID_CPU, Nama_CPU,Base_Clock,Max_Turbo_Clock,TDP;
+    private int Cores,Thread,Harga;;
+
 
     public String getID_CPU() {
         return ID_CPU;
@@ -29,12 +29,28 @@ public class CPUModels {
         this.Nama_CPU = Nama_CPU;
     }
 
-    public String getFrequency() {
-        return Frequency;
+    public String getBase_Clock() {
+        return Base_Clock;
     }
 
-    public void setFrequency(String Frequency) {
-        this.Frequency = Frequency;
+    public void setBase_Clock(String Base_Clock) {
+        this.Base_Clock = Base_Clock;
+    }
+
+    public String getMax_Turbo_Clock() {
+        return Max_Turbo_Clock;
+    }
+
+    public void setMax_Turbo_Clock(String Max_Turbo_Clock) {
+        this.Max_Turbo_Clock = Max_Turbo_Clock;
+    }
+
+    public String getTDP() {
+        return TDP;
+    }
+
+    public void setTDP(String TDP) {
+        this.TDP = TDP;
     }
 
     public int getCores() {
@@ -53,11 +69,15 @@ public class CPUModels {
         this.Thread = Thread;
     }
 
-    public double getHarga() {
+    public int getHarga() {
         return Harga;
     }
 
-    public void setHarga(double Harga) {
+    public void setHarga(int Harga) {
         this.Harga = Harga;
     }
+    
+
+
 }
+    

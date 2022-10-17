@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="MainMenu" prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.MainMenu.Main_Menu2Controller">
+    <children>
+      <ImageView fx:id="images" fitHeight="200.0" fitWidth="238.0" layoutX="56.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/Blizzard_03.png" />
+         </image></ImageView>
+              <Label layoutX="111.0" layoutY="293.0" text="WPA TEAM">
+         <font>
+            <Font name="Elephant" size="12.0" />
+         </font>
+      </Label>
+      <MenuBar id="MenuBarCursor" layoutY="2.0" prefHeight="25.0" prefWidth="300.0" style="-fx-cursor: hand; -fx-background-color: grey;" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Make PC Build">
+            <items>
+              <MenuItem fx:id="MakeBuild" mnemonicParsing="false" onAction="#BlueprintMaker" style="-fx-cursor: hand;" text="Blue Print" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Report">
+              <items>
+                <MenuItem fx:id="BlueprintMake" mnemonicParsing="false" onAction="#BlueprintMake" style="-fx-cursor: hand;" text="Blue Print Make" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Data">
+            <items>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Master Data" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="User_DATA" mnemonicParsing="false" onAction="#ViewUserData" style="-fx-cursor: hand;" text="Users" />
+                  <MenuItem fx:id="CPU_DATA" mnemonicParsing="false" onAction="#ViewCPUData" style="-fx-cursor: hand;" text="CPU" />
+                  <MenuItem fx:id="GPU_DATA" mnemonicParsing="false" onAction="#GPU_DATAClick" style="-fx-cursor: hand;" text="GPU" />
+                  <MenuItem fx:id="MOBO_DATA" mnemonicParsing="false" onAction="#MOBO_DATAClick" style="-fx-cursor: hand;" text="Mother Board" />
+                  <MenuItem fx:id="PowerSupplyDataView" mnemonicParsing="false" onAction="#PowerSupplyDataView" style="-fx-cursor: hand;" text="Power Supply" />
+                  <MenuItem fx:id="CoolerDataView" mnemonicParsing="false" onAction="#CoolerDataView" style="-fx-cursor: hand;" text="Cooler" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Detail Data" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="Detail_CPUDataView" mnemonicParsing="false" onAction="#Detail_CPUDataViewClick" style="-fx-cursor: hand;" text="Detail CPU" />
+                  <MenuItem fx:id="Detail_GPUDataView" mnemonicParsing="false" onAction="#Detail_GPUDataViewClick" style="-fx-cursor: hand;" text="Detail GPU" />
+                  <MenuItem fx:id="Detail_RAMDataView" mnemonicParsing="false" onAction="#Detail_RAMDataViewClick" style="-fx-cursor: hand;" text="Detail RAM" />
+                  <MenuItem fx:id="Detail_Mother_Board_Data_View" mnemonicParsing="false" onAction="#Detail_Mother_Board_Data_View_Click" style="-fx-cursor: hand;" text="Detail Mother Board" />
+                  <MenuItem fx:id="Detail_Power_Supply_Data_View" mnemonicParsing="false" onAction="#Detail_Power_Supply_Data_View_Click" style="-fx-cursor: hand;" text="Detail Power Supply" />
+                  <MenuItem fx:id="Detail_Cooler_DataView" mnemonicParsing="false" onAction="#Detail_Cooler_DataViewClick" style="-fx-cursor: hand;" text="Detail_Cooler" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="AboutMenu" mnemonicParsing="false" onAction="#AboutMenuClick" style="-fx-cursor: hand;" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="LogoutButon" layoutX="114.0" layoutY="347.0" mnemonicParsing="false" onAction="#LogoutButonclick" style="-fx-cursor: hand;" text="LOG OUT">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

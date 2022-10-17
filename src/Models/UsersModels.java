@@ -9,15 +9,8 @@ package Models;
  * @author mariq
  */
 public class UsersModels {
-    private String ID_User, Nama_User, Email_User, Alamat_User, Nomor_Telepon_User;
-
-    public String getID_User() {
-        return ID_User;
-    }
-
-    public void setID_User(String ID_User) {
-        this.ID_User = ID_User;
-    }
+    private String Nama_User, Email_User, Alamat_User, Nomor_Telepon_User, Password;
+    private int ID_User;
 
     public String getNama_User() {
         return Nama_User;
@@ -50,5 +43,22 @@ public class UsersModels {
     public void setNomor_Telepon_User(String Nomor_Telepon_User) {
         this.Nomor_Telepon_User = Nomor_Telepon_User;
     }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public int getID_User() {
+        return ID_User;
+    }
+
+    public void setID_User(int ID_User) {
+        this.ID_User = ID_User;
+    }
+
 
 }
