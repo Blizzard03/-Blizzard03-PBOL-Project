@@ -5,8 +5,8 @@
 package Controller.Tableviews.Master.CPU;
 
 import Controller.MainMenu.Main_Menu2Controller;
-import Models.CPUModels;
-import Models.UsersModels;
+import Models.CPU.CPUModels;
+import Models.User.UsersModels;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

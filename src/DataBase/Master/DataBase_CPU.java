@@ -5,7 +5,7 @@
 package DataBase.Master;
 
 import DataBaseConnector.Database_Connection;
-import Models.CPUModels;
+import Models.CPU.CPUModels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,7 +37,7 @@ public class DataBase_CPU {
             ResultSet rs = con.statement.executeQuery("Select * from cpu");
             int i = 1;
             while (rs.next()) {
-                CPUModels d = new Models.CPUModels();
+                CPUModels d = new Models.CPU.CPUModels();
                 d.setID_CPU(rs.getString("ID_CPU"));
                 d.setNama_CPU(rs.getString("Nama_CPU"));
                 d.setBase_Clock(rs.getString("Base_Clock"));
@@ -75,7 +75,7 @@ public class DataBase_CPU {
     
       public ObservableList<CPUModels> CariCPU(String kode, String nama) {
         try {
-            ObservableList<Models.CPUModels> tableData;
+            ObservableList<Models.CPU.CPUModels> tableData;
             tableData = FXCollections.observableArrayList();
             Database_Connection con = new Database_Connection();
             con.Open_Connection();

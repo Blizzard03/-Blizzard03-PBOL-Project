@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" fx:id="SignUpWindows" prefHeight="451.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.SignUp.Sign_UpController">
+<AnchorPane id="AnchorPane" fx:id="SignUpWindows" prefHeight="451.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SignUp.SignUpController">
     <children>
         <Label layoutX="10.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION">
             <font>

@@ -38,7 +38,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void Sign_Up_Click(ActionEvent event) {
             try{  
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/SignUp/Sign_Up.fxml"));    
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/SignUp/Sign_Up.fxml"));    
         Scene scene = new Scene(fxmlLoader.load(), 402,451);
         Stage stage = new Stage();
         stage.setTitle("Sign Up");
@@ -52,7 +52,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void Login_Click(ActionEvent event) {
         try{  
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/Login/Login.fxml"));    
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/Login/Login.fxml"));    
         Scene scene = new Scene(fxmlLoader.load(), 400, 300);
         Stage stage = new Stage();
         stage.setTitle("Login");

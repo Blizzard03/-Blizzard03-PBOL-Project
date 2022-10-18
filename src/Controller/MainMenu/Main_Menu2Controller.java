@@ -26,14 +26,11 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
+
 
 /**
  * FXML Controller class
@@ -101,7 +98,7 @@ public class Main_Menu2Controller implements Initializable {
     @FXML
     private void ViewUserData(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/Tableviews/TableDataUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/User/TableDataUser.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();

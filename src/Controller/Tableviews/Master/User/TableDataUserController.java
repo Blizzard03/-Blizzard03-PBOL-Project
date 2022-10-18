@@ -5,7 +5,7 @@
 package FXML_AND_CONTROLLERS.Tableviews.Master;
 
 import Controller.MainMenu.Main_Menu2Controller;
-import Models.UsersModels;
+import Models.User.UsersModels;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
