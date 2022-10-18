@@ -7,7 +7,7 @@ package DataBaseConnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import FXML_AND_CONTROLLERS.MainMenu.Main_Menu2Controller;
+import Controller.MainMenu.Main_Menu2Controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;

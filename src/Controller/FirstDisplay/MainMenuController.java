@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
  */
-package FXML_AND_CONTROLLERS.FirstDisplay;
+package Controller.FirstDisplay;
 
 import java.io.IOException;
 import java.net.URL;

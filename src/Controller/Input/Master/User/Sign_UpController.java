@@ -4,7 +4,7 @@
  */
 package Controller.Input.Master.User;
 
-import FXML_AND_CONTROLLERS.MainMenu.Main_Menu2Controller;
+import Controller.MainMenu.Main_Menu2Controller;
 import Models.UsersModels;
 import java.io.IOException;
 import java.net.URL;

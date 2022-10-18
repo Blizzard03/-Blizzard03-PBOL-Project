@@ -5,7 +5,7 @@
 package FXML_AND_CONTROLLERS.About;
 
 import DataBaseConnector.DataBaseUtilities;
-import FXML_AND_CONTROLLERS.Login.LoginController;
+import Controller.Login.LoginController;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URL;

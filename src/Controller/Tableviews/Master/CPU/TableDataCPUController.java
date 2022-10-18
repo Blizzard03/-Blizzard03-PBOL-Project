@@ -4,7 +4,7 @@
  */
 package Controller.Tableviews.Master.CPU;
 
-import FXML_AND_CONTROLLERS.MainMenu.Main_Menu2Controller;
+import Controller.MainMenu.Main_Menu2Controller;
 import Models.CPUModels;
 import Models.UsersModels;
 import java.io.IOException;
