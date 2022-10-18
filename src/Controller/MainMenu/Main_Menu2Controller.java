@@ -118,7 +118,7 @@ public class Main_Menu2Controller implements Initializable {
     @FXML
     private void ViewCPUData(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/Tableviews/TableDataCPU.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/CPU/TableDataCPU.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -137,7 +137,7 @@ public class Main_Menu2Controller implements Initializable {
     @FXML
     private void AboutMenuClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/About/About.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/About/About.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
