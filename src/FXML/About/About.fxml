@@ -12,12 +12,12 @@
    <children>
       <ImageView fx:id="MyPhoto" fitHeight="378.0" fitWidth="199.0" layoutX="386.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/M.Ariq%20Rasyid.png" />
+            <Image url="@../../Images/M.Ariq%20Rasyid.png" />
          </image>
       </ImageView>
       <ImageView fx:id="WPALogo" fitHeight="125.0" fitWidth="96.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
+            <Image url="@../../Images/Blizzard_03.png" />
          </image>
       </ImageView>
       <Label layoutX="232.0" layoutY="14.0" text="ABOUT ME">

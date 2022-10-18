@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.Cursor?>
 
-<AnchorPane id="AnchorPane" prefHeight="230.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.FirstDisplay.MainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="230.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FirstDisplay.MainMenuController">
     <children>
       <ImageView fitHeight="200.0" fitWidth="238.0" layoutX="83.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
