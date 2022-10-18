@@ -73,7 +73,7 @@ public class DataBaseUtilities {
                 psInsert.setString(4, Nomor_Telepon_User);
                 psInsert.setString(5, Password);
                 psInsert.executeUpdate();
-                ChangedScences(e, "/FXML_AND_CONTROLLERS/FirstDisplay/MainMenu.fxml", "Main Menu", null);
+                ChangedScences(e, "/FXML/FirstDisplay/MainMenu.fxml", "Main Menu", null);
             }
         } catch (SQLException eror) {
             eror.printStackTrace();
@@ -129,7 +129,7 @@ public class DataBaseUtilities {
                     String getPassword = rs.getString("Password");
                     String getName = rs.getString("Nama_User");
                     if (getPassword.equals(Password)) {
-                        ChangedScences(e, "/FXML_AND_CONTROLLERS/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
+                        ChangedScences(e, "/FXML/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("Access Dennied!!! ⛔" + "\n" +
