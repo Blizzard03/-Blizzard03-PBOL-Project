@@ -57,11 +57,10 @@ public class TableDataCPUController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         ShowData();
-    }    
+    }
 
-    
-    public void ShowData(){
-           ObservableList<CPUModels> data = Main_Menu2Controller.Database_CPU.Load();
+    public void ShowData() {
+        ObservableList<CPUModels> data = Main_Menu2Controller.Database_CPU.Load();
         if (data != null) {
             TableViewCPU.getColumns().clear();
             TableViewCPU.getItems().clear();
@@ -102,29 +101,29 @@ public class TableDataCPUController implements Initializable {
             ObservableList<CPUModels> data = Main_Menu2Controller.Database_CPU.CariCPU(key, key);
             if (data != null) {
                 TableViewCPU.getColumns().clear();
-            TableViewCPU.getItems().clear();
-            TableColumn col = new TableColumn("ID_CPU");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("ID_CPU"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Nama_CPU");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Nama_CPU"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Base_Clock");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Base_Clock"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Max_Turbo_Clock");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Max_Turbo_Clock"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Cores");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Cores"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Thread");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Thread"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Harga");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Harga"));
-            TableViewCPU.getColumns().addAll(col);
-            TableViewCPU.setItems(data);
+                TableViewCPU.getItems().clear();
+                TableColumn col = new TableColumn("ID_CPU");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("ID_CPU"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Nama_CPU");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Nama_CPU"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Base_Clock");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Base_Clock"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Max_Turbo_Clock");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Max_Turbo_Clock"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Cores");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Cores"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Thread");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Thread"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Harga");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Harga"));
+                TableViewCPU.getColumns().addAll(col);
+                TableViewCPU.setItems(data);
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "404 Data Not Found!", ButtonType.OK);
                 a.showAndWait();
@@ -134,7 +133,7 @@ public class TableDataCPUController implements Initializable {
             ShowData();
         }
     }
-    
+
     @FXML
     private void FirstButtonClick(ActionEvent event) {
         TableViewCPU.getSelectionModel().selectFirst();
@@ -162,20 +161,20 @@ public class TableDataCPUController implements Initializable {
     @FXML
     private void MainMenuButtonClick(ActionEvent event) {
         try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/MainMenu/Main_Menu2.fxml"));
-                Parent root = (Parent) loader.load();
-                Scene scene = new Scene(root);
-                Stage stg = new Stage();
-                stg.setTitle("Main Menu");
-                stg.initModality(Modality.APPLICATION_MODAL);
-                stg.setResizable(false);
-                stg.setIconified(false);
-                stg.setScene(scene);
-                stg.show();
-                MainMenuButtoon.getScene().getWindow().hide();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/MainMenu/Main_Menu2.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Main Menu");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenuButtoon.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
 }
+
