@@ -1,2 +1,2 @@
-# -Blizzard03-PBOL-Project
+PBOL-Project
 Simulasi Rakit PC
