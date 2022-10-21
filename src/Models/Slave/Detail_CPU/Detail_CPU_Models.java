@@ -8,9 +8,33 @@ package Models.Slave.Detail_CPU;
  *
  * @author mariq
  */
-public class Detail_CPU {
-    private String Nomor_Transaksi,ID_CPU;
-    private int Quantity;
+public class Detail_CPU_Models {
+    private String Nomor_Transaksi,ID_CPU,Nama_CPU;
+    private int Quantity,Harga,Total;
+
+    public String getNama_CPU() {
+        return Nama_CPU;
+    }
+
+    public void setNama_CPU(String Nama_CPU) {
+        this.Nama_CPU = Nama_CPU;
+    }
+
+    public int getHarga() {
+        return Harga;
+    }
+
+    public void setHarga(int Harga) {
+        this.Harga = Harga;
+    }
+
+    public int getTotal() {
+        return Total;
+    }
+
+    public void setTotal(int Total) {
+        this.Total = Total;
+    }
 
     public String getNomor_Transaksi() {
         return Nomor_Transaksi;

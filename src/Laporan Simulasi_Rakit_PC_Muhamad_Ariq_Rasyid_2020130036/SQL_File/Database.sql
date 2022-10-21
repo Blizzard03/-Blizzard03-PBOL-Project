@@ -16,12 +16,10 @@
 
 
 -- Membuang struktur basisdata untuk database_pbol_uts
-DROP DATABASE IF EXISTS `database_pbol_uts`;
 CREATE DATABASE IF NOT EXISTS `database_pbol_uts` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `database_pbol_uts`;
 
 -- membuang struktur untuk table database_pbol_uts.cooler
-DROP TABLE IF EXISTS `cooler`;
 CREATE TABLE IF NOT EXISTS `cooler` (
   `ID_COOLER` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Nama_Cooler` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -31,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `cooler` (
   PRIMARY KEY (`ID_COOLER`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Membuang data untuk tabel database_pbol_uts.cooler: ~11 rows (lebih kurang)
+-- Membuang data untuk tabel database_pbol_uts.cooler: ~12 rows (lebih kurang)
 DELETE FROM `cooler`;
 INSERT INTO `cooler` (`ID_COOLER`, `Nama_Cooler`, `Type`, `Socket`, `Harga`) VALUES
 	('CM_ABT2', 'Cooling Master BLIZZARD T2', 'Air Cooling', 'AM4', 250000),
@@ -48,7 +46,6 @@ INSERT INTO `cooler` (`ID_COOLER`, `Nama_Cooler`, `Type`, `Socket`, `Harga`) VAL
 	('MSI-MPG-K360', 'MSI MPG CORELIQUID K360', 'Liquid Cooling', 'AM4', 3000000);
 
 -- membuang struktur untuk table database_pbol_uts.cpu
-DROP TABLE IF EXISTS `cpu`;
 CREATE TABLE IF NOT EXISTS `cpu` (
   `ID_CPU` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Nama_CPU` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -97,7 +94,6 @@ INSERT INTO `cpu` (`ID_CPU`, `Nama_CPU`, `Socket`, `Base_Clock`, `Max_Turbo_Cloc
 	('INTEL_i9_12900T', 'Intel Core i9-12900T', 'LGA 1700', '1.4 GHz', 'Up to 4.8 Ghz', 16, 24, '35 W', 8500000);
 
 -- membuang struktur untuk table database_pbol_uts.detail_cpu
-DROP TABLE IF EXISTS `detail_cpu`;
 CREATE TABLE IF NOT EXISTS `detail_cpu` (
   `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ID_CPU` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -112,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `detail_cpu` (
 DELETE FROM `detail_cpu`;
 
 -- membuang struktur untuk table database_pbol_uts.detail_gpu
-DROP TABLE IF EXISTS `detail_gpu`;
 CREATE TABLE IF NOT EXISTS `detail_gpu` (
   `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ID_GPU` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -127,7 +122,6 @@ CREATE TABLE IF NOT EXISTS `detail_gpu` (
 DELETE FROM `detail_gpu`;
 
 -- membuang struktur untuk table database_pbol_uts.detail_mother_board
-DROP TABLE IF EXISTS `detail_mother_board`;
 CREATE TABLE IF NOT EXISTS `detail_mother_board` (
   `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ID_MOTHER_BOARD` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -142,7 +136,6 @@ CREATE TABLE IF NOT EXISTS `detail_mother_board` (
 DELETE FROM `detail_mother_board`;
 
 -- membuang struktur untuk table database_pbol_uts.detail_ssd
-DROP TABLE IF EXISTS `detail_ssd`;
 CREATE TABLE IF NOT EXISTS `detail_ssd` (
   `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ID_SSD` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -156,8 +149,35 @@ CREATE TABLE IF NOT EXISTS `detail_ssd` (
 -- Membuang data untuk tabel database_pbol_uts.detail_ssd: ~0 rows (lebih kurang)
 DELETE FROM `detail_ssd`;
 
+-- membuang struktur untuk table database_pbol_uts.detai_cooler
+CREATE TABLE IF NOT EXISTS `detai_cooler` (
+  `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `ID_COOLER` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Quantity` int DEFAULT NULL,
+  PRIMARY KEY (`Nomor_Transaksi`) USING BTREE,
+  KEY `FK_Detail_RAM_ID_RAM` (`ID_COOLER`) USING BTREE,
+  CONSTRAINT `FK_Detail_Cooler_ID_COOLER` FOREIGN KEY (`ID_COOLER`) REFERENCES `cooler` (`ID_COOLER`),
+  CONSTRAINT `FK_Detail_Cooler_Nomor_Transaksi` FOREIGN KEY (`Nomor_Transaksi`) REFERENCES `transaksi` (`Nomor_Transaksi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+-- Membuang data untuk tabel database_pbol_uts.detai_cooler: ~0 rows (lebih kurang)
+DELETE FROM `detai_cooler`;
+
+-- membuang struktur untuk table database_pbol_uts.detai_power_supply
+CREATE TABLE IF NOT EXISTS `detai_power_supply` (
+  `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `ID_PSU` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Quantity` int DEFAULT NULL,
+  PRIMARY KEY (`Nomor_Transaksi`) USING BTREE,
+  KEY `FK_Detail_RAM_ID_RAM` (`ID_PSU`) USING BTREE,
+  CONSTRAINT `detai_power_supply_ibfk_1` FOREIGN KEY (`ID_PSU`) REFERENCES `cooler` (`ID_COOLER`),
+  CONSTRAINT `detai_power_supply_ibfk_2` FOREIGN KEY (`Nomor_Transaksi`) REFERENCES `transaksi` (`Nomor_Transaksi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+-- Membuang data untuk tabel database_pbol_uts.detai_power_supply: ~0 rows (lebih kurang)
+DELETE FROM `detai_power_supply`;
+
 -- membuang struktur untuk table database_pbol_uts.detai_ram
-DROP TABLE IF EXISTS `detai_ram`;
 CREATE TABLE IF NOT EXISTS `detai_ram` (
   `Nomor_Transaksi` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ID_RAM` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -172,13 +192,12 @@ CREATE TABLE IF NOT EXISTS `detai_ram` (
 DELETE FROM `detai_ram`;
 
 -- membuang struktur untuk table database_pbol_uts.gpu
-DROP TABLE IF EXISTS `gpu`;
 CREATE TABLE IF NOT EXISTS `gpu` (
   `ID_GPU` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Vendor` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `Nama_GPU` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `VRAM` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' GB',
-  `Memory Type` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'GDDR ',
+  `Memory_Type` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'GDDR ',
   `Frequency` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' MHz',
   `GDP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' W',
   `Harga` int DEFAULT NULL,
@@ -187,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `gpu` (
 
 -- Membuang data untuk tabel database_pbol_uts.gpu: ~23 rows (lebih kurang)
 DELETE FROM `gpu`;
-INSERT INTO `gpu` (`ID_GPU`, `Vendor`, `Nama_GPU`, `VRAM`, `Memory Type`, `Frequency`, `GDP`, `Harga`) VALUES
+INSERT INTO `gpu` (`ID_GPU`, `Vendor`, `Nama_GPU`, `VRAM`, `Memory_Type`, `Frequency`, `GDP`, `Harga`) VALUES
 	('AMD_Radeon_RX_6400', 'AMD', 'AMD Radeon™ RX 6400', '4 GB', 'GDDR 6', '2039 MHz', '35 W', 2437760),
 	('AMD_Radeon_RX_6500_XT', 'AMD', 'AMD Radeon™ RX 6500 XT', '8 GB', 'GDDR 6', '2650 MHz', '113 W', 3047200),
 	('AMD_Radeon_RX_6600_XT', 'AMD', 'AMD Radeon™ RX 6600 XT', '8 GB', 'GDDR 6', '2359 MHz', '160 W', 5789680),
@@ -213,7 +232,6 @@ INSERT INTO `gpu` (`ID_GPU`, `Vendor`, `Nama_GPU`, `VRAM`, `Memory Type`, `Frequ
 	('NVIDIA_RTX_4080_16_GB', 'NVIDIA', 'NVIDIA Geforce RTX 4080 16GB', '16 GB', 'GDDR 6X', '2510  MHz', '320 W', 18267964);
 
 -- membuang struktur untuk table database_pbol_uts.mother_board
-DROP TABLE IF EXISTS `mother_board`;
 CREATE TABLE IF NOT EXISTS `mother_board` (
   `ID_MOTHER_BOARD` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Vendor` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -224,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `mother_board` (
   PRIMARY KEY (`ID_MOTHER_BOARD`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Membuang data untuk tabel database_pbol_uts.mother_board: ~4 rows (lebih kurang)
+-- Membuang data untuk tabel database_pbol_uts.mother_board: ~6 rows (lebih kurang)
 DELETE FROM `mother_board`;
 INSERT INTO `mother_board` (`ID_MOTHER_BOARD`, `Vendor`, `Nama_Mother_Board`, `Type`, `Socket`, `Harga`) VALUES
 	('MSI_MAG A520M BAZOOKA WIFI', 'MSI', 'MAG A520M BAZOOKA WIFI', 'M-ATX', 'AM4', 1800000),
@@ -235,7 +253,6 @@ INSERT INTO `mother_board` (`ID_MOTHER_BOARD`, `Vendor`, `Nama_Mother_Board`, `T
 	('MSI_MPG Z690 FORCE WIFI ', 'MSI', ' MPG Z690 FORCE WIFI ', 'ATX', 'LGA 1700', 6850000);
 
 -- membuang struktur untuk table database_pbol_uts.power_supply
-DROP TABLE IF EXISTS `power_supply`;
 CREATE TABLE IF NOT EXISTS `power_supply` (
   `ID_PSU` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Vendor` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -270,7 +287,6 @@ INSERT INTO `power_supply` (`ID_PSU`, `Vendor`, `Nama_PSU`, `Watt`, `Tier`, `Har
 	('MSI_MPG_A850', 'MSI', 'MPG A850GF ', 850, '80+ GOLD', NULL);
 
 -- membuang struktur untuk table database_pbol_uts.ram
-DROP TABLE IF EXISTS `ram`;
 CREATE TABLE IF NOT EXISTS `ram` (
   `ID_RAM` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Nama_RAM` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -290,7 +306,6 @@ INSERT INTO `ram` (`ID_RAM`, `Nama_RAM`, `DDR`, `Frequency`, `Capacity`, `CL`, `
 	('TG-4-29', 'Team Elite Memory DDR5', 5, ' 4800 Mhz', '1 x 8 GB', '40-40-40-77', 895000);
 
 -- membuang struktur untuk table database_pbol_uts.ssd
-DROP TABLE IF EXISTS `ssd`;
 CREATE TABLE IF NOT EXISTS `ssd` (
   `ID_SSD` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Vendor` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -300,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `ssd` (
   `TBW` int DEFAULT NULL,
   `Read` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' MB/s',
   `Write` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT ' MB/s',
-  `Harga` double DEFAULT NULL,
+  `Harga` int DEFAULT NULL,
   PRIMARY KEY (`ID_SSD`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -328,22 +343,21 @@ INSERT INTO `ssd` (`ID_SSD`, `Vendor`, `Nama_SSD`, `Type`, `Capacity`, `TBW`, `R
 	('ST-IRWP2.5-3933', 'Seagate', 'IronWolf 125 Pro NAS SSD 3.84TB', 'SATA 2.5"', '3933 GB', 7000, '545 MB/s', ' 520MB/s', 12000000);
 
 -- membuang struktur untuk table database_pbol_uts.transaksi
-DROP TABLE IF EXISTS `transaksi`;
 CREATE TABLE IF NOT EXISTS `transaksi` (
   `Nomor_Transaksi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ID_User` int DEFAULT NULL,
-  `Tanggal_Transaksi` datetime DEFAULT NULL,
+  `Tanggal_Transaksi` date DEFAULT NULL,
+  `Waktu_Transaksi` time DEFAULT NULL,
   PRIMARY KEY (`Nomor_Transaksi`),
   KEY `FKTransaksi_Id_User` (`ID_User`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Membuang data untuk tabel database_pbol_uts.transaksi: ~0 rows (lebih kurang)
 DELETE FROM `transaksi`;
-INSERT INTO `transaksi` (`Nomor_Transaksi`, `ID_User`, `Tanggal_Transaksi`) VALUES
-	('TRS_001', 101, '2022-10-03 10:08:41');
+INSERT INTO `transaksi` (`Nomor_Transaksi`, `ID_User`, `Tanggal_Transaksi`, `Waktu_Transaksi`) VALUES
+	('TRS_001', 101, '2022-10-03', NULL);
 
 -- membuang struktur untuk table database_pbol_uts.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `ID_User` int NOT NULL AUTO_INCREMENT,
   `Nama_User` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,

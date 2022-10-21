@@ -77,107 +77,25 @@ public class TableDataCPUController implements Initializable {
             col = new TableColumn("Max_Turbo_Clock");
             col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Max_Turbo_Clock"));
             TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("status");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("status"));
+            col = new TableColumn("Cores");
+            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Cores"));
             TableViewCPU.getColumns().addAll(col);
-
-            tbvcust.setItems(data);
+            col = new TableColumn("Thread");
+            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Thread"));
+            TableViewCPU.getColumns().addAll(col);
+            col = new TableColumn("TDP");
+            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("TDP"));
+            TableViewCPU.getColumns().addAll(col);
+            col = new TableColumn("Harga");
+            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Harga"));
+            TableViewCPU.getColumns().addAll(col);
+            TableViewCPU.setItems(data);
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Data kosong", ButtonType.OK);
             a.showAndWait();
-            tbvcust.getScene().getWindow().hide();;
+            TableViewCPU.getScene().getWindow().hide();;
         }
     }
-    
-        @FXML
-        private void DataCPUSearchFinder
-        (KeyEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void FirstButtonClick
-        (ActionEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void BeforeButonClick
-        (ActionEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void LastButtonClick
-        (ActionEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void AfterButonClick
-        (ActionEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void MainMenuButtonClick
-        (ActionEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void UpdateButtonClick
-        (ActionEvent event
-        
-        
-        ) {
-    }
-
-    @FXML
-        private void DeleteButtonClick
-        (ActionEvent event
-        
-            ) {
-        
-        s = tbvcust.getSelectionModel().getSelectedItem();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Mau dihapus?", ButtonType.YES, ButtonType.NO);
-            a.showAndWait();
-            if (a.getResult() == ButtonType.YES) {
-                if (FXMLDocumentController.dtcust.delete(s.getIdmember())) {
-                    Alert b = new Alert(Alert.AlertType.INFORMATION, "Data berhasil dihapus", ButtonType.OK);
-                    b.showAndWait();
-                } else {
-                    Alert b = new Alert(Alert.AlertType.ERROR, "Data gagal dihapus", ButtonType.OK);
-                    b.showAndWait();
-                }
-                showdata();
-                awalklik(event);
-            }
-        }
-
-        @FXML
-        private void AddButtonClick
-        (ActionEvent event
-        
-        
-    
-
-    ) {
-    }
-    
-}
 
     @FXML
     private void DataCPUSearchFinder(KeyEvent event) {
@@ -185,22 +103,29 @@ public class TableDataCPUController implements Initializable {
 
     @FXML
     private void FirstButtonClick(ActionEvent event) {
+        TableViewCPU.getSelectionModel().selectFirst();
+        TableViewCPU.requestFocus();
     }
 
     @FXML
-    private void BeforeButonClick(ActionEvent event) {
+    private void BeforeButonClick(ActionEvent event
+    ) {
     }
 
     @FXML
     private void LastButtonClick(ActionEvent event) {
+        TableViewCPU.getSelectionModel().selectLast();
+        TableViewCPU.requestFocus();
     }
 
     @FXML
-    private void AfterButonClick(ActionEvent event) {
+    private void AfterButonClick(ActionEvent event
+    ) {
     }
 
     @FXML
     private void MainMenuButtonClick(ActionEvent event) {
+
     }
 
     @FXML
@@ -209,8 +134,26 @@ public class TableDataCPUController implements Initializable {
 
     @FXML
     private void DeleteButtonClick(ActionEvent event) {
+        CPUModels cpu = new CPUModels();
+        cpu = TableViewCPU.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Are you Sure will be delete this data is permanent deleted?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            if (Main_Menu2Controller.Database_CPU.Delete_Data(cpu.getID_CPU())) {
+                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data have been Deleted", ButtonType.OK);
+                b.showAndWait();
+            } else {
+                Alert b = new Alert(Alert.AlertType.ERROR, "Data Fail to Delete", ButtonType.OK);
+                b.showAndWait();
+            }
+            DataShows();
+            FirstButtonClick(event);
+        }
     }
 
     @FXML
     private void AddButtonClick(ActionEvent event) {
+
     }
+
+}

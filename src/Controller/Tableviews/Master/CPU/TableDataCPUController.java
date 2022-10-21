@@ -49,6 +49,12 @@ public class TableDataCPUController implements Initializable {
     private Button MainMenuButtoon;
     @FXML
     private TableView<CPUModels> TableViewCPU;
+    @FXML
+    private Button UpdateButton;
+    @FXML
+    private Button DeleteButton;
+    @FXML
+    private Button AddButton;
 
     /**
      * Initializes the controller class.
@@ -56,10 +62,10 @@ public class TableDataCPUController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ShowData();
+        DataShows();
     }
 
-    public void ShowData() {
+    public void DataShows() {
         ObservableList<CPUModels> data = Main_Menu2Controller.Database_CPU.Load();
         if (data != null) {
             TableViewCPU.getColumns().clear();
@@ -130,7 +136,7 @@ public class TableDataCPUController implements Initializable {
                 TableViewCPU.getScene().getWindow().hide();;
             }
         } else {
-            ShowData();
+            DataShows();
         }
     }
 
@@ -161,7 +167,7 @@ public class TableDataCPUController implements Initializable {
     @FXML
     private void MainMenuButtonClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/MainMenu/Main_Menu2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainMenu/Main_Menu2.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -176,5 +182,64 @@ public class TableDataCPUController implements Initializable {
             e.printStackTrace();
         }
     }
-}
 
+    @FXML
+    private void UpdateButtonClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/CPU/UpdateCPU.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Update CPU");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenuButtoon.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void DeleteButtonClick(ActionEvent event) {
+        CPUModels cpu = new CPUModels();
+        cpu = TableViewCPU.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Are you Sure will be delete this data is permanent deleted?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            if (Main_Menu2Controller.Database_CPU.Delete_Data(cpu.getID_CPU())) {
+                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data have been Deleted", ButtonType.OK);
+                b.showAndWait();
+            } else {
+                Alert b = new Alert(Alert.AlertType.ERROR, "Data Fail to Delete", ButtonType.OK);
+                b.showAndWait();
+            }
+            DataShows();
+            FirstButtonClick(event);
+        }
+
+    }
+
+    @FXML
+    private void AddButtonClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Input/Master/CPU/Input_CPU.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Add CPU");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenuButtoon.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+}
