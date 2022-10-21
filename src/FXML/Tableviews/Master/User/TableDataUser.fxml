@@ -45,5 +45,7 @@
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
+      <Button fx:id="UpdateButton" layoutX="62.0" layoutY="257.0" mnemonicParsing="false" onAction="#UpdateButtonClick" style="-fx-cursor: hand;" text="Update" />
+      <Button fx:id="DeleteButton" layoutX="136.0" layoutY="257.0" mnemonicParsing="false" onAction="#DeleteButtonClick" style="-fx-cursor: hand;" text="Delete" />
    </children>
 </AnchorPane>

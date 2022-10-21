@@ -9,7 +9,7 @@ package Models.Slave.Detail_PSU;
  * @author mariq
  */
 public class Detail_PSU_Models {
-    private String Nomor_Transaksi, IDID_PSU, Nama_PSU;
+    private String Nomor_Transaksi, ID_PSU, Nama_PSU;
     private int Quantity,Harga,Total;
 
     public String getNama_PSU() {
@@ -44,12 +44,12 @@ public class Detail_PSU_Models {
         this.Nomor_Transaksi = Nomor_Transaksi;
     }
 
-    public String getIDID_PSU() {
-        return IDID_PSU;
+    public String getID_PSU() {
+        return ID_PSU;
     }
 
-    public void setIDID_PSU(String IDID_PSU) {
-        this.IDID_PSU = IDID_PSU;
+    public void setID_PSU(String ID_PSU) {
+        this.ID_PSU = ID_PSU;
     }
 
     public int getQuantity() {

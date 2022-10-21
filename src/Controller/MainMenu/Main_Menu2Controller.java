@@ -17,6 +17,11 @@ import DataBase.Master.SSD.DataBase_SSD;
 //import Data Base Slave Class
 import DataBase.Slave.Detail_CPU.DataBase_Detail_CPU;
 import DataBase.Slave.Detail_Cooler.DataBase_Detail_Cooler;
+import DataBase.Slave.Detail_GPU.DataBase_Detail_GPU;
+import DataBase.Slave.Detail_Mother_Board.Database_Detail_Mother_Board;
+import DataBase.Slave.Detail_PSU.DataBase_Detail_PSU;
+import DataBase.Slave.Detail_RAM.Database_Detail_RAM;
+import DataBase.Slave.Detail_SSD.Database_Detail_SSD;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -55,6 +60,12 @@ public class Main_Menu2Controller implements Initializable {
     //Slave Database    
     public static DataBase_Detail_CPU Database_Detail_CPU = new DataBase_Detail_CPU();
     public static DataBase_Detail_Cooler Database_Detail_Cooler = new DataBase_Detail_Cooler();
+    public static DataBase_Detail_GPU Database_Detail_GPU = new DataBase_Detail_GPU();
+    public static Database_Detail_Mother_Board Database_Detail_Mother_Board = new Database_Detail_Mother_Board();
+    public static DataBase_Detail_PSU Database_Detail_PSU = new DataBase_Detail_PSU();
+    public static Database_Detail_RAM Database_Detail_RAM = new Database_Detail_RAM();
+    public static Database_Detail_SSD Database_Detail_SSD = new Database_Detail_SSD();
+    
     
     @FXML
     private MenuItem BlueprintMake;
@@ -76,18 +87,6 @@ public class Main_Menu2Controller implements Initializable {
     private MenuItem PowerSupplyDataView;
     @FXML
     private MenuItem CoolerDataView;
-    @FXML
-    private MenuItem Detail_CPUDataView;
-    @FXML
-    private MenuItem Detail_GPUDataView;
-    @FXML
-    private MenuItem Detail_RAMDataView;
-    @FXML
-    private MenuItem Detail_Mother_Board_Data_View;
-    @FXML
-    private MenuItem Detail_Power_Supply_Data_View;
-    @FXML
-    private MenuItem Detail_Cooler_DataView;
 
     @FXML
     private Button LogoutButon;
@@ -103,10 +102,6 @@ public class Main_Menu2Controller implements Initializable {
 
     }
 
-    @FXML
-    private void BlueprintMake(ActionEvent event) {
-        
-    }
 
     @FXML
     private void ViewUserData(ActionEvent event) {
@@ -168,10 +163,29 @@ public class Main_Menu2Controller implements Initializable {
 
     @FXML
     private void BlueprintMaker(ActionEvent event) {
+        //Soon
+        //Bug 01 Failed to Connected To DataBase
+        
     }
 
     @FXML
     private void GPU_DATAClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/GPU/TableDataGPU.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("GPU Table Data View");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML
@@ -186,36 +200,36 @@ public class Main_Menu2Controller implements Initializable {
     private void CoolerDataView(ActionEvent event) {
     }
 
-    @FXML
-    private void Detail_CPUDataViewClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void Detail_GPUDataViewClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void Detail_RAMDataViewClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void Detail_Mother_Board_Data_View_Click(ActionEvent event) {
-    }
-
-    @FXML
-    private void Detail_Power_Supply_Data_View_Click(ActionEvent event) {
-    }
-
-    @FXML
-    private void Detail_Cooler_DataViewClick(ActionEvent event) {
-    }
+   
 
     @FXML
     private void LogoutButonclick(ActionEvent event) {
-        DataBaseUtilities.ChangedScences(event, "FXML_AND_CONTROLLERS/FirstDisplay/MainMenu.fxml", "Main Menu", null);
+        DataBaseUtilities.ChangedScences(event, "/FXML/FirstDisplay/MainMenu.fxml", "Main Menu", null);
+    }
+
+    @FXML
+    private void BlueprintMaked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Transaksi/Table_View_Transaksi.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("BluePrint Maked");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
+        
     }
 
 //public void SetUserInformaration(String Nama_User) {
     // WelcomeName.setText(("Welcome" + Nama_User + "!"));
     // }
-}
+

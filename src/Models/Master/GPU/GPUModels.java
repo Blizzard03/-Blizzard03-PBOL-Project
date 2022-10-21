@@ -9,8 +9,16 @@ package Models.Master.GPU;
  * @author mariq
  */
 public class GPUModels {
-    private String ID_GPU,Vendor,VRAM,Memory_Type,Frequency,GDP;
+    private String ID_GPU,Vendor,VRAM,Memory_Type,Frequency,GDP,Nama_GPU;
     private int Harga;
+
+    public String getNama_GPU() {
+        return Nama_GPU;
+    }
+
+    public void setNama_GPU(String Nama_GPU) {
+        this.Nama_GPU = Nama_GPU;
+    }
 
     public String getID_GPU() {
         return ID_GPU;

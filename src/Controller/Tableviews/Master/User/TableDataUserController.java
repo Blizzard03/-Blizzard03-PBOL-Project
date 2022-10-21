@@ -5,6 +5,7 @@
 package Controller.Tableviews.Master.User;
 
 import Controller.MainMenu.Main_Menu2Controller;
+import Controller.Update.Master.User.UpdateUserController;
 import Models.Master.User.UsersModels;
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +49,10 @@ public class TableDataUserController implements Initializable {
     private Button AfterButon;
     @FXML
     private Button MainMenuButtoon;
+    @FXML
+    private Button UpdateButton;
+    @FXML
+    private Button DeleteButton;
 
     /**
      * Initializes the controller class.
@@ -169,6 +174,33 @@ public class TableDataUserController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void UpdateButtonClick(ActionEvent event) {
+        UsersModels ss= new UsersModels();
+        ss=TableViewUser.getSelectionModel().getSelectedItem();
+        try{
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/FXML/Update/Master/User/UpdateUser.fxml"));    
+        Parent root = (Parent)loader.load();
+        UpdateUserController isidt=(UpdateUserController)loader.getController();
+        isidt.execute(ss);                
+        Scene scene = new Scene(root);
+        Stage stg=new Stage();
+        stg.initModality(Modality.APPLICATION_MODAL);
+        stg.setResizable(false);
+        stg.setIconified(false);
+        stg.setScene(scene);
+        stg.setTitle("Update User Service");
+        stg.showAndWait();
+        } catch (IOException e){   e.printStackTrace();   }
+        showdata();  
+        FirstButtonClick(event);
+    }
+
+    @FXML
+    private void DeleteButtonClick(ActionEvent event) {
+        
     }
 
     

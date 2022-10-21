@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DataBase.Slave.Detail_Mother_Board;
+package DataBase.Slave.Detail_RAM;
 
-//Import Data Base Connector and Detail_Mother_Board_Models
+//Import DatabaseConnector & Detail RAM_Models
 import DataBaseConnector.Database_Connection;
-import Models.Slave.Detail_Mother_Board.Detail_Mother_Board_Models;
+import Models.Slave.Detail_RAM.Detail_RAM_Models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,33 +17,32 @@ import javafx.collections.ObservableList;
  *
  * @author mariq
  */
-public class Database_Detail_Mother_Board {
+public class Database_Detail_RAM {
+        public int Total;
+    private Detail_RAM_Models dramm = new Detail_RAM_Models();
 
-    public int Total;
-    private Detail_Mother_Board_Models dmobom = new Detail_Mother_Board_Models();
-
-    public Detail_Mother_Board_Models getDetail_Mother_Board_Models() {
-        return (dmobom);
+    public Detail_RAM_Models getDetail_RAM_Models() {
+        return (dramm);
     }
 
-    public void setDetail_Mother_Board_Models(Detail_Mother_Board_Models dmbm) {
-        dmobom = dmbm;
+    public void Detail_RAM_Models(Detail_RAM_Models drm) {
+        dramm = drm;
     }
 
-    public ObservableList<Detail_Mother_Board_Models> Load_Data(String kode) {
+    public ObservableList<Detail_RAM_Models> Load_Data(String kode) {
         try {
-            ObservableList<Detail_Mother_Board_Models> tableData = FXCollections.observableArrayList();
+            ObservableList<Detail_RAM_Models> tableData = FXCollections.observableArrayList();
             Database_Connection con = new Database_Connection();
             con.Open_Connection();
             con.statement = con.Database_UTS_Conection.createStatement();
-            ResultSet rs = con.statement.executeQuery("Select dmb.Nomor_Transaksi,mobo.ID_MOTHER_BOARD,mobo.Nama_Mother_Board,dmb.Quantity,mobo.Harga "
-                    + "from detail_mother_board dmb join mother_board mobo on(dmb.IID_MOTHER_BOARD=mobo.ID_MOTHER_BOARD) WHERE Nomor_Transaksi LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("Select drm.Nomor_Transaksi,ram.ID_RAM,ram.Nama_RAM,drm.Quantity, ram.Harga "
+                    + "from detai_ram drm join ram ram  on(drm.ID_RAM=ram.ID_RAM) WHERE Nomor_Transaksi LIKE '" + kode + "'");
             int i = 1;
             while (rs.next()) {
-                Detail_Mother_Board_Models d = new Detail_Mother_Board_Models();
+                Detail_RAM_Models d = new Detail_RAM_Models();
                 d.setNomor_Transaksi(rs.getString("Nomor_Transaksi"));
-                d.setID_MOTHER_BOARD(rs.getString("ID_MOTHER_BOARD"));
-                d.setNama_Mother_Board(rs.getString("Nama_Mother_Board"));
+                d.setID_RAM(rs.getString("ID_RAM"));
+                d.setNama_RAM(rs.getString("Nama_RAM"));
                 d.setQuantity(rs.getInt("Quantity"));
                 d.setHarga(rs.getInt("Harga"));
 
@@ -69,7 +68,7 @@ public class Database_Detail_Mother_Board {
             Database_Connection con = new Database_Connection();
             con.Open_Connection();
             con.statement = con.Database_UTS_Conection.createStatement();
-            ResultSet rs = con.statement.executeQuery("select count(*) as jml from detail_mother_board where Nomor_Transaksi = '" + nomor + "'");
+            ResultSet rs = con.statement.executeQuery("select count(*) as jml from detail_power_supply where Nomor_Transaksi = '" + nomor + "'");
             while (rs.next()) {
                 num = rs.getInt("jml");
             }
@@ -85,10 +84,10 @@ public class Database_Detail_Mother_Board {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("insert into  detail_mother_board (Nomor_Transaksi, ID_MOTHER_BOARD,Quantity) values (?,?,?)");
-            con.preparedStatement.setString(1, getDetail_Mother_Board_Models().getNomor_Transaksi());
-            con.preparedStatement.setString(2, getDetail_Mother_Board_Models().getID_MOTHER_BOARD());
-            con.preparedStatement.setInt(3, getDetail_Mother_Board_Models().getQuantity());
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("insert into  detail_ram (Nomor_Transaksi, ID_RAM,Quantity) values (?,?,?)");
+            con.preparedStatement.setString(1, getDetail_RAM_Models().getNomor_Transaksi());
+            con.preparedStatement.setString(2, getDetail_RAM_Models().getID_RAM());
+            con.preparedStatement.setInt(3, getDetail_RAM_Models().getQuantity());
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {
@@ -105,7 +104,7 @@ public class Database_Detail_Mother_Board {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();;
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from detail_mother_board where Nomor_Transaksi  = ? and ID_MOTHER_BOARD = ?");
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from detail_power_supply where Nomor_Transaksi  = ? and ID_PSU = ?");
             con.preparedStatement.setString(1, nomor);
             con.preparedStatement.setString(2, id);
             con.preparedStatement.executeUpdate();
@@ -123,7 +122,7 @@ public class Database_Detail_Mother_Board {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();;
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from detail_mother_board where Nomor_Transaksi = ?");
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from detail_ram where Nomor_Transaksi = ?");
             con.preparedStatement.setString(1, nomor);
             con.preparedStatement.executeUpdate();
             Success = true;
@@ -140,10 +139,10 @@ public class Database_Detail_Mother_Board {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update detail_cooler set ID_MOTHER_BOARD = ?, Quantity = ?  where  Nomor_Transaksi= ? ");
-            con.preparedStatement.setString(1, getDetail_Mother_Board_Models().getID_MOTHER_BOARD());
-            con.preparedStatement.setInt(2, getDetail_Mother_Board_Models().getQuantity());
-            con.preparedStatement.setString(3, getDetail_Mother_Board_Models().getNomor_Transaksi());
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update detail_ram set ID_RAM = ?, Quantity = ?  where  Nomor_Transaksi= ? ");
+            con.preparedStatement.setString(1, getDetail_RAM_Models().getID_RAM());
+            con.preparedStatement.setInt(2, getDetail_RAM_Models().getQuantity());
+            con.preparedStatement.setString(3, getDetail_RAM_Models().getNomor_Transaksi());
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {
@@ -155,22 +154,21 @@ public class Database_Detail_Mother_Board {
         }
     }
 
-    public ObservableList<Detail_Mother_Board_Models> Search_Detil_Cooler(String kode) {
+    public ObservableList<Detail_RAM_Models> Search_Detil_Cooler(String kode) {
         try {
             Total = 0;
-            ObservableList<Detail_Mother_Board_Models> tableData;
-            tableData = FXCollections.observableArrayList();
+            ObservableList<Detail_RAM_Models> tableData = FXCollections.observableArrayList();
             Database_Connection con = new Database_Connection();
             con.Open_Connection();
             con.statement = con.Database_UTS_Conection.createStatement();
-            ResultSet rs = con.statement.executeQuery("Select dmb.Nomor_Transaksi,mobo.ID_MOTHER_BOARD,mobo.Nama_Mother_Board,dmb.Quantity,mobo.Harga "
-                    + "from detail_mother_board dmb join mother_board mobo on(dmb.IID_MOTHER_BOARD=mobo.ID_MOTHER_BOARD) WHERE Nomor_Transaksi LIKE '" + kode + "'");
+            ResultSet rs = con.statement.executeQuery("Select drm.Nomor_Transaksi,ram.ID_RAM,ram.Nama_RAM,drm.Quantity, ram.Harga "
+                    + "from detai_ram drm join ram ram  on(drm.ID_RAM=ram.ID_RAM) WHERE Nomor_Transaksi LIKE '" + kode + "'");
             int i = 1;
             while (rs.next()) {
-                Detail_Mother_Board_Models d = new Detail_Mother_Board_Models();
+                Detail_RAM_Models d = new Detail_RAM_Models();
                 d.setNomor_Transaksi(rs.getString("Nomor_Transaksi"));
-                d.setID_MOTHER_BOARD(rs.getString("ID_MOTHER_BOARD"));
-                d.setNama_Mother_Board(rs.getString("Nama_Mother_Board"));
+                d.setID_RAM(rs.getString("ID_RAM"));
+                d.setNama_RAM(rs.getString("Nama_RAM"));
                 d.setQuantity(rs.getInt("Quantity"));
                 d.setHarga(rs.getInt("Harga"));
 
@@ -181,6 +179,7 @@ public class Database_Detail_Mother_Board {
                 d.setTotal(Total);
                 tableData.add(d);
                 i++;
+            
             }
             con.Discconnect();
             return tableData;
@@ -191,4 +190,5 @@ public class Database_Detail_Mother_Board {
 
     }
 
+    
 }

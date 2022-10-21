@@ -31,7 +31,7 @@ public class DataBaseUtilities {
             try {
                 FXMLLoader loader = new FXMLLoader(DataBaseUtilities.class.getResource(FXML_FILE));
                 root = loader.load();
-              } catch (IOException Eror) {
+            } catch (IOException Eror) {
                 Eror.printStackTrace();
             }
         } else {
@@ -120,9 +120,8 @@ public class DataBaseUtilities {
             rs = statement.executeQuery();
             if (!rs.isBeforeFirst()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Access Dennied!!! ⛔" + "\n"
-                        + "404 Not Found!" + "\n"  
-                        + "Email Not Found In Data Base!");
+                alert.setContentText("Access Dennied!!! ⛔"
+                );
                 alert.show();
             } else {
                 while (rs.next()) {
@@ -130,10 +129,10 @@ public class DataBaseUtilities {
                     String getName = rs.getString("Nama_User");
                     if (getPassword.equals(Password)) {
                         ChangedScences(e, "/FXML/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
-                    } else {
+                    }else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Access Dennied!!! ⛔" + "\n" +
-                                "Passwords Did Not Match!");
+                        alert.setContentText("Access Dennied!!! ⛔" + "\n"
+                                + "Passwords Did Not Match!");
                         alert.show();
                     }
                 }
@@ -149,14 +148,14 @@ public class DataBaseUtilities {
                     error.printStackTrace();
                 }
             }
-              if (statement != null) {
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException error) {
                     error.printStackTrace();
                 }
             }
-                if (con != null) {
+            if (con != null) {
                 try {
                     con.close();
                 } catch (SQLException error) {
@@ -166,7 +165,7 @@ public class DataBaseUtilities {
         }
     }
 
-    public static void MainMenu(ActionEvent e, String Nama){
-        
+    public static void MainMenu(ActionEvent e, String Nama) {
+
     }
 }
