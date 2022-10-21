@@ -1,0 +1,11 @@
+Project File :
+https://github.com/Blizzard03/PBOL-Project
+
+SQL File Source 
+...\Laporan Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036\SQL_File\Database.sql
+
+WORD FILE(Word 2021)
+...\Laporan Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036\UTS-PBOL-SIMULASI RAKIT PC-MUHAMAD ARIQ RASYID-2020130046 .docx
+
+ERD File(Scema DataBase)
+...\Laporan Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036\SCEMA DATABASE_SIMULASI_RAKIT_PC_Muhamad_Ariq_Rasyid_2020130036.pdf
