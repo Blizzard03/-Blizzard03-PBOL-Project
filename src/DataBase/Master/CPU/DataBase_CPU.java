@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DataBase.Master;
+package DataBase.Master.CPU;
 
 import DataBaseConnector.Database_Connection;
-import Models.CPU.CPUModels;
+import Models.Master.CPU.CPUModels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,7 +37,7 @@ public class DataBase_CPU {
             ResultSet rs = con.statement.executeQuery("Select * from cpu");
             int i = 1;
             while (rs.next()) {
-                CPUModels d = new Models.CPU.CPUModels();
+                CPUModels d = new Models.Master.CPU.CPUModels();
                 d.setID_CPU(rs.getString("ID_CPU"));
                 d.setNama_CPU(rs.getString("Nama_CPU"));
                 d.setBase_Clock(rs.getString("Base_Clock"));
@@ -75,7 +75,7 @@ public class DataBase_CPU {
     
       public ObservableList<CPUModels> CariCPU(String kode, String nama) {
         try {
-            ObservableList<Models.CPU.CPUModels> tableData;
+            ObservableList<Models.Master.CPU.CPUModels> tableData;
             tableData = FXCollections.observableArrayList();
             Database_Connection con = new Database_Connection();
             con.Open_Connection();

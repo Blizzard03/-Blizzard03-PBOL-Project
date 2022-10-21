@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DataBase.Master;
+package DataBase.Master.User;
 
 import DataBaseConnector.Database_Connection;
-import Models.User.UsersModels;
+import Models.Master.User.UsersModels;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;

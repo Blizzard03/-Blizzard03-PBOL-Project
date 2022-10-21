@@ -5,7 +5,7 @@
 package Controller.Tableviews.Master.User;
 
 import Controller.MainMenu.Main_Menu2Controller;
-import Models.User.UsersModels;
+import Models.Master.User.UsersModels;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

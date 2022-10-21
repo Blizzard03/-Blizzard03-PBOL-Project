@@ -4,8 +4,8 @@
  */
 package Controller.MainMenu;
 
-import DataBase.Master.DataBase_CPU;
-import DataBase.Master.DataBase_User;
+import DataBase.Master.CPU.DataBase_CPU;
+import DataBase.Master.User.DataBase_User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
