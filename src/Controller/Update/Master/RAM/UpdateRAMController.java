@@ -60,16 +60,19 @@ public class UpdateRAMController implements Initializable {
     }
 
     public void execute(RAMModels rs) {
-        ID_RAMText.setText(rs.getID_RAM());
+       if(!rs.getID_RAM().isEmpty()){
+           Changed_Data = true;
+           ID_RAMText.setText(rs.getID_RAM());
         Nama_RamText.setText(rs.getNama_RAM());
         DDRText.setText(String.valueOf(rs.getDDR()));
         FrequencyText.setText(rs.getFrequency());
         CapacityText.setText(rs.getCapacity());
         CLText.setText(rs.getCL());
         PriceText.setText(String.valueOf(rs.getHarga()));
+        ID_RAMText.setEditable(false);
         Nama_RamText.requestFocus();
     }
-
+    }
     @FXML
     private void CancelButtonClick(ActionEvent event) {
         try {

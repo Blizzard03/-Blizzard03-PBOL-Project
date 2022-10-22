@@ -119,6 +119,23 @@ public class DataBase_PowerSupply {
             return Success;
         }
     }
+    
+    public boolean Delete_Data(String ID) {
+        boolean Success = false;
+        Database_Connection con = new Database_Connection();
+        try {
+            con.Open_Connection();;
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from power_supply where ID_PSU  = ? ");
+            con.preparedStatement.setString(1, ID);
+            con.preparedStatement.executeUpdate();
+            Success = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            con.Discconnect();
+            return Success;
+        }
+    }
 
     public ObservableList<PSU_Models> Cari_Power_Supply(String kode, String nama) {
         try {

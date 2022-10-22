@@ -211,7 +211,7 @@ public class Main_Menu2Controller implements Initializable {
 
     @FXML
     private void PowerSupplyDataView(ActionEvent event) {
-    try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/PSU/TableDataPSU.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
@@ -230,7 +230,7 @@ public class Main_Menu2Controller implements Initializable {
 
     @FXML
     private void CoolerDataView(ActionEvent event) {
-    try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
@@ -276,8 +276,8 @@ public class Main_Menu2Controller implements Initializable {
 
     @FXML
     private void RAMDataView(ActionEvent event) {
-    try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableDataGPU.fxml"));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableData_RAM.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -295,12 +295,12 @@ public class Main_Menu2Controller implements Initializable {
 
     @FXML
     private void SSDDataViewClick(ActionEvent event) {
-    try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/GPU/TableDataGPU.fxml"));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/SSD/Table_View_SSD.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("GPU Table Data View");
+            stg.setTitle("SSD Table Data View");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);

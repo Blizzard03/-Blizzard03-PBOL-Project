@@ -6,6 +6,7 @@ package Controller.Tableviews.Master.SSD;
 
 import Controller.MainMenu.Main_Menu2Controller;
 import Models.Master.SSD.SSDModels;
+import Controller.Update.Master.SSD.UpdateSSDController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -190,7 +191,9 @@ public class Table_View_SSD implements Initializable {
 
     @FXML
     private void UpdateButtonClick(ActionEvent event) {
-        try {
+         SSDModels ssd = new SSDModels();
+        ssd = TableViewSSD.getSelectionModel().getSelectedItem();
+          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/SSD/UpdateSSD.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
@@ -201,12 +204,17 @@ public class Table_View_SSD implements Initializable {
             stg.setIconified(false);
             stg.setScene(scene);
             stg.show();
-            MainMenuButtoon.getScene().getWindow().hide();
+            UpdateButton.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DataShows();
+        FirstButtonClick(event);
 
     }
+      
+
+    
 
     @FXML
     private void DeleteButtonClick(ActionEvent event) {
@@ -235,7 +243,7 @@ public class Table_View_SSD implements Initializable {
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("Add RAM");
+            stg.setTitle("Add SSD");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);

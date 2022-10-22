@@ -5,8 +5,8 @@
 package Controller.Tableviews.Master.Cooler;
 
 import Controller.MainMenu.Main_Menu2Controller;
-import Controller.Update.Master.User.UpdateUserController;
-import Models.Master.User.UsersModels;
+import Controller.Update.Master.Cooler.UpdateCoolerController;
+import Models.Master.Cooler.CoolerModels;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,11 +34,13 @@ import javafx.stage.Stage;
  * @author mariq
  */
 public class Tableview_CoolerController implements Initializable {
-
+    private TableView<CoolerModels> TableViewCooler;
     @FXML
-    private TableView<UsersModels> TableViewUser;
+    private TextField DataCoolerSearch;
     @FXML
-    private TextField DataUserSearch;
+    private Button MainMenuButtoon;
+    @FXML
+    private Button UpdateButton;
     @FXML
     private Button FirstButton;
     @FXML
@@ -47,12 +49,10 @@ public class Tableview_CoolerController implements Initializable {
     private Button LastButon;
     @FXML
     private Button AfterButon;
-    @FXML
-    private Button MainMenuButtoon;
-    @FXML
-    private Button UpdateButton;
-    @FXML
+        @FXML
     private Button DeleteButton;
+    @FXML
+    private Button AddButton;
 
     /**
      * Initializes the controller class.
@@ -65,96 +65,60 @@ public class Tableview_CoolerController implements Initializable {
 
     @FXML
     private void FirstButtonClick(ActionEvent event) {
-        TableViewUser.getSelectionModel().selectFirst();
-        TableViewUser.requestFocus();
+        TableViewCooler.getSelectionModel().selectFirst();
+        TableViewCooler.requestFocus();
     }
 
     @FXML
     private void BeforeButonClick(ActionEvent event) {
-        TableViewUser.getSelectionModel().selectAboveCell();
-        TableViewUser.requestFocus();
+        TableViewCooler.getSelectionModel().selectAboveCell();
+        TableViewCooler.requestFocus();
     }
 
     @FXML
     private void LastButtonClick(ActionEvent event) {
-        TableViewUser.getSelectionModel().selectLast();
-        TableViewUser.requestFocus();
+        TableViewCooler.getSelectionModel().selectLast();
+        TableViewCooler.requestFocus();
     }
 
     @FXML
     private void AfterButonClick(ActionEvent event) {
-          TableViewUser.getSelectionModel().selectBelowCell();        
-        TableViewUser.requestFocus();
+        TableViewCooler.getSelectionModel().selectBelowCell();
+        TableViewCooler.requestFocus();
 
     }
 
     public void DataShows() {
-        ObservableList<UsersModels> data = Main_Menu2Controller.Database_User.Load();
+        ObservableList<CoolerModels> data = Main_Menu2Controller.Database_Cooler.Load();
         if (data != null) {
-            TableViewUser.getColumns().clear();
-            TableViewUser.getItems().clear();
-            TableColumn col = new TableColumn("ID_User");
-            col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("ID_User"));
-            TableViewUser.getColumns().addAll(col);
-            col = new TableColumn("Nama_User");
-            col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Nama_User"));
-            TableViewUser.getColumns().addAll(col);
-            col = new TableColumn("Email_User");
-            col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Email_User"));
-            TableViewUser.getColumns().addAll(col);
-            col = new TableColumn("Alamat_User");
-            col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Alamat_User"));
-            TableViewUser.getColumns().addAll(col);
+            TableViewCooler.getColumns().clear();
+            TableViewCooler.getItems().clear();
+            TableColumn col = new TableColumn("ID_COOLER");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("ID_COOLER"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Nama_Cooler");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Nama_Cooler"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Type");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Type"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Socket");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Socket"));
+            TableViewCooler.getColumns().addAll(col);
             col = new TableColumn("Nomor_Telepon_User");
-            col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Nomor_Telepon_User"));
-            TableViewUser.getColumns().addAll(col);
-            col = new TableColumn("Password");
-            col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Password"));
-            TableViewUser.getColumns().addAll(col);
-            TableViewUser.setItems(data);
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Harga"));
+            TableViewCooler.getColumns().addAll(col);
+
+            TableViewCooler.setItems(data);
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Data kosong", ButtonType.OK);
             a.showAndWait();
-            TableViewUser.getScene().getWindow().hide();;
+            TableViewCooler.getScene().getWindow().hide();;
         }
     }
 
-    @FXML
     private void DataUserSearchFinder(KeyEvent event) {
-        UsersModels s = new UsersModels();
-        String key = DataUserSearch.getText();
-        if (key != "") {
-            ObservableList<UsersModels> data = Main_Menu2Controller.Database_User.CariUser(key, key);
-            if (data != null) {
-                TableViewUser.getColumns().clear();
-                TableViewUser.getItems().clear();
-                TableColumn col = new TableColumn("ID_User");
-                col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("ID_User"));
-                TableViewUser.getColumns().addAll(col);
-                col = new TableColumn("Nama_User");
-                col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Nama_User"));
-                TableViewUser.getColumns().addAll(col);
-                col = new TableColumn("Email_User");
-                col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Email_User"));
-                TableViewUser.getColumns().addAll(col);
-                col = new TableColumn("Alamat_User");
-                col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Alamat_User"));
-                TableViewUser.getColumns().addAll(col);
-                col = new TableColumn("Nomor_Telepon_User");
-                col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Nomor_Telepon_User"));
-                TableViewUser.getColumns().addAll(col);
-                col = new TableColumn("Password");
-                col.setCellValueFactory(new PropertyValueFactory<UsersModels, String>("Password"));
-                TableViewUser.getColumns().addAll(col);
-                TableViewUser.setItems(data);
-            } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Data kosong", ButtonType.OK);
-                a.showAndWait();
-                TableViewUser.getScene().getWindow().hide();;
-            }
-        } else {
-            DataShows();
-        }
+      
     }
 
     @FXML
@@ -178,44 +142,81 @@ public class Tableview_CoolerController implements Initializable {
 
     @FXML
     private void UpdateButtonClick(ActionEvent event) {
-        UsersModels ss= new UsersModels();
-        ss=TableViewUser.getSelectionModel().getSelectedItem();
-        try{
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/FXML/Update/Master/User/UpdateUser.fxml"));    
-        Parent root = (Parent)loader.load();
-        UpdateUserController isidt=(UpdateUserController)loader.getController();
-        isidt.execute(ss);                
-        Scene scene = new Scene(root);
-        Stage stg=new Stage();
-        stg.initModality(Modality.APPLICATION_MODAL);
-        stg.setResizable(false);
-        stg.setIconified(false);
-        stg.setScene(scene);
-        stg.setTitle("Update User Service");
-        stg.showAndWait();
-        UpdateButton.getScene().getWindow().hide();
-        } catch (IOException e){   e.printStackTrace();   }
-        DataShows();  
+        CoolerModels cs = new CoolerModels();
+        cs = TableViewCooler.getSelectionModel().getSelectedItem();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML.Update.Master.Cooler/UpdateCooler.fxml"));
+            Parent root = (Parent) loader.load();
+            UpdateCoolerController isidt = (UpdateCoolerController) loader.getController();
+            isidt.execute(cs);
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.setTitle("Update Cooler Service");
+            stg.showAndWait();
+            UpdateButton.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        DataShows();
         FirstButtonClick(event);
     }
 
     @FXML
     private void DeleteButtonClick(ActionEvent event) {
-    UsersModels ss= new UsersModels();
-        ss=TableViewUser.getSelectionModel().getSelectedItem();
+        CoolerModels cs = new CoolerModels();
+        cs = TableViewCooler.getSelectionModel().getSelectedItem();
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Are you Sure will be delete this data is permanent deleted?", ButtonType.YES, ButtonType.NO);
         a.showAndWait();
         if (a.getResult() == ButtonType.YES) {
-            if (Main_Menu2Controller.Database_User.Delete_Data(ss.getID_User())) {
-                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data User have been Deleted", ButtonType.OK);
+            if (Main_Menu2Controller.Database_Cooler.Delete_Data(cs.getID_COOLER())) {
+                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data Cooler have been Deleted", ButtonType.OK);
                 b.showAndWait();
             } else {
-                Alert b = new Alert(Alert.AlertType.ERROR, "Data User Fail to Delete", ButtonType.OK);
+                Alert b = new Alert(Alert.AlertType.ERROR, "Data Cooler Fail to Delete", ButtonType.OK);
                 b.showAndWait();
             }
             DataShows();
             FirstButtonClick(event);
         }
-        
+
+    }
+
+    @FXML
+    private void DataCoolerSearch(KeyEvent event) {
+          CoolerModels cs = new CoolerModels();
+        String key = DataCoolerSearch.getText();
+        if (key != "") {
+            ObservableList<CoolerModels> data = Main_Menu2Controller.Database_Cooler.Load();
+        if (data != null) {
+            TableViewCooler.getColumns().clear();
+            TableViewCooler.getItems().clear();
+            TableColumn col = new TableColumn("ID_COOLER");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("ID_COOLER"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Nama_Cooler");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Nama_Cooler"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Type");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Type"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Socket");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Socket"));
+            TableViewCooler.getColumns().addAll(col);
+            col = new TableColumn("Nomor_Telepon_User");
+            col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Harga"));
+            TableViewCooler.getColumns().addAll(col);
+            TableViewCooler.setItems(data);
+            }
+        } else {
+            DataShows();
+        }
+    }
+
+    @FXML
+    private void AddButtonClick(ActionEvent event) {
     }
 }

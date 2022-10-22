@@ -75,7 +75,7 @@ public class Sign_UpController implements Initializable {
         n.setPassword(PasswordText.getText());
         Main_Menu2Controller.Database_User.setUserModels(n);
         if(Data_Edit){
-            if(Main_Menu2Controller.Database_User.update()){
+            if(Main_Menu2Controller.Database_User.Update_Data()){
                Alert a=new Alert(Alert.AlertType.INFORMATION,"Changed Data Success",ButtonType.OK);
                a.showAndWait();            
             } else {               
@@ -83,7 +83,7 @@ public class Sign_UpController implements Initializable {
                 a.showAndWait(); 
             }
             }else if(Main_Menu2Controller.Database_User.validate(n.getID_User())<=0){
-            if(Main_Menu2Controller.Database_User.insert()){
+            if(Main_Menu2Controller.Database_User.Insert_Data()){
                Alert a=new Alert(Alert.AlertType.INFORMATION,"Data Has Saved",ButtonType.OK);
                a.showAndWait();   
                 try {

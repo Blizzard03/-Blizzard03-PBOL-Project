@@ -6,7 +6,7 @@ package Controller.Tableviews.Master.CPU;
 
 import Controller.MainMenu.Main_Menu2Controller;
 import Models.Master.CPU.CPUModels;
-import Models.Master.User.UsersModels;
+import Controller.Update.Master.CPU.UpdateCPUController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,32 +66,38 @@ public class TableDataCPUController implements Initializable {
     }
 
     public void DataShows() {
-        ObservableList<CPUModels> data = Main_Menu2Controller.Database_CPU.Load();
-        if (data != null) {
-            TableViewCPU.getColumns().clear();
-            TableViewCPU.getItems().clear();
-            TableColumn col = new TableColumn("ID_CPU");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("ID_CPU"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Nama_CPU");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Nama_CPU"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Base_Clock");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Base_Clock"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Max_Turbo_Clock");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Max_Turbo_Clock"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Cores");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Cores"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Thread");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Thread"));
-            TableViewCPU.getColumns().addAll(col);
-            col = new TableColumn("Harga");
-            col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Harga"));
-            TableViewCPU.getColumns().addAll(col);
-            TableViewCPU.setItems(data);
+           ObservableList<CPUModels> data = Main_Menu2Controller.Database_CPU.Load();
+            if (data != null) {
+                TableViewCPU.getColumns().clear();
+                TableViewCPU.getItems().clear();
+                TableColumn col = new TableColumn("ID_CPU");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("ID_CPU"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Nama_CPU");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Nama_CPU"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Socket");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Socket"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Base_Clock");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Base_Clock"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Max_Turbo_Clock");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Max_Turbo_Clock"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Cores");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Cores"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("TDP");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("TDP"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Thread");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Thread"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Harga");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Harga"));
+                TableViewCPU.getColumns().addAll(col);
+                TableViewCPU.setItems(data);
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "404 Data Not Found!", ButtonType.OK);
             a.showAndWait();
@@ -114,6 +120,9 @@ public class TableDataCPUController implements Initializable {
                 col = new TableColumn("Nama_CPU");
                 col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Nama_CPU"));
                 TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Socket");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Socket"));
+                TableViewCPU.getColumns().addAll(col);
                 col = new TableColumn("Base_Clock");
                 col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Base_Clock"));
                 TableViewCPU.getColumns().addAll(col);
@@ -122,6 +131,9 @@ public class TableDataCPUController implements Initializable {
                 TableViewCPU.getColumns().addAll(col);
                 col = new TableColumn("Cores");
                 col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Cores"));
+                TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("TDP");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("TDP"));
                 TableViewCPU.getColumns().addAll(col);
                 col = new TableColumn("Thread");
                 col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Thread"));
@@ -185,21 +197,27 @@ public class TableDataCPUController implements Initializable {
 
     @FXML
     private void UpdateButtonClick(ActionEvent event) {
+       CPUModels cpu = new CPUModels();
+        cpu = TableViewCPU.getSelectionModel().getSelectedItem();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/CPU/UpdateCPU.fxml"));
             Parent root = (Parent) loader.load();
+            UpdateCPUController isidt = (UpdateCPUController) loader.getController();
+            isidt.execute(cpu);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("Update CPU");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
             stg.setScene(scene);
-            stg.show();
-            MainMenuButtoon.getScene().getWindow().hide();
+            stg.setTitle("Update Cooler Service");
+            stg.showAndWait();
+            UpdateButton.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DataShows();
+        FirstButtonClick(event);
 
     }
 

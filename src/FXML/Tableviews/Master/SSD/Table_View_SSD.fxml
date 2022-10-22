@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Tableviews.Master.SSD.Table_View_SSD">
      <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Data CPU">
+      <Label layoutX="14.0" layoutY="14.0" text="Data SSD">
          <font>
             <Font name="Elephant" size="18.0" />
          </font>

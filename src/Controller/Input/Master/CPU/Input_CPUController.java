@@ -28,7 +28,8 @@ import javafx.stage.Stage;
  * @author mariq
  */
 public class Input_CPUController implements Initializable {
-public boolean TextEdit;
+
+    public boolean TextEdit;
     @FXML
     private TextField ID_CPUText;
     @FXML
@@ -60,23 +61,28 @@ public boolean TextEdit;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-  public void execute(CPUModels cpu) {
-        ID_CPUText.setText(cpu.getID_CPU());
-        Nama_CPUText.setText(cpu.getNama_CPU());
-        SocketText.setText(cpu.getSocket());
-        Base_ClockText.setText(cpu.getBase_Clock());
-        Max_Turbo_Clock_Text.setText(cpu.getMax_Turbo_Clock());
-        CoresText.setText(String.valueOf(cpu.getCores()));
-        TreadText.setText(String.valueOf(cpu.getThread()));
-        TDPText.setText(cpu.getTDP());
-        PriceText.setText(String.valueOf(cpu.getHarga()));
-        Nama_CPUText.requestFocus();
+    }
+
+    public void execute(CPUModels cpu) {
+        if (!cpu.getID_CPU().isEmpty()) {
+            TextEdit = true;
+            ID_CPUText.setText(cpu.getID_CPU());
+            Nama_CPUText.setText(cpu.getNama_CPU());
+            SocketText.setText(cpu.getSocket());
+            Base_ClockText.setText(cpu.getBase_Clock());
+            Max_Turbo_Clock_Text.setText(cpu.getMax_Turbo_Clock());
+            CoresText.setText(String.valueOf(cpu.getCores()));
+            TreadText.setText(String.valueOf(cpu.getThread()));
+            TDPText.setText(cpu.getTDP());
+            PriceText.setText(String.valueOf(cpu.getHarga()));
+            Nama_CPUText.requestFocus();
+            ID_CPUText.setEditable(false);
+        }
     }
 
     @FXML
     private void CancelButtonClick(ActionEvent event) {
-          try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/CPU/TableDataCPU.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
@@ -106,8 +112,6 @@ public boolean TextEdit;
         PriceText.setText("");
         Nama_CPUText.requestFocus();
     }
-
-    
 
     @FXML
     private void SaveButtonClick(ActionEvent event) {

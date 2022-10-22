@@ -119,7 +119,7 @@ public class DataBase_MotherBoard {
         }
     }
 
-    public ObservableList<Mother_Board_Models> CariUser(String kode, String nama) {
+    public ObservableList<Mother_Board_Models> Mother_Board_Search(String kode, String nama) {
         try {
             ObservableList<Mother_Board_Models> tableData;
             tableData = FXCollections.observableArrayList();
@@ -146,5 +146,20 @@ public class DataBase_MotherBoard {
             return null;
         }
     }
-
+public boolean Delete_Data(String ID) {
+        boolean Success = false;
+        Database_Connection con = new Database_Connection();
+        try {
+            con.Open_Connection();;
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from mother_board where ID_MOTHER_BOARD  = ? ");
+            con.preparedStatement.setString(1, ID);
+            con.preparedStatement.executeUpdate();
+            Success = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            con.Discconnect();
+            return Success;
+        }
+    }
 }

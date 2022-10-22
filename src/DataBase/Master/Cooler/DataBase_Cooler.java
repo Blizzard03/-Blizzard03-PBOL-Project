@@ -116,7 +116,26 @@ public class DataBase_Cooler {
         }
     }
 
-    public ObservableList<CoolerModels> CariUser(String kode, String nama) {
+    
+    
+    public boolean Delete_Data(String ID) {
+        boolean Success = false;
+        Database_Connection con = new Database_Connection();
+        try {
+            con.Open_Connection();;
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from cooler where ID_COOLER  = ? ");
+            con.preparedStatement.setString(1, ID);
+            con.preparedStatement.executeUpdate();
+            Success = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            con.Discconnect();
+            return Success;
+        }
+    }
+    
+    public ObservableList<CoolerModels> SearchCooler(String kode, String nama) {
         try {
             ObservableList<CoolerModels> tableData;
             tableData = FXCollections.observableArrayList();

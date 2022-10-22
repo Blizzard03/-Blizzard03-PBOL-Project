@@ -5,6 +5,7 @@
 package Controller.Tableviews.Master.GPU;
 
 import Controller.MainMenu.Main_Menu2Controller;
+import Controller.Update.Master.GPU.UpdateGPUController;
 import Models.Master.GPU.GPUModels;
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +45,7 @@ public class TableDataGPUController implements Initializable {
     private Button AfterButon;
     @FXML
     private Button MainMenuButtoon;
+    @FXML
     private TableView<GPUModels> TableViewGPU;
     @FXML
     private Button UpdateButton;
@@ -182,21 +184,27 @@ public class TableDataGPUController implements Initializable {
 
     @FXML
     private void UpdateButtonClick(ActionEvent event) {
+            GPUModels gpu = new GPUModels();
+        gpu = TableViewGPU.getSelectionModel().getSelectedItem();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/GPU/UpdateGPU.fxml"));
             Parent root = (Parent) loader.load();
+            UpdateGPUController isidt = (UpdateGPUController) loader.getController();
+            isidt.execute(gpu);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("Update GPU");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
             stg.setScene(scene);
-            stg.show();
-            MainMenuButtoon.getScene().getWindow().hide();
+            stg.setTitle("Update GPU Service");
+            stg.showAndWait();
+            UpdateButton.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DataShows();
+        FirstButtonClick(event);
 
     }
 
@@ -208,10 +216,10 @@ public class TableDataGPUController implements Initializable {
         a.showAndWait();
         if (a.getResult() == ButtonType.YES) {
             if (Main_Menu2Controller.Database_GPU.Delete_Data(gpu.getID_GPU())) {
-                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data have been Deleted", ButtonType.OK);
+                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data GPU have been Deleted", ButtonType.OK);
                 b.showAndWait();
             } else {
-                Alert b = new Alert(Alert.AlertType.ERROR, "Data Fail to Delete", ButtonType.OK);
+                Alert b = new Alert(Alert.AlertType.ERROR, "Data GPU Fail to Delete", ButtonType.OK);
                 b.showAndWait();
             }
             DataShows();

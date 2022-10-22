@@ -28,7 +28,8 @@ import javafx.stage.Stage;
  * @author mariq
  */
 public class UpdateCoolerController implements Initializable {
-public boolean Changed_Data;
+
+    public boolean Changed_Data;
 
     @FXML
     private Button SaveButton;
@@ -42,13 +43,11 @@ public boolean Changed_Data;
     private TextField Nama_CoolerText;
     @FXML
     private TextField TypeText;
-@FXML
+    @FXML
     private TextField Socketext;
-    
-     @FXML
+
+    @FXML
     private TextField PriceText;
-    
-    
 
     /**
      * Initializes the controller class.
@@ -59,82 +58,89 @@ public boolean Changed_Data;
     }
 
     public void execute(CoolerModels cs) {
-        ID_CoolerText.setText(cs.getID_COOLER());
-        Nama_CoolerText.setText(cs.getNama_Cooler());
-        TypeText.setText(cs.getType());
-        Socketext.setText(cs.getSocket());
-        PriceText.setText(String.valueOf(cs.getHarga()));
-       Nama_CoolerText.requestFocus();
+        if (!cs.getID_COOLER().isEmpty()) {
+            ID_CoolerText.setText(cs.getID_COOLER());
+            Nama_CoolerText.setText(cs.getNama_Cooler());
+            TypeText.setText(cs.getType());
+            Socketext.setText(cs.getSocket());
+            PriceText.setText(String.valueOf(cs.getHarga()));
+            Nama_CoolerText.requestFocus();
+        }
     }
 
     @FXML
     private void CancelButtonClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableView_RAM.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("RAM Table Data View");
+            stg.setTitle("Cooler Table Data View");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
             stg.setScene(scene);
             stg.show();
-            CancelButton.getScene().getWindow().hide();
+            SaveButton.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private void ResetButtonClick(ActionEvent event) {
+    
+        @FXML
+        private void ResetButtonClick
+        (ActionEvent event        
+            ) {
         ID_CoolerText.setText("");
-        Nama_CoolerText.setText("");
-        TypeText.setText("");
-        Socketext.setText("");
-        PriceText.setText("");
-       Nama_CoolerText.requestFocus();
+            Nama_CoolerText.setText("");
+            TypeText.setText("");
+            Socketext.setText("");
+            PriceText.setText("");
+            Nama_CoolerText.requestFocus();
 
-    }
+        }
 
-    @FXML
-    private void SaveButtonClick(ActionEvent event) {
+        @FXML
+        private void SaveButtonClick
+        (ActionEvent event
+        
+            ) {
         CoolerModels cs = new CoolerModels();
-        cs.setID_COOLER(ID_CoolerText.getText());
-        cs.setNama_Cooler(Nama_CoolerText.getText());
-        cs.setType(TypeText.getText());
-        cs.setSocket(Socketext.getText());
-        cs.setHarga(Integer.parseInt(PriceText.getText()));
-       Nama_CoolerText.requestFocus();
-        Main_Menu2Controller.Database_Cooler.setCoolerModels(cs);;
-        if (Changed_Data) {
-            if (Main_Menu2Controller.Database_Cooler.update()) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data Cooler Successed", ButtonType.OK);
-                a.showAndWait();
-                ID_CoolerText.setEditable(true);
-                ResetButtonClick(event);
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
-                    Parent root = (Parent) loader.load();
-                    Scene scene = new Scene(root);
-                    Stage stg = new Stage();
-                    stg.setTitle("Cooler Table Data View");
-                    stg.initModality(Modality.APPLICATION_MODAL);
-                    stg.setResizable(false);
-                    stg.setIconified(false);
-                    stg.setScene(scene);
-                    stg.show();
-                    SaveButton.getScene().getWindow().hide();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            cs.setID_COOLER(ID_CoolerText.getText());
+            cs.setNama_Cooler(Nama_CoolerText.getText());
+            cs.setType(TypeText.getText());
+            cs.setSocket(Socketext.getText());
+            cs.setHarga(Integer.parseInt(PriceText.getText()));
+            Nama_CoolerText.requestFocus();
+            Main_Menu2Controller.Database_Cooler.setCoolerModels(cs);;
+            if (Changed_Data) {
+                if (Main_Menu2Controller.Database_Cooler.update()) {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data Cooler Successed", ButtonType.OK);
+                    a.showAndWait();
+                    ID_CoolerText.setEditable(true);
+                    ResetButtonClick(event);
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
+                        Parent root = (Parent) loader.load();
+                        Scene scene = new Scene(root);
+                        Stage stg = new Stage();
+                        stg.setTitle("Cooler Table Data View");
+                        stg.initModality(Modality.APPLICATION_MODAL);
+                        stg.setResizable(false);
+                        stg.setIconified(false);
+                        stg.setScene(scene);
+                        stg.show();
+                        SaveButton.getScene().getWindow().hide();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-            } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Update Data Cooler Failed", ButtonType.OK);
-                a.showAndWait();
-                Nama_CoolerText.requestFocus();
+                } else {
+                    Alert a = new Alert(Alert.AlertType.ERROR, "Update Data Cooler Failed", ButtonType.OK);
+                    a.showAndWait();
+                    Nama_CoolerText.requestFocus();
+                }
             }
         }
+
     }
-    
-}

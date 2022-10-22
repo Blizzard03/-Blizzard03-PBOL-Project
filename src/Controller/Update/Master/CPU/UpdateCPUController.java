@@ -138,7 +138,7 @@ public boolean TextEdit;
                     Parent root = (Parent) loader.load();
                     Scene scene = new Scene(root);
                     Stage stg = new Stage();
-                    stg.setTitle("Cooler Table Data View");
+                    stg.setTitle("CPU Table Data View");
                     stg.initModality(Modality.APPLICATION_MODAL);
                     stg.setResizable(false);
                     stg.setIconified(false);
