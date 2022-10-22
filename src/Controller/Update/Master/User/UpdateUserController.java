@@ -78,7 +78,7 @@ public class UpdateUserController implements Initializable {
         ss.setPassword(PasswordText.getText());
         Main_Menu2Controller.Database_User.setUserModels(ss);
         if (ChangeData) {
-            if (Main_Menu2Controller.Database_User.update()) {
+            if (Main_Menu2Controller.Database_User.Update_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data User Successed", ButtonType.OK);
                 a.showAndWait();
                 NamaText.setEditable(true);

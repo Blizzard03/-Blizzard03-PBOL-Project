@@ -7,15 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="296.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Tableviews.Master.User.TableDataUserController">
+<AnchorPane id="AnchorPane" prefHeight="296.0" prefWidth="904.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Tableviews.Master.User.TableDataUserController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Data User">
          <font>
             <Font name="Elephant" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="443.0" layoutY="17.0" text="Cari Data" />
-      <TextField fx:id="DataUserSearch" layoutX="504.0" layoutY="13.0" onKeyReleased="#DataUserSearchFinder">
+      <Label layoutX="632.0" layoutY="17.0" text="Cari Data" />
+      <TextField fx:id="DataUserSearch" layoutX="693.0" layoutY="13.0" onKeyReleased="#DataUserSearchFinder">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
@@ -27,25 +27,25 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="LastButon" layoutX="655.0" layoutY="107.0" mnemonicParsing="false" onAction="#LastButtonClick" text="&gt;|">
+      <Button fx:id="LastButon" layoutX="855.0" layoutY="107.0" mnemonicParsing="false" onAction="#LastButtonClick" text="&gt;|">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="AfterButon" layoutX="653.0" layoutY="143.0" mnemonicParsing="false" onAction="#AfterButonClick" text="&gt;&gt;">
+      <Button fx:id="AfterButon" layoutX="853.0" layoutY="143.0" mnemonicParsing="false" onAction="#AfterButonClick" text="&gt;&gt;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="MainMenuButtoon" layoutX="273.0" layoutY="250.0" mnemonicParsing="false" onAction="#MainMenuButtonClick" text="Main Menu">
+      <Button fx:id="MainMenuButtoon" layoutX="414.0" layoutY="257.0" mnemonicParsing="false" onAction="#MainMenuButtonClick" text="Main Menu">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TableView fx:id="TableViewUser" layoutX="62.0" layoutY="43.0" prefHeight="200.0" prefWidth="582.0">
+      <TableView fx:id="TableViewUser" layoutX="62.0" layoutY="43.0" prefHeight="200.0" prefWidth="780.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
       <Button fx:id="UpdateButton" layoutX="62.0" layoutY="257.0" mnemonicParsing="false" onAction="#UpdateButtonClick" style="-fx-cursor: hand;" text="Update" />
-      <Button fx:id="DeleteButton" layoutX="136.0" layoutY="257.0" mnemonicParsing="false" onAction="#DeleteButtonClick" style="-fx-cursor: hand;" text="Delete" />
+      <Button fx:id="DeleteButton" layoutX="791.0" layoutY="257.0" mnemonicParsing="false" onAction="#DeleteButtonClick" style="-fx-cursor: hand;" text="Delete" />
    </children>
 </AnchorPane>

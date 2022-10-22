@@ -92,7 +92,7 @@ public class UpdateGPUController implements Initializable {
 
         Main_Menu2Controller.Database_GPU.setGPUModels(gs);
         if (ChangedData) {
-            if (Main_Menu2Controller.Database_User.update()) {
+            if (Main_Menu2Controller.Database_GPU.Update_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data GPU Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_GPUText.setEditable(true);

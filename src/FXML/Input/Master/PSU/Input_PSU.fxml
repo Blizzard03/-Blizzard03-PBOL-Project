@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="647.0" prefWidth="524.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="FXML_AND_CONTROLLERS.Input.Master.Input_PSUController">
+<AnchorPane id="AnchorPane" prefHeight="685.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Input.Master.PSU.Input_PSUController">
     <children>
         <Label layoutX="25.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION INPUT PSU">
             <font>
@@ -18,7 +18,7 @@
       
         <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="223.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" style="-fx-alignment: CENTER;">
             <image>
-                <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
+                  <Image url="@../../../../Images/Blizzard_03.png" />
             </image>
         </ImageView>
       
@@ -29,20 +29,20 @@
         </Label>
         <TextField fx:id="ID_PSUText" layoutX="172.0" layoutY="191.0" prefHeight="25.0" prefWidth="192.0" promptText="Input ID_PSU" />
         <Label layoutX="76.0" layoutY="195.0" text="ID_PSU                : " />
-        <Label layoutX="76.0" layoutY="235.0" text="Image                 : " />
-        <TextField fx:id="ImageText" layoutX="172.0" layoutY="231.0" prefHeight="25.0" prefWidth="192.0" promptText="Select File" />
+        <Label disable="true" layoutX="76.0" layoutY="235.0" text="Image                 : " />
+        <TextField fx:id="ImageText" disable="true" layoutX="172.0" layoutY="231.0" prefHeight="25.0" prefWidth="192.0" promptText="Select File" />
         <TextField fx:id="Vendor_Text" layoutX="167.0" layoutY="435.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Vendor" />
         <TextField fx:id="Nama_PSU_Text" layoutX="166.0" layoutY="474.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nama  PSU" />
         <Label layoutX="71.0" layoutY="439.0" text="Vendor               : " />
         <Label layoutX="70.0" layoutY="478.0" text="Nama PSU          : " />
         <Label layoutX="70.0" layoutY="518.0" text="Watt                   : " />
         <TextField fx:id="WattText" layoutX="166.0" layoutY="514.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Watt" />
-        <Button fx:id="Save_Button" layoutX="149.0" layoutY="603.0" mnemonicParsing="false" onAction="#Save_Data_Button_Click" text="Save Data">
+        <Button fx:id="Save_Button" layoutX="146.0" layoutY="633.0" mnemonicParsing="false" onAction="#Save_Data_Button_Click" text="Save Data">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button fx:id="CancelButton" layoutX="332.0" layoutY="603.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
+        <Button fx:id="CancelButton" layoutX="329.0" layoutY="633.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -50,20 +50,27 @@
                 <Glow level="0.15" />
             </effect>
         </Button>
-      <Button fx:id="BrowseButton" layoutX="374.0" layoutY="231.0" mnemonicParsing="false" onAction="#BrowseButtonClick" text="Browse">
+      <Button fx:id="BrowseButton" disable="true" layoutX="374.0" layoutY="231.0" mnemonicParsing="false" onAction="#BrowseButtonClick" text="Browse">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="Save_Image_Button" layoutX="435.0" layoutY="231.0" mnemonicParsing="false" onAction="#Save_Image_Button_Click" text="Save Image">
+      <Button fx:id="Save_Image_Button" disable="true" layoutX="435.0" layoutY="231.0" mnemonicParsing="false" onAction="#Save_Image_Button_Click" text="Save Image">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="HargaText" layoutX="184.0" layoutY="554.0" prefHeight="25.0" prefWidth="173.0" promptText="Input Harga" />
-      <Label layoutX="70.0" layoutY="558.0" text="Harga                 : " />
+      <TextField fx:id="HargaText" layoutX="182.0" layoutY="579.0" prefHeight="25.0" prefWidth="173.0" promptText="Input Harga" />
+      <Label layoutX="68.0" layoutY="583.0" text="Harga                 : " />
       <Label layoutX="362.0" layoutY="518.0" text="W" />
-      <Label layoutX="166.0" layoutY="558.0" text="Rp" />
-      <ImageView fx:id="Imagesview" fitHeight="150.0" fitWidth="200.0" layoutX="168.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="164.0" layoutY="583.0" text="Rp" />
+      <ImageView fx:id="Imagesview" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="168.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="70.0" layoutY="554.0" text="Tier                     : " />
+      <TextField fx:id="TierText" layoutX="166.0" layoutY="550.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Watt" />
+      <Button fx:id="ResetButton" layoutX="244.0" layoutY="633.0" mnemonicParsing="false" onAction="#ResetButtonClick" text="Reset">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
     </children>      
 </AnchorPane>

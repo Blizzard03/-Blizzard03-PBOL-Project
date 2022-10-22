@@ -74,7 +74,7 @@ public class DataBase_GPU {
         return val;
     }
 
-    public boolean insert() {
+    public boolean Insert_Data() {
         boolean Succes = false;
         Database_Connection con = new Database_Connection();
         try {
@@ -99,13 +99,28 @@ public class DataBase_GPU {
             return Succes;
         }
     }
-
-    public boolean update() {
+public boolean Delete_Data(String ID) {
+        boolean Success = false;
+        Database_Connection con = new Database_Connection();
+        try {
+            con.Open_Connection();;
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from gpu where ID_GPU  = ? ");
+            con.preparedStatement.setString(1, ID);
+            con.preparedStatement.executeUpdate();
+            Success = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            con.Discconnect();
+            return Success;
+        }
+    }
+    public boolean Update_Data() {
         boolean Success = false;
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update user set ID_GPU =?, Vendor =?, Nama_GPU=?, VRAM=?, Memory_Type=?,Frequency=?, GDP=?,Harga=? ");
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update gpu set ID_GPU =?, Vendor =?, Nama_GPU=?, VRAM=?, Memory_Type=?,Frequency=?, GDP=?,Harga=? ");
             con.preparedStatement.setString(1, getGPUModels().getID_GPU());
             con.preparedStatement.setString(2, getGPUModels().getVendor());
             con.preparedStatement.setString(3, getGPUModels().getNama_GPU());

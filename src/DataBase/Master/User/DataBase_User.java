@@ -72,7 +72,7 @@ public class DataBase_User {
         return val;
     }
 
-    public boolean insert() {
+    public boolean Insert_Data() {
         boolean Succes = false;
         Database_Connection con = new Database_Connection();
         try {
@@ -94,7 +94,7 @@ public class DataBase_User {
         }
     }
 
-    public boolean update() {
+    public boolean Update_Data() {
         boolean Success = false;
         Database_Connection con = new Database_Connection();
         try {
@@ -109,6 +109,24 @@ public class DataBase_User {
         } catch (Exception e) {
             e.printStackTrace();
             Success = false;
+        } finally {
+            con.Discconnect();
+            return Success;
+        }
+    }
+    
+    
+    public boolean Delete_Data(int ID) {
+        boolean Success = false;
+        Database_Connection con = new Database_Connection();
+        try {
+            con.Open_Connection();;
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("delete from user where ID_User  = ? ");
+            con.preparedStatement.setInt(1, ID);
+            con.preparedStatement.executeUpdate();
+            Success = true;
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             con.Discconnect();
             return Success;
@@ -142,5 +160,6 @@ public class DataBase_User {
             return null;
         }
     }
+    
 
 }

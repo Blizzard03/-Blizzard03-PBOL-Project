@@ -65,8 +65,7 @@ public class Main_Menu2Controller implements Initializable {
     public static DataBase_Detail_PSU Database_Detail_PSU = new DataBase_Detail_PSU();
     public static Database_Detail_RAM Database_Detail_RAM = new Database_Detail_RAM();
     public static Database_Detail_SSD Database_Detail_SSD = new Database_Detail_SSD();
-    
-    
+
     @FXML
     private MenuItem BlueprintMake;
     @FXML
@@ -92,6 +91,10 @@ public class Main_Menu2Controller implements Initializable {
     private Button LogoutButon;
     @FXML
     private ImageView images;
+    @FXML
+    private MenuItem RAMDataView;
+    @FXML
+    private MenuItem SSDDataView;
 
     /**
      * Initializes the controller class.
@@ -101,7 +104,6 @@ public class Main_Menu2Controller implements Initializable {
         // TODO
 
     }
-
 
     @FXML
     private void ViewUserData(ActionEvent event) {
@@ -164,8 +166,8 @@ public class Main_Menu2Controller implements Initializable {
     @FXML
     private void BlueprintMaker(ActionEvent event) {
         //Soon
-        //Bug 01 Failed to Connected To DataBase
-        
+        //Bug 01 Failed to Connected & Read To DataBase
+
     }
 
     @FXML
@@ -185,22 +187,65 @@ public class Main_Menu2Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
     }
 
     @FXML
     private void MOBO_DATAClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Mother_Board/TableView_Mother_Board.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Mother Board Table Data View");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void PowerSupplyDataView(ActionEvent event) {
+    try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/PSU/TableDataPSU.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Power Supply Table Data View");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void CoolerDataView(ActionEvent event) {
+    try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Cooler Table Data View");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-   
 
     @FXML
     private void LogoutButonclick(ActionEvent event) {
@@ -209,7 +254,10 @@ public class Main_Menu2Controller implements Initializable {
 
     @FXML
     private void BlueprintMaked(ActionEvent event) {
-        try {
+        //Soon
+        //Bug 2
+        //Failed Connect to Database
+        /* try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Transaksi/Table_View_Transaksi.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
@@ -223,13 +271,55 @@ public class Main_Menu2Controller implements Initializable {
             MainMenu.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
+        }*/
+    }
+
+    @FXML
+    private void RAMDataView(ActionEvent event) {
+    try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableDataGPU.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("RAM Table Data View");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        
-    }
-        
     }
 
-//public void SetUserInformaration(String Nama_User) {
-    // WelcomeName.setText(("Welcome" + Nama_User + "!"));
-    // }
+    @FXML
+    private void SSDDataViewClick(ActionEvent event) {
+    try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/GPU/TableDataGPU.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("GPU Table Data View");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+}
+
+/*public void SetUserInformaration(String Nama_User) {
+ WelcomeName.setText(("Welcome" +" " +Nama_User + " "+"!"));
+ }*/
+
+ /*public void GetUserInformation(){
+ WelcomeName.getText();}
+}
+
+ */

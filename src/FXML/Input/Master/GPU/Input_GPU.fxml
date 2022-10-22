@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Update.Master.GPU.UpdateGPUController">
+     <children>
+        <Label layoutX="51.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION INPUT GPU SERVICE">
+            <font>
+                <Font name="Elephant" size="14.0" />
+            </font>
+        </Label>
+      
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="280.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../Images/Blizzard_03.png" />
+            </image>
+        </ImageView>
+      
+        <Label layoutX="295.0" layoutY="144.0" text="WPA TEAM">
+            <font>
+                <Font name="Elephant" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ID_GPUText" layoutX="125.0" layoutY="195.0" prefHeight="25.0" prefWidth="192.0" promptText="Input ID GPU" style="-fx-cursor: text;" />
+        <Label layoutX="29.0" layoutY="199.0" text="ID GPU              : " />
+        <Label layoutX="29.0" layoutY="239.0" text="Vendor              : " />
+        <TextField fx:id="VendorText" layoutX="125.0" layoutY="235.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Vendor" style="-fx-cursor: text;" />
+        <TextField fx:id="Nama_GPUText" layoutX="126.0" layoutY="273.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nama GPU " style="-fx-cu: text;" />
+        <TextField fx:id="VRAMText" layoutX="125.0" layoutY="312.0" prefHeight="25.0" prefWidth="192.0" promptText="Input  VRAM" style="-fx-cursor: text;" />
+        <Label layoutX="30.0" layoutY="277.0" text="Nama GPU        : " />
+        <Label layoutX="29.0" layoutY="316.0" text="VRAM                : " />
+        <Label layoutX="340.0" layoutY="201.0" text="Memory Type    :" />
+        <TextField fx:id="MemoryTypeText" layoutX="436.0" layoutY="197.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Memory Type" style="-fx-cursor: text;" />
+        <Button fx:id="SaveButton" layoutX="154.0" layoutY="386.0" mnemonicParsing="false" onAction="#SaveButtonClick" text="Save">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="CancelButton" layoutX="392.0" layoutY="386.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <Glow level="0.15" />
+            </effect>
+        </Button>
+        <Button fx:id="ResetButton" layoutX="273.0" layoutY="386.0" mnemonicParsing="false" onAction="#ResetButtonClick" text="Reset">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Separator layoutX="328.0" layoutY="189.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="0.0" />
+      <TextField fx:id="FrequencyText" layoutX="436.0" layoutY="235.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Frequency" style="-fx-cursor: text;" />
+      <Label layoutX="340.0" layoutY="239.0" text="Frequency          :" />
+      <TextField fx:id="TGPText" layoutX="436.0" layoutY="273.0" prefHeight="25.0" prefWidth="192.0" promptText="Input TGP" style="-fx-cursor: text;" />
+      <Label layoutX="340.0" layoutY="277.0" text="TGP                    :" />
+      <TextField fx:id="PriceText" layoutX="436.0" layoutY="312.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Harga" style="-fx-cursor: text;" />
+      <Label layoutX="340.0" layoutY="316.0" text="Harga                 :" />
+    </children>   
+</AnchorPane>

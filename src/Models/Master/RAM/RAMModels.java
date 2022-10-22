@@ -9,8 +9,16 @@ package Models.Master.RAM;
  * @author mariq
  */
 public class RAMModels {
-    private String ID_RAM,Nama_RAM,Frequency,Capacity;
-    private int DDR,harga;
+    private String ID_RAM,Nama_RAM,Frequency,Capacity,CL;
+    private int DDR,Harga;
+
+    public String getCL() {
+        return CL;
+    }
+
+    public void setCL(String CL) {
+        this.CL = CL;
+    }
 
 
     public String getID_RAM() {
@@ -54,10 +62,10 @@ public class RAMModels {
     }
 
     public int getHarga() {
-        return harga;
+        return Harga;
     }
 
-    public void setHarga(int harga) {
-        this.harga = harga;
+    public void setHarga(int Harga) {
+        this.Harga = Harga;
     }
 }

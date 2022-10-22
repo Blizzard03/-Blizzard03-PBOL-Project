@@ -120,8 +120,7 @@ public class DataBaseUtilities {
             rs = statement.executeQuery();
             if (!rs.isBeforeFirst()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Access Dennied!!! ⛔"
-                );
+                alert.setContentText("Access Dennied!!! ⛔");
                 alert.show();
             } else {
                 while (rs.next()) {
@@ -129,14 +128,14 @@ public class DataBaseUtilities {
                     String getName = rs.getString("Nama_User");
                     if (getPassword.equals(Password)) {
                         ChangedScences(e, "/FXML/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
-                    }else {
+                    } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Access Dennied!!! ⛔" + "\n"
-                                + "Passwords Did Not Match!");
+                        alert.setContentText("Access Dennied!!! ⛔" + "\n" +
+                                "Passwords Did Not Match!");
                         alert.show();
                     }
                 }
-
+            
             }
         } catch (SQLException error) {
             error.printStackTrace();
@@ -165,6 +164,10 @@ public class DataBaseUtilities {
         }
     }
 
+    
+           
+    
+    
     public static void MainMenu(ActionEvent e, String Nama) {
 
     }

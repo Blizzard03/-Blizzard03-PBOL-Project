@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="656.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.Update.Master.GPU.UpdateGPUController">
+<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Update.Master.GPU.UpdateGPUController">
      <children>
         <Label layoutX="51.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION UPDATE GPU SERVICE">
             <font>
@@ -59,7 +59,7 @@
       <TextField fx:id="FrequencyText" layoutX="436.0" layoutY="235.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Frequency" style="-fx-cursor: text;" />
       <Label layoutX="340.0" layoutY="239.0" text="Frequency          :" />
       <TextField fx:id="TGPText" layoutX="436.0" layoutY="273.0" prefHeight="25.0" prefWidth="192.0" promptText="Input TGP" style="-fx-cursor: text;" />
-      <Label layoutX="340.0" layoutY="277.0" text="GDP                    :" />
+      <Label layoutX="340.0" layoutY="277.0" text="TGP                    :" />
       <TextField fx:id="PriceText" layoutX="436.0" layoutY="312.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Harga" style="-fx-cursor: text;" />
       <Label layoutX="340.0" layoutY="316.0" text="Harga                 :" />
     </children>   

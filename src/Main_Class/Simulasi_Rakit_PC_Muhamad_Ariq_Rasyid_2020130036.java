@@ -21,7 +21,8 @@ public class Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036 extends Applicatio
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FirstDisplay/MainMenu.fxml"));
-        Parent root = (Parent) loader.load();
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/MainMenu/Main_Menu2.fxml"));
+        Parent root = (Parent) loader2.load();
         Scene scene = new Scene(root);
         Stage stg = new Stage();
         stg.setTitle("Main Menu");

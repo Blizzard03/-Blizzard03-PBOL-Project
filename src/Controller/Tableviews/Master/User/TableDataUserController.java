@@ -60,7 +60,7 @@ public class TableDataUserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        showdata();
+        DataShows();
     }
 
     @FXML
@@ -88,7 +88,7 @@ public class TableDataUserController implements Initializable {
 
     }
 
-    public void showdata() {
+    public void DataShows() {
         ObservableList<UsersModels> data = Main_Menu2Controller.Database_User.Load();
         if (data != null) {
             TableViewUser.getColumns().clear();
@@ -153,14 +153,14 @@ public class TableDataUserController implements Initializable {
                 TableViewUser.getScene().getWindow().hide();;
             }
         } else {
-            showdata();
+            DataShows();
         }
     }
 
     @FXML
     private void MainMenuButtonClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML_AND_CONTROLLERS/MainMenu/Main_Menu2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainMenu/Main_Menu2.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
@@ -193,13 +193,29 @@ public class TableDataUserController implements Initializable {
         stg.setScene(scene);
         stg.setTitle("Update User Service");
         stg.showAndWait();
+        UpdateButton.getScene().getWindow().hide();
         } catch (IOException e){   e.printStackTrace();   }
-        showdata();  
+        DataShows();  
         FirstButtonClick(event);
     }
 
     @FXML
     private void DeleteButtonClick(ActionEvent event) {
+    UsersModels ss= new UsersModels();
+        ss=TableViewUser.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Are you Sure will be delete this data is permanent deleted?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            if (Main_Menu2Controller.Database_User.Delete_Data(ss.getID_User())) {
+                Alert b = new Alert(Alert.AlertType.INFORMATION, "Data User have been Deleted", ButtonType.OK);
+                b.showAndWait();
+            } else {
+                Alert b = new Alert(Alert.AlertType.ERROR, "Data User Fail to Delete", ButtonType.OK);
+                b.showAndWait();
+            }
+            DataShows();
+            FirstButtonClick(event);
+        }
         
     }
 

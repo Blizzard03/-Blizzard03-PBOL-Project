@@ -236,7 +236,7 @@ public class TableDataCPUController implements Initializable {
             stg.setIconified(false);
             stg.setScene(scene);
             stg.show();
-            MainMenuButtoon.getScene().getWindow().hide();
+            AddButton.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
 

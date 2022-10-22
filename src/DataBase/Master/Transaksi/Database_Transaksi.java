@@ -10,4 +10,5 @@ package DataBase.Master.Transaksi;
  */
 public class Database_Transaksi {
     
+    
 }
