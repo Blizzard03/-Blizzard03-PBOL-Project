@@ -1,5 +1,4 @@
-# UTS_PBOL
-Makul PBOL Project 
+# Makul PBOL Project 
 <br>
 <h4>Project&nbsp;Name&nbsp;:&nbsp;Simulasi Rakit PC </h4>
 Developer&nbsp;&nbsp;:<br>
