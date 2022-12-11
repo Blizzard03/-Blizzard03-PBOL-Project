@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036.jnlp">
+  <information>
+    <title>Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036</title>
+    <vendor>mariq</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036.jar" size="11927631" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="Main_Class.Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036"  name="Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036" />
+  <update check="always"/>
+</jnlp>
