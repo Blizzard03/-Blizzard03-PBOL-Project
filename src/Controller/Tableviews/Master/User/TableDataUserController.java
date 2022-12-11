@@ -7,6 +7,7 @@ package Controller.Tableviews.Master.User;
 import Controller.MainMenu.Main_Menu2Controller;
 import Controller.Update.Master.User.UpdateUserController;
 import Models.Master.User.UsersModels;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -162,6 +163,8 @@ public class TableDataUserController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainMenu/Main_Menu2.fxml"));
             Parent root = (Parent) loader.load();
+            Main_Menu2Controller MainMenu = loader.getController();
+            MainMenu.GetUserInformation();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.setTitle("Main Menu");
@@ -196,7 +199,7 @@ public class TableDataUserController implements Initializable {
         UpdateButton.getScene().getWindow().hide();
         } catch (IOException e){   e.printStackTrace();   }
         DataShows();  
-        FirstButtonClick(event);
+        UpdateButton.getScene().getWindow().hide();
     }
 
     @FXML

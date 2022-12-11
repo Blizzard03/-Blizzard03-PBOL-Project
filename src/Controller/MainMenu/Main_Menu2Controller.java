@@ -38,6 +38,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 /**
@@ -95,6 +96,8 @@ public class Main_Menu2Controller implements Initializable {
     private MenuItem RAMDataView;
     @FXML
     private MenuItem SSDDataView;
+    @FXML
+    private Label WelcomeName;
 
     /**
      * Initializes the controller class.
@@ -312,14 +315,11 @@ public class Main_Menu2Controller implements Initializable {
         }
     }
 
+    public void SetUserInformation(String Nama_User) {
+        WelcomeName.setText(("Welcome" + " " + Nama_User + " " + "!"));
+    }
+
+    public void GetUserInformation() {
+        WelcomeName.getText();
+    }
 }
-
-/*public void SetUserInformaration(String Nama_User) {
- WelcomeName.setText(("Welcome" +" " +Nama_User + " "+"!"));
- }*/
-
- /*public void GetUserInformation(){
- WelcomeName.getText();}
-}
-
- */

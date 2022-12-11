@@ -34,6 +34,7 @@ import javafx.stage.Stage;
  * @author mariq
  */
 public class Tableview_CoolerController implements Initializable {
+    @FXML
     private TableView<CoolerModels> TableViewCooler;
     @FXML
     private TextField DataCoolerSearch;
@@ -105,7 +106,7 @@ public class Tableview_CoolerController implements Initializable {
             col = new TableColumn("Socket");
             col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Socket"));
             TableViewCooler.getColumns().addAll(col);
-            col = new TableColumn("Nomor_Telepon_User");
+            col = new TableColumn("Harga");
             col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Harga"));
             TableViewCooler.getColumns().addAll(col);
 
@@ -206,7 +207,7 @@ public class Tableview_CoolerController implements Initializable {
             col = new TableColumn("Socket");
             col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Socket"));
             TableViewCooler.getColumns().addAll(col);
-            col = new TableColumn("Nomor_Telepon_User");
+            col = new TableColumn("Harga");
             col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Harga"));
             TableViewCooler.getColumns().addAll(col);
             TableViewCooler.setItems(data);

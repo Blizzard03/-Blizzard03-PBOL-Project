@@ -38,7 +38,7 @@
       </Label>
       <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="152.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
+            <Image url="@../../Images/Blizzard_03.png" />
          </image>
       </ImageView>
       <Label layoutX="163.0" layoutY="143.0" text="WPA TEAM">

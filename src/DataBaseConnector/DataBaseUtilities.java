@@ -31,6 +31,8 @@ public class DataBaseUtilities {
             try {
                 FXMLLoader loader = new FXMLLoader(DataBaseUtilities.class.getResource(FXML_FILE));
                 root = loader.load();
+                Main_Menu2Controller MainMenu = loader.getController();
+                MainMenu.SetUserInformation(Nama_User);
             } catch (IOException Eror) {
                 Eror.printStackTrace();
             }
@@ -118,25 +120,19 @@ public class DataBaseUtilities {
             statement = con.prepareStatement("SELECT Password,Nama_User FROM user Where Email_User=? ");
             statement.setString(1, Email);
             rs = statement.executeQuery();
-            if (!rs.isBeforeFirst()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Access Dennied!!! ⛔");
-                alert.show();
-            } else {
-                while (rs.next()) {
-                    String getPassword = rs.getString("Password");
-                    String getName = rs.getString("Nama_User");
-                    if (getPassword.equals(Password)) {
-                        ChangedScences(e, "/FXML/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
-                    } else {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Access Dennied!!! ⛔" + "\n" +
-                                "Passwords Did Not Match!");
-                        alert.show();
-                    }
+            while (rs.next()) {
+                String getPassword = rs.getString("Password");
+                String getName = rs.getString("Nama_User");
+                if (getPassword.equals(Password)) {
+                    ChangedScences(e, "/FXML/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Access Dennied!!! ⛔" + "\n"
+                            + "Passwords Did Not Match!");
+                    alert.show();
                 }
-            
             }
+
         } catch (SQLException error) {
             error.printStackTrace();
         } finally {
@@ -164,11 +160,47 @@ public class DataBaseUtilities {
         }
     }
 
-    
-           
-    
-    
     public static void MainMenu(ActionEvent e, String Nama) {
+        Connection con = null;
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database_pbol_uts", "root", "");
+            statement = con.prepareStatement("SELECT Nama_User FROM user Where Email_User=? ");
+            statement.setString(1, Nama);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                String getName = rs.getString("Nama_User");
+                
+                    ChangedScences(e, "/FXML/MainMenu/Main_Menu2.fxml", "Main Menu", getName);
+                 
+            }
+
+        } catch (SQLException error) {
+            error.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+        }
 
     }
 }
