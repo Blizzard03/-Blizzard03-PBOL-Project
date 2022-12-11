@@ -1,6 +1,4 @@
-# UTS_PBOL
-Makul PBOL Project 
-<br>
+# Makul PBOL Project 
 <h4>Project&nbsp;Name&nbsp;:&nbsp;Simulasi Rakit PC </h4>
 Developer&nbsp;&nbsp;:<br>
 Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Muhamad Ariq Rasyid <br>
