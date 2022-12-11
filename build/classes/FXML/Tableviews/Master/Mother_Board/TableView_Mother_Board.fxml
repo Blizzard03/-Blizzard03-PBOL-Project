@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Tableviews.Master.Mother_Board.TableView_Mother_BoardController">
+     <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Data Mother Board">
+         <font>
+            <Font name="Elephant" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="388.0" layoutY="17.0" text="Cari Data" />
+      <TextField fx:id="DataMother_BoardSearch" layoutX="449.0" layoutY="13.0" onKeyReleased="#DataMoboSearchFinder">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Button fx:id="FirstButton" layoutX="25.0" layoutY="112.0" mnemonicParsing="false" onAction="#FirstButtonClick" text="|&lt;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="BeforeButon" layoutX="22.0" layoutY="153.0" mnemonicParsing="false" onAction="#BeforeButonClick" text="&lt;&lt;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="LastButon" layoutX="581.0" layoutY="100.0" mnemonicParsing="false" onAction="#LastButtonClick" text="&gt;|">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="AfterButon" layoutX="579.0" layoutY="136.0" mnemonicParsing="false" onAction="#AfterButonClick" text="&gt;&gt;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="MainMenuButtoon" layoutX="281.0" layoutY="257.0" mnemonicParsing="false" onAction="#MainMenuButtonClick" text="Main Menu">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+       <TableView fx:id="TableViewMother_Board" layoutX="62.0" layoutY="43.0" prefHeight="200.0" prefWidth="514.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button fx:id="UpdateButton" layoutX="62.0" layoutY="257.0" mnemonicParsing="false" onAction="#UpdateButtonClick" style="-fx-cursor: hand;" text="Update" />
+      <Button fx:id="DeleteButton" layoutX="136.0" layoutY="257.0" mnemonicParsing="false" onAction="#DeleteButtonClick" style="-fx-cursor: hand;" text="Delete" />
+      <Button fx:id="AddButton" layoutX="387.0" layoutY="257.0" mnemonicParsing="false" onAction="#AddButtonClick" style="-fx-cursor: hand;" text="Add" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="733.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.Update.Master.Mother_Board.UpdateMotherBoardController">
+ <children>
+        <Label layoutX="24.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION UPDATE MOTHER BOARD SERVICE">
+            <font>
+                <Font name="Elephant" size="14.0" />
+            </font>
+        </Label>
+      
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="317.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../Images/Blizzard_03.png" />
+            </image>
+        </ImageView>
+      
+        <Label layoutX="332.0" layoutY="144.0" text="WPA TEAM">
+            <font>
+                <Font name="Elephant" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ID_MoboText" layoutX="140.0" layoutY="195.0" prefHeight="25.0" prefWidth="192.0" promptText="Input ID Mother Board" style="-fx-cursor: text;" />
+        <Label layoutX="15.0" layoutY="199.0" text="ID Mother Board      : " />
+        <Label layoutX="14.0" layoutY="237.0" text="Vendor                      : " />
+        <TextField fx:id="VendorText" layoutX="140.0" layoutY="235.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Vendor" style="-fx-cursor: text;" />
+        <TextField fx:id="Nama_MoboText" layoutX="140.0" layoutY="273.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Type" style="-fx-cu: text;" />
+        <Label layoutX="14.0" layoutY="277.0" text="Nama_Mother_Board :" />
+        <Label layoutX="359.0" layoutY="199.0" text="Type                  :" />
+        <TextField fx:id="Typetext" layoutX="455.0" layoutY="195.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Type" style="-fx-cursor: text;" />
+        <Button fx:id="SaveButton" layoutX="183.0" layoutY="333.0" mnemonicParsing="false" onAction="#SaveButtonClick" text="Save">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="CancelButton" layoutX="421.0" layoutY="333.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <Glow level="0.15" />
+            </effect>
+        </Button>
+        <Button fx:id="ResetButton" layoutX="302.0" layoutY="333.0" mnemonicParsing="false" onAction="#ResetButtonClick" text="Reset">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Separator layoutX="347.0" layoutY="187.0" orientation="VERTICAL" prefHeight="121.0" prefWidth="0.0" />
+        <TextField fx:id="PriceText" layoutX="455.0" layoutY="273.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Harga" style="-fx-cursor: text;" />
+        <Label layoutX="359.0" layoutY="277.0" text="Harga                 :" />
+      <Label layoutX="359.0" layoutY="237.0" text="Socket               :" />
+      <TextField fx:id="SocketText" layoutX="455.0" layoutY="233.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Socket" style="-fx-cursor: text;" />
+    </children>      
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Input.Master.Cooler.Input_CoolerController">
+    <children>
+        <Label layoutX="23.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION INPUT COOLER SERVICE">
+            <font>
+                <Font name="Elephant" size="14.0" />
+            </font>
+        </Label>
+      
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="300.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../Images/Blizzard_03.png" />
+            </image>
+        </ImageView>
+      
+        <Label layoutX="315.0" layoutY="144.0" text="WPA TEAM">
+            <font>
+                <Font name="Elephant" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ID_CoolerText" layoutX="125.0" layoutY="195.0" prefHeight="25.0" prefWidth="192.0" promptText="Input ID Cooler" style="-fx-cursor: text;" />
+        <Label layoutX="29.0" layoutY="199.0" text="ID Cooler              : " />
+        <Label layoutX="29.0" layoutY="239.0" text="Nama_Cooler       : " />
+        <TextField fx:id="Nama_CoolerText" layoutX="125.0" layoutY="235.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nama Cooler" style="-fx-cursor: text;" />
+        <TextField fx:id="TypeText" layoutX="126.0" layoutY="273.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Type" style="-fx-cu: text;" />
+        <Label layoutX="30.0" layoutY="277.0" text="Type                  : " />
+        <Label layoutX="340.0" layoutY="201.0" text="Socket                :" />
+        <TextField fx:id="Socketext" layoutX="436.0" layoutY="197.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Socket" style="-fx-cursor: text;" />
+        <Button fx:id="SaveButton" layoutX="183.0" layoutY="333.0" mnemonicParsing="false" onAction="#SaveButtonClick" text="Save">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="CancelButton" layoutX="421.0" layoutY="333.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <Glow level="0.15" />
+            </effect>
+        </Button>
+        <Button fx:id="ResetButton" layoutX="302.0" layoutY="333.0" mnemonicParsing="false" onAction="#ResetButtonClick" text="Reset">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Separator layoutX="328.0" layoutY="189.0" orientation="VERTICAL" prefHeight="121.0" prefWidth="0.0" />
+        <TextField fx:id="PriceText" layoutX="436.0" layoutY="235.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Harga" style="-fx-cursor: text;" />
+        <Label layoutX="340.0" layoutY="239.0" text="Harga                 :" />
+    </children>   
+</AnchorPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="433.0" prefWidth="619.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.Update.Master.User.UpdateUserController">
+    <children>
+        <Label layoutX="20.0" layoutY="14.0" text="WELCOME TO WPA REBUILD PC SIMULATION UPDATE USER SERVICE">
+            <font>
+                <Font name="Elephant" size="14.0" />
+            </font>
+        </Label>
+      
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="249.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../Images/Blizzard_03.png" />
+            </image>
+        </ImageView>
+      
+        <Label layoutX="253.0" layoutY="145.0" text="WPA TEAM">
+            <font>
+                <Font name="Elephant" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="NamaText" layoutX="225.0" layoutY="194.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nama" style="-fx-cursor: text;" />
+        <Label layoutX="129.0" layoutY="198.0" text="Nama                  : " />
+        <Label layoutX="129.0" layoutY="238.0" text="Email                  : " />
+        <TextField fx:id="EmailText" layoutX="225.0" layoutY="234.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Email" style="-fx-cursor: text;" />
+        <TextField fx:id="AlamatText" layoutX="226.0" layoutY="272.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Alamat" style="-fx-cu: text;" />
+        <TextField fx:id="NomorTeleponText" layoutX="225.0" layoutY="311.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Nomor Telepon" style="-fx-cursor: text;" />
+        <Label layoutX="130.0" layoutY="276.0" text="Alamat               : " />
+        <Label layoutX="129.0" layoutY="315.0" text="Nomor Telepon : " />
+        <Label layoutX="129.0" layoutY="355.0" text="Password           :" />
+        <TextField fx:id="PasswordText" layoutX="225.0" layoutY="351.0" prefHeight="25.0" prefWidth="192.0" promptText="Input Password" style="-fx-cursor: text;" />
+        <Button fx:id="SaveButton" layoutX="153.0" layoutY="398.0" mnemonicParsing="false" onAction="#SaveButtonClick" text="Save">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="CancelButton" layoutX="365.0" layoutY="398.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Cancel">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <Glow level="0.15" />
+            </effect>
+        </Button>
+        <Button fx:id="ResetButton" layoutX="254.0" layoutY="398.0" mnemonicParsing="false" onAction="#ResetButtonClick" text="Reset">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+    </children>   
+</AnchorPane>

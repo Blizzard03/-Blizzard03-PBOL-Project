@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="385.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML_AND_CONTROLLERS.About.AboutController">
+   <children>
+      <ImageView fx:id="MyPhoto" fitHeight="378.0" fitWidth="199.0" layoutX="386.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/M.Ariq%20Rasyid.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="WPALogo" fitHeight="125.0" fitWidth="96.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/Blizzard_03.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="232.0" layoutY="14.0" text="ABOUT ME">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="65.0" text="Name            : Muhamad Ariq Rasyid">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="116.0" text="WPA TEAM">
+         <font>
+            <Font name="Elephant" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="101.0" text="Date Of Birth : Aug 29th 2001">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="138.0" text="Email             : mariq.rasyid@gmail.com">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="171.0" text="Education : STMIK LIKMI ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="196.0" text="Material    : SOFTWARE ENGINEERING">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="225.0" text="Furaffinity   :  ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="251.0" text="Facebok      :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="279.0" text="Github        :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="FAlink" layoutX="112.0" layoutY="222.0" onAction="#FALinkClick" text="https://www.furaffinity.net/user/mariqblizzardwp03/">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="FBlink" layoutX="114.0" layoutY="250.0" onAction="#FBlinkclick" text="https://www.facebook.com/Ariq.Westernpack/">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="Github" layoutX="114.0" layoutY="276.0" onAction="#GithubClick" text="https://github.com/Blizzard03">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <Button fx:id="MainMenuButton" layoutX="266.0" layoutY="341.0" mnemonicParsing="false" onAction="#MainMenuButonCllick" text="Main Menu">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</AnchorPane>
