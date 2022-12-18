@@ -170,6 +170,21 @@ public class Main_Menu2Controller implements Initializable {
     private void BlueprintMaker(ActionEvent event) {
         //Soon
         //Bug 01 Failed to Connected & Read To DataBase
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Making_BluePrint/Making_BluePrint.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Rebuild PC Simulation");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            MainMenu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -260,7 +275,7 @@ public class Main_Menu2Controller implements Initializable {
         //Soon
         //Bug 2
         //Failed Connect to Database
-        /* try {
+         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Transaksi/Table_View_Transaksi.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
@@ -274,13 +289,13 @@ public class Main_Menu2Controller implements Initializable {
             MainMenu.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     @FXML
     private void RAMDataView(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableData_RAM.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableView_RAM.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();

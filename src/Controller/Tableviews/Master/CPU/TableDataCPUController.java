@@ -73,6 +73,9 @@ public class TableDataCPUController implements Initializable {
                 TableColumn col = new TableColumn("ID_CPU");
                 col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("ID_CPU"));
                 TableViewCPU.getColumns().addAll(col);
+                col = new TableColumn("Vendor");
+                col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Vendor"));
+                TableViewCPU.getColumns().addAll(col);
                 col = new TableColumn("Nama_CPU");
                 col.setCellValueFactory(new PropertyValueFactory<CPUModels, String>("Nama_CPU"));
                 TableViewCPU.getColumns().addAll(col);

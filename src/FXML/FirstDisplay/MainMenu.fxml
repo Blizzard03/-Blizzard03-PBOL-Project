@@ -13,7 +13,7 @@
     <children>
       <ImageView fitHeight="200.0" fitWidth="238.0" layoutX="83.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/H:/S5/PBOL/Project/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
+            <Image url="file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Images/Blizzard_03.png" />
          </image></ImageView>
         <Button fx:id="Login_Button" layoutX="20.0" layoutY="188.0" onAction="#Login_Click" text="Login">
          <cursor>

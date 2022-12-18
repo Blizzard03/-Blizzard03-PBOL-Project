@@ -9,7 +9,15 @@ package Models.Master.CPU;
  * @author mariq
  */
 public class CPUModels {
-    private String ID_CPU, Nama_CPU,Base_Clock,Max_Turbo_Clock,TDP,Socket;
+    private String ID_CPU, Nama_CPU,Base_Clock,Max_Turbo_Clock,TDP,Socket,Vendor;
+
+    public String getVendor() {
+        return Vendor;
+    }
+
+    public void setVendor(String Vendor) {
+        this.Vendor = Vendor;
+    }
     private int Cores,Thread,Harga;;
 
     public String getSocket() {

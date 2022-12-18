@@ -49,11 +49,14 @@ public class DataBase_CPU {
             while (rs.next()) {
                 CPUModels d = new Models.Master.CPU.CPUModels();
                 d.setID_CPU(rs.getString("ID_CPU"));
+                d.setVendor(rs.getString("Vendor"));
                 d.setNama_CPU(rs.getString("Nama_CPU"));
                 d.setBase_Clock(rs.getString("Base_Clock"));
                 d.setMax_Turbo_Clock(rs.getString("Max_Turbo_Clock"));
                 d.setCores(rs.getInt("Cores"));
+                d.setTDP(rs.getString("TDP"));
                 d.setThread(rs.getInt("Thread"));
+                d.setSocket(rs.getString("Socket"));
                 d.setHarga(rs.getInt("Harga"));
                 tableData.add(d);
                 i++;
