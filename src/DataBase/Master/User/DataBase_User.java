@@ -99,7 +99,7 @@ public class DataBase_User {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update user set Email_User = ?, Alamat_User = ? , Nomor_Telepon_User = ?, Password = ?, where  ID_User = ? ");
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update user set  Email_User = ?, Alamat_User = ?, Nomor_Telepon_User = ?, Password = ? where  ID_User = ? ");  
             con.preparedStatement.setString(1, getUserModels().getEmail_User());
             con.preparedStatement.setString(2, getUserModels().getAlamat_User());
             con.preparedStatement.setString(3, getUserModels().getNomor_Telepon_User());

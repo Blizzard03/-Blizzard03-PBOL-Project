@@ -24,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -39,169 +40,161 @@ import javafx.stage.Stage;
  */
 public class Making_BluePrintController implements Initializable {
 
-    Connection conn;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
-
-    //Button
+    /*
+     * Buttons
+     */
+    //Button Cancel
     @FXML
     private Button Cancel_Button;
-    //Button
+
+    //Button Reset
+    @FXML
     private Button Reset_Button;
 
-    //String List
-    //CPU
-    private String Nama_CPU;
-    //GPU
-    private String Nama_GPU;
-    //Cooler
-    private String Nama_Cooler;
-
-    //List CPU
-    //AMD
-    final ObservableList Options_AMD = FXCollections.observableArrayList();
-
-    //Intel
-    final ObservableList Options_Intel = FXCollections.observableArrayList();
-
-    //List GPU
-    //Radeon
-    final ObservableList Options_Radeon = FXCollections.observableArrayList();
-
-    //NVDIA
-    final ObservableList Options_NVIDIA = FXCollections.observableArrayList();
-
-    //List SSD
-    final ObservableList Option_Cooler = FXCollections.observableArrayList();
-
-    //Radio Button
-    //CPU
-    @FXML
-    private RadioButton AMDRadio;
-    @FXML
-    private RadioButton IntelRadio;
-
-    //GPU
-    @FXML
-    private RadioButton RadeonRadio;
-    @FXML
-    private RadioButton NVDIARadio;
-
-    //Cooler
-    @FXML
-    private RadioButton AirRadio;
-    @FXML
-    private RadioButton LiquidRadio;
-
-    @FXML
-    private ComboBox<String> SelectionCPU;
-    @FXML
-    private ComboBox<String> Selection_Mobo;
-
-    @FXML
-    private ComboBox<?> Selection_Cooler;
-
-    @FXML
-    private TextField CPUQTY;
-    @FXML
-    private Label CPU_Price;
-    @FXML
-    private Label Mobo_Price;
-    @FXML
-    private TextField MoboQTY;
-    @FXML
-    private Label Cooler_Price;
-    @FXML
-    private TextField CoolerQTY;
-    /* @FXML
-    private ComboBox<?> Selection_GPU;
-    @FXML
-    private ComboBox<?> Selection_SSD;
-    @FXML
-    private ComboBox<?> Selection_RAM;
-    @FXML
-    private ComboBox<?> Selection_RAM1;
-    @FXML*/
-    @FXML
-    private TextField GPUQTY;
-    @FXML
-    private Label GPU_Price;
-    @FXML
-    private TextField CPUQTY22;
-    @FXML
-    private Label CPU_Price22;
-    @FXML
-    private TextField CPUQTY23;
-    @FXML
-    private Label CPU_Price23;
-    @FXML
-    private TextField CPUQTY24;
-    @FXML
-    private Label CPU_Price24;
+    //Button Order
     @FXML
     private Button Order_Button;
+
+    //Button Select User
     @FXML
-    private Label Name_User;
+    private Button Select_User;
+    
     @FXML
-    private ComboBox<?> Userlist;
+    private Button Select_CPU;
+    
+     @FXML
+    private Button Select_Mother_BoardButton;
     @FXML
-    private ToggleGroup CPU;
+    private Button Select_Cooler_Button;
+    
+    /*
+     * Labels
+     */
+    //Label Total Price
     @FXML
-    private ToggleGroup Cooler;
+    private Label Total_Price;
+
+    //Label CPU Price
     @FXML
-    private ToggleGroup GPU;
+    private Label CPU_Price;
+
+    //Label Mother Board Price
     @FXML
-    private ComboBox<?> Selection_GPU;
+    private Label Mobo_Price;
+
+    //Label Cooler Price
     @FXML
-    private ComboBox<?> Selection_SSD;
+    private Label Cooler_Price;
+
+    //Label GPU Price
     @FXML
-    private ComboBox<?> Selection_RAM;
+    private Label GPU_Price;
+
+    //Label SSD Price  
     @FXML
-    private ComboBox<?> Selection_RAM1;
+    private Label SSD_Price;
+
+    //Label RAM Price  
+    @FXML
+    private Label RAM_Price;
+
+    //Label Power Supply
+    @FXML
+    private Label Power_Supply_Price;
+
+    /*
+     * TextFields
+     */
+    @FXML
+    private TextField CPUQTY;
+
+    @FXML
+    private TextField MoboQTY;
+
+    @FXML
+    private TextField CoolerQTY;
+    @FXML
+    private TextField GPUQTY;
+
+    @FXML
+    private TextField SSD_QTY;
+
+    @FXML
+    private TextField RAM_QTY;
+
+    @FXML
+    private TextField Power_Supply_QTY;
+
+    @FXML
+    private TextField User_Text;
+   
+    @FXML
+    private TextField CPU_Text;
+    @FXML
+    private TextField Mother_Board_Text;
+   
+    @FXML
+    private TextField Cooler_Text;
+    @FXML
+    private TextField GPU_Text;
+    @FXML
+    private Button Select_GPU_Button;
+    @FXML
+    private Button Selection_SSD_Button;
+    @FXML
+    private TextField SSD_Text;
+    @FXML
+    private Button Selection_RAM_Button;
+    @FXML
+    private TextField RAM_Text;
+    @FXML
+    private Button Selection_Power_Supply_Button;
+    @FXML
+    private TextField Power_Supply_Text;
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        CheckConnection();
-        FillComboBoxAMD();
-        ToggleGroup CPU = new ToggleGroup();
-        AMDRadio = new RadioButton("AMD");
-        
-        ComboBox CPU_Selection = new ComboBox(Options_AMD);
-        
-      
-       
-        CPU_Selection.setOnAction(e -> {
-            try {
-                String query = "SELECT Vendor, Nama_CPU,Harga FROM CPU WHERE Vendor =?";
-                pst = conn.prepareStatement(query);
-                pst.setString(1, (String) CPU_Selection.getSelectionModel().getSelectedItem());
-                rs = pst.executeQuery();
-                while (rs.next()) {
-                    if ("AMD".equals(rs.getString("AMD"))) {
-                        AMDRadio.setSelected(true);
-                        CPU_Price24.setText(rs.getNString("Harga"));
-                    }else if ("Intel".equals(rs.getString("Intel"))){
-                        IntelRadio.setSelected(true);
-                        CPU_Price24.setText(rs.getNString("Harga"));
-                    }else {
-                        AMDRadio.setSelected(false);
-                        IntelRadio.setSelected(false);
-                    }
-
-                }
-                pst.close();;
-                rs.close();
-            } catch (SQLException error) {
-                Logger.getLogger(Making_BluePrintController.class.getName()).log(Level.SEVERE, null, e);
-            }
-        });
-        
-        
     }
 
-//Cancel Button -> Back To Main Menu
     @FXML
-    private void Cancel_Buton(ActionEvent event) {
+    private void Order_Buton(ActionEvent event) {
+    }
+
+    @FXML
+    private void Select_User_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Select_CPU_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Select_Mother_Board_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Select_Cooler_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Select_GPU_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Selection_SSD_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Selection_RAM_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Selection_Power_Supply_Click(ActionEvent event) {
+    }
+
+    //Cancel Button -> Back To Main Menu
+    @FXML
+    private void Cancel_Buton_Click(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MainMenu/Main_Menu2.fxml"));
             Parent root = (Parent) loader.load();
@@ -219,69 +212,8 @@ public class Making_BluePrintController implements Initializable {
         }
     }
 
-    public void FillComboBoxAMD(){
-        Options_AMD.clear();
-        try{
-            String Query = "Select Vendor, Nama_CPU from cpu where Vendor=?";
-            pst = conn.prepareStatement(Query);
-            rs = pst.executeQuery();
-            while(rs.next()){
-                Options_AMD.add("AMD".equals(rs.getString("Vendor")));
-            }
-            pst.close();
-            rs.close();
-        }catch (SQLException error){
-            Logger.getLogger(Making_BluePrintController.class.getName()).log(Level.SEVERE,null,error);
-        }
-    }
-    
-    public void CheckConnection(){
-        conn = SqlConnection.DbConnector();
-        if(conn == null){
-            System.out.println("Connection Not Successful");
-            System.exit(1);            
-        }else{
-            System.out.println("Connection Successful");
-        }
+    @FXML
+    private void Reset_Buton_Click(ActionEvent event) {
     }
 
-    @FXML
-    private void AMDselection(ActionEvent event) {
-         AMDRadio.requestFocus();
-        AMDRadio.setToggleGroup(CPU);
-        Nama_CPU = AMDRadio.getText();
-        FillComboBoxAMD();
-        
-    }
-
-    @FXML
-    private void IntelSelection(ActionEvent event) {
-         IntelRadio.requestFocus();
-        IntelRadio.setToggleGroup(CPU);
-        Nama_CPU = IntelRadio.getText();
-    }
-
-    @FXML
-    private void LiquidSelection(ActionEvent event) {
-    }
-
-    @FXML
-    private void AirSelection(ActionEvent event) {
-    }
-
-    @FXML
-    private void RadeonSelection(ActionEvent event) {
-    }
-
-    @FXML
-    private void NVDIASelectioin(ActionEvent event) {
-    }
-
-    @FXML
-    private void Order_Buton(ActionEvent event) {
-    }
-
-    @FXML
-    private void Reset_Buton(ActionEvent event) {
-    }
 }

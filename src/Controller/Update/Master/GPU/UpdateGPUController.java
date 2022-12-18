@@ -97,7 +97,7 @@ public class UpdateGPUController implements Initializable {
                 a.showAndWait();
                 ID_GPUText.setEditable(true);
                 ResetButtonClick(event);
-                try {
+                /*try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/GPU/TableDataGPU.fxml"));
                     Parent root = (Parent) loader.load();
                     Scene scene = new Scene(root);
@@ -111,7 +111,7 @@ public class UpdateGPUController implements Initializable {
                     SaveButton.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
 
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Update Data GPU Failed", ButtonType.OK);

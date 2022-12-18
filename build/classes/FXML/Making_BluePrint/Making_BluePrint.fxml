@@ -8,159 +8,123 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="750.0" maxWidth="1309.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Making_BluePrint.Making_BluePrintController">
+<AnchorPane id="AnchorPane" maxHeight="788.0" maxWidth="912.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Making_BluePrint.Making_BluePrintController">
      <children>
-        <Label layoutX="362.0" layoutY="5.0" text="LETS MAKE YOUR PC BUILD BY WPA REBUILD PC SIMULATION">
+        <Label layoutX="48.0" layoutY="21.0" text="LETS MAKE YOUR PC BUILD BY WPA REBUILD PC SIMULATION">
             <font>
                 <Font name="Elephant" size="14.0" />
             </font>
         </Label>
       
-        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="580.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/Blizzard_03.png" />
-         </image>
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="270.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../Images/Blizzard_03.png" />
+            </image>
         </ImageView>
         
-        <Label layoutX="591.0" layoutY="142.0" text="WPA TEAM">
+        <Label layoutX="281.0" layoutY="153.0" text="WPA TEAM">
             <font>
                 <Font name="Elephant" size="12.0" />
             </font>
         </Label>
-      <Label layoutX="41.0" layoutY="232.0" text="CPU                 :">
+      <Label layoutX="46.0" layoutY="265.0" text="CPU                 :">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <RadioButton fx:id="AMDRadio" layoutX="149.0" layoutY="238.0" mnemonicParsing="false" onAction="#AMDselection" style="-fx-cursor: hand;" text="AMD">
-         <toggleGroup>
-            <ToggleGroup fx:id="CPU" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="IntelRadio" layoutX="149.0" layoutY="266.0" mnemonicParsing="false" onAction="#IntelSelection" style="-fx-cursor: hand;" text="Intel" toggleGroup="$CPU" />
-      <ComboBox fx:id="SelectionCPU" layoutX="149.0" layoutY="293.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Label layoutX="40.0" layoutY="334.0" text="Mother Board   : ">
+      <Label layoutX="45.0" layoutY="367.0" text="Mother Board   : ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="Selection_Mobo" layoutX="149.0" layoutY="334.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Label layoutX="40.0" layoutY="369.0" text="Cooler               : ">
+      <Label layoutX="45.0" layoutY="402.0" text="Cooler               : ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <RadioButton fx:id="LiquidRadio" layoutX="149.0" layoutY="401.0" mnemonicParsing="false" onAction="#LiquidSelection" style="-fx-cursor: hand;" text="Liquid Cooling">
-         <toggleGroup>
-            <ToggleGroup fx:id="Cooler" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="AirRadio" layoutX="149.0" layoutY="373.0" mnemonicParsing="false" onAction="#AirSelection" style="-fx-cursor: hand;" text="Air Cooling" toggleGroup="$Cooler" />
-      <Label layoutX="664.0" layoutY="228.0" text="GPU                 : ">
+      <Label layoutX="44.0" layoutY="498.0" text="GPU                 : ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="Selection_Cooler" layoutX="149.0" layoutY="425.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <RadioButton fx:id="RadeonRadio" layoutX="775.0" layoutY="260.0" mnemonicParsing="false" onAction="#RadeonSelection" style="-fx-cursor: hand;" text="Radeon">
-         <toggleGroup>
-            <ToggleGroup fx:id="GPU" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="NVDIARadio" layoutX="775.0" layoutY="232.0" mnemonicParsing="false" onAction="#NVDIASelectioin" style="-fx-cursor: hand;" text="NVDIA" toggleGroup="$GPU" />
-      <Label layoutX="379.0" layoutY="220.0" text="Quantity">
+      <Label layoutX="384.0" layoutY="253.0" text="Quantity">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="495.0" layoutY="220.0" text="Price">
+      <Label layoutX="500.0" layoutY="253.0" text="Price">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="CPUQTY" layoutX="379.0" layoutY="293.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <Label fx:id="CPU_Price" layoutX="495.0" layoutY="293.0" style="-fx-cursor: hand;" text="Rp ">
+      <TextField fx:id="CPUQTY" layoutX="384.0" layoutY="326.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label fx:id="CPU_Price" layoutX="500.0" layoutY="326.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Mobo_Price" layoutX="495.0" layoutY="334.0" style="-fx-cursor: hand;" text="Rp ">
+      <Label fx:id="Mobo_Price" layoutX="500.0" layoutY="367.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="MoboQTY" layoutX="379.0" layoutY="334.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <Label fx:id="Cooler_Price" layoutX="495.0" layoutY="425.0" style="-fx-cursor: hand;" text="Rp ">
+      <TextField fx:id="MoboQTY" layoutX="384.0" layoutY="367.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label fx:id="Cooler_Price" layoutX="500.0" layoutY="458.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="CoolerQTY" layoutX="379.0" layoutY="425.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <ComboBox fx:id="Selection_GPU" layoutX="774.0" layoutY="283.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Label layoutX="663.0" layoutY="331.0" text="SSD                 : ">
+      <TextField fx:id="CoolerQTY" layoutX="384.0" layoutY="458.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label layoutX="43.0" layoutY="601.0" text="SSD                 : ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="Selection_SSD" layoutX="773.0" layoutY="331.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Label layoutX="663.0" layoutY="373.0" text="RAM                 : ">
+      <Label layoutX="43.0" layoutY="643.0" text="RAM                 : ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="Selection_RAM" layoutX="773.0" layoutY="373.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Label layoutX="650.0" layoutY="416.0" text="Power Supply      :">
+      <Label layoutX="30.0" layoutY="686.0" text="Power Supply      :">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="Selection_RAM1" layoutX="773.0" layoutY="416.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <TextField fx:id="GPUQTY" layoutX="1004.0" layoutY="283.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <Label fx:id="GPU_Price" layoutX="1120.0" layoutY="283.0" style="-fx-cursor: hand;" text="Rp ">
+      <TextField fx:id="GPUQTY" layoutX="384.0" layoutY="553.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label fx:id="GPU_Price" layoutX="500.0" layoutY="553.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="CPUQTY22" layoutX="1003.0" layoutY="331.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <Label fx:id="CPU_Price22" layoutX="1119.0" layoutY="331.0" style="-fx-cursor: hand;" text="Rp ">
+      <TextField fx:id="CPUQTY22" layoutX="383.0" layoutY="601.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label fx:id="CPU_Price22" layoutX="499.0" layoutY="601.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="CPUQTY23" layoutX="1003.0" layoutY="373.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <Label fx:id="CPU_Price23" layoutX="1119.0" layoutY="373.0" style="-fx-cursor: hand;" text="Rp ">
+      <TextField fx:id="CPUQTY23" layoutX="383.0" layoutY="643.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label fx:id="CPU_Price23" layoutX="499.0" layoutY="643.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="CPUQTY24" layoutX="1003.0" layoutY="416.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
-      <Label fx:id="CPU_Price24" layoutX="1119.0" layoutY="416.0" style="-fx-cursor: hand;" text="Rp ">
+      <TextField fx:id="CPUQTY24" layoutX="383.0" layoutY="686.0" prefHeight="25.0" prefWidth="51.0" style="-fx-cursor: text;" />
+      <Label fx:id="CPU_Price24" layoutX="499.0" layoutY="686.0" style="-fx-cursor: hand;" text="Rp ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="Order_Button" layoutX="1214.0" layoutY="439.0" mnemonicParsing="false" onAction="#Order_Buton" style="-fx-cursor: hand;" text="Order" />
-      <Label layoutX="38.0" layoutY="182.0" text="User                  :">
+      <Button fx:id="Order_Button" layoutX="578.0" layoutY="749.0" mnemonicParsing="false" onAction="#Order_Buton" text="Order" />
+      <Label layoutX="43.0" layoutY="215.0" text="User">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Name_User" layoutX="112.0" layoutY="182.0">
+      <Label fx:id="Name_User" layoutX="117.0" layoutY="215.0">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="627.0" layoutY="195.0" orientation="VERTICAL" prefHeight="273.0" prefWidth="6.0" />
-      <Label layoutX="1119.0" layoutY="208.0" text="Price">
-         <font>
-            <Font name="Dubai Regular" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="1003.0" layoutY="208.0" text="Quantity">
-         <font>
-            <Font name="Dubai Regular" size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="Userlist" layoutX="144.0" layoutY="184.0" prefWidth="150.0" style="-fx-cursor: hand;" />
-      <Button fx:id="Cancel_Button" layoutX="1214.0" layoutY="16.0" mnemonicParsing="false" onAction="#Cancel_Buton" style="-fx-cursor: hand;" text="Cancel" />
-      <Button fx:id="Reset_Button" layoutX="1148.0" layoutY="16.0" mnemonicParsing="false" onAction="#Reset_Buton" style="-fx-cursor: hand;" text="Reset" />
-      
+      <Separator layoutY="725.0" prefHeight="15.0" prefWidth="638.0" style="-fx-background-color: Gold;" />
      </children>
 </AnchorPane>
