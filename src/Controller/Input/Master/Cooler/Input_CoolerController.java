@@ -106,14 +106,12 @@ public class Input_CoolerController implements Initializable {
         cs.setHarga(Integer.parseInt(PriceText.getText()));
         Nama_CoolerText.requestFocus();
         Main_Menu2Controller.Database_Cooler.setCoolerModels(cs);;
-        if (Changed_Data) {
-            
-            if (Main_Menu2Controller.Database_Cooler.insert()) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Create Data Cooler Successed", ButtonType.OK);
-                a.showAndWait();
-                ID_CoolerText.setEditable(true);
-                ResetButtonClick(event);
-                try {
+        if (Changed_Data) {  
+            if(Main_Menu2Controller.Database_Cooler.validate(cs.getID_COOLER())<=0){
+            if(Main_Menu2Controller.Database_Cooler.insert()){
+               Alert a=new Alert(Alert.AlertType.INFORMATION,"Data berhasil disimpan",ButtonType.OK);
+               a.showAndWait();            
+               ResetButtonClick(event);try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
                     Parent root = (Parent) loader.load();
                     Scene scene = new Scene(root);
@@ -128,12 +126,14 @@ public class Input_CoolerController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Create Data Cooler Failed", ButtonType.OK);
-                a.showAndWait();
-                Nama_CoolerText.requestFocus();
+               Alert a=new Alert(Alert.AlertType.ERROR,"Data gagal disimpan",ButtonType.OK);
+               a.showAndWait();            
             }
+        }else{Alert a=new Alert(Alert.AlertType.ERROR,"Data sudah ada",ButtonType.OK);
+            a.showAndWait();
+            ID_CoolerText.requestFocus();
+        };
         }
     }
 

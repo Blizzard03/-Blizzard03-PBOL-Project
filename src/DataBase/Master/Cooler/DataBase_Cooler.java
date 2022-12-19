@@ -54,7 +54,7 @@ public class DataBase_Cooler {
         }
     }
 
-    public int validate(int nomor) {
+    public int validate(String nomor) {
         int val = 0;
         try {
             Database_Connection con = new Database_Connection();

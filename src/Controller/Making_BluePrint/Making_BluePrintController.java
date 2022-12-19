@@ -194,15 +194,18 @@ public class Making_BluePrintController implements Initializable {
     private void Select_User_Click(ActionEvent event) {
         User_Text.setEditable(false);
         
+        
     }
 
     @FXML
     private void Select_CPU_Click(ActionEvent event) {
         CPU_Text.setEditable(false);
+        //CPU_Price.set
     }
 
     @FXML
     private void Select_Mother_Board_Click(ActionEvent event) {
+        
     }
 
     @FXML
