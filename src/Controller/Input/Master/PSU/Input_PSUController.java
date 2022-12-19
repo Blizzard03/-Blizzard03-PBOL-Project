@@ -133,7 +133,7 @@ public class Input_PSUController implements Initializable {
         psu.setHarga(Integer.parseInt(HargaText.getText()));
         Main_Menu2Controller.Database_PSU.setPSU_Models(psu);
         if (Data_Edit) {
-            if (Main_Menu2Controller.Database_GPU.Update_Data()) {
+            if (Main_Menu2Controller.Database_PSU.insert()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Insert Data PSU Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_PSUText.setEditable(true);

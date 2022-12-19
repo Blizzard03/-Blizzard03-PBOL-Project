@@ -4,19 +4,13 @@
  */
 package Controller.Making_BluePrint;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import DataBaseConnector.SqlConnection;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 import java.net.URL;
-import java.sql.ResultSet;
+
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,12 +18,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
+
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -40,6 +32,7 @@ import javafx.stage.Stage;
  */
 public class Making_BluePrintController implements Initializable {
 
+   
     /*
      * Buttons
      */
@@ -58,15 +51,35 @@ public class Making_BluePrintController implements Initializable {
     //Button Select User
     @FXML
     private Button Select_User;
-    
+
+    //Button Selecct CPU
     @FXML
     private Button Select_CPU;
-    
-     @FXML
+
+    //Button Select Mother Board
+    @FXML
     private Button Select_Mother_BoardButton;
+
+    //Button Select Cooler
     @FXML
     private Button Select_Cooler_Button;
-    
+
+    //Button Select GPU
+    @FXML
+    private Button Select_GPU_Button;
+
+    //Button Select SSD
+    @FXML
+    private Button Selection_SSD_Button;
+
+    //Button Select Power Supply
+    @FXML
+    private Button Selection_Power_Supply_Button;
+
+    //Button Select RAM
+    @FXML
+    private Button Selection_RAM_Button;
+
     /*
      * Labels
      */
@@ -105,52 +118,69 @@ public class Making_BluePrintController implements Initializable {
     /*
      * TextFields
      */
+    //TextField Quantity CPU
     @FXML
     private TextField CPUQTY;
 
+    //TextField Quantity Mother Board
     @FXML
     private TextField MoboQTY;
 
+    //TextField Quantity Cooler
     @FXML
     private TextField CoolerQTY;
+
+    //TextField Quantity GPU
     @FXML
     private TextField GPUQTY;
 
+    //TextField Quantity SSD
     @FXML
     private TextField SSD_QTY;
 
+    //TextField Quantity RAM
     @FXML
     private TextField RAM_QTY;
 
+    //TextField Quanity Power Supply
     @FXML
     private TextField Power_Supply_QTY;
 
+    //TextField User
     @FXML
     private TextField User_Text;
-   
+
+    //TextField CPU
     @FXML
     private TextField CPU_Text;
+
+    //TextField Mother Board
     @FXML
     private TextField Mother_Board_Text;
-   
+
+    //TextField Cooler
     @FXML
     private TextField Cooler_Text;
+
+    //TextField GPU
     @FXML
     private TextField GPU_Text;
-    @FXML
-    private Button Select_GPU_Button;
-    @FXML
-    private Button Selection_SSD_Button;
+
+    //TextField SSD
     @FXML
     private TextField SSD_Text;
-    @FXML
-    private Button Selection_RAM_Button;
+
+    //TextFlied RAM
     @FXML
     private TextField RAM_Text;
-    @FXML
-    private Button Selection_Power_Supply_Button;
+
+    //TextField Power Supply
     @FXML
     private TextField Power_Supply_Text;
+    
+    //TextField Transaksi
+    @FXML
+    private TextField Transaksi_Text;
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -162,10 +192,13 @@ public class Making_BluePrintController implements Initializable {
 
     @FXML
     private void Select_User_Click(ActionEvent event) {
+        User_Text.setEditable(false);
+        
     }
 
     @FXML
     private void Select_CPU_Click(ActionEvent event) {
+        CPU_Text.setEditable(false);
     }
 
     @FXML
@@ -214,6 +247,22 @@ public class Making_BluePrintController implements Initializable {
 
     @FXML
     private void Reset_Buton_Click(ActionEvent event) {
+        CPUQTY.setText("");
+        MoboQTY.setText("");
+        CoolerQTY.setText("");
+        GPUQTY.setText("");
+        SSD_QTY.setText("");
+        RAM_QTY.setText("");
+        Power_Supply_QTY.setText("");
+        User_Text.setText("");
+        CPU_Text.setText("");
+        Mother_Board_Text.setText("");
+        Cooler_Text.setText("");
+        GPU_Text.setText("");
+        SSD_Text.setText("");
+        RAM_Text.setText("");
+        Power_Supply_Text.setText("");
+        Transaksi_Text.setText("");
     }
 
 }

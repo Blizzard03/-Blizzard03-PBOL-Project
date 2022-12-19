@@ -115,7 +115,7 @@ public class Input_RAMController implements Initializable {
         rs.setHarga(Integer.parseInt(PriceText.getText()));
         Main_Menu2Controller.Database_RAM.setRAMModels(rs);
         if (Changed_Data) {
-            if (Main_Menu2Controller.Database_GPU.Update_Data()) {
+            if (Main_Menu2Controller.Database_RAM.Insert_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Insert Data RAM Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_RAMText.setEditable(true);

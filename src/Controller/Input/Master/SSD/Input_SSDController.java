@@ -94,7 +94,7 @@ public class Input_SSDController implements Initializable {
 
         Main_Menu2Controller.Database_SSD.setSSDModels(ssd);
         if (Changed_Data) {
-            if (Main_Menu2Controller.Database_GPU.Update_Data()) {
+            if (Main_Menu2Controller.Database_GPU.Insert_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Insert Data SSD Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_SSDText.setEditable(true);

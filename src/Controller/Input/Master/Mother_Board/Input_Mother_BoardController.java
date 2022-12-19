@@ -84,7 +84,7 @@ public class Input_Mother_BoardController implements Initializable {
         Main_Menu2Controller.Database_Mobo.setMother_Board_Models(mobo);
         if (Changed_Data) {
             if (Main_Menu2Controller.Database_SSD.update()) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data Mother Board Successed", ButtonType.OK);
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Insert Data Mother Board Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_MoboText.setEditable(true);
                 ResetButtonClick(event);
@@ -105,7 +105,7 @@ public class Input_Mother_BoardController implements Initializable {
                 }
 
             } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Update Data SSD Failed", ButtonType.OK);
+                Alert a = new Alert(Alert.AlertType.ERROR, "Insert Data Mother Board Failed", ButtonType.OK);
                 a.showAndWait();
                 Nama_MoboText.requestFocus();
             }

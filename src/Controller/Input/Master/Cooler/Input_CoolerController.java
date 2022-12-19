@@ -69,11 +69,11 @@ public class Input_CoolerController implements Initializable {
     @FXML
     private void CancelButtonClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/RAM/TableView_RAM.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("RAM Table Data View");
+            stg.setTitle("Cooler Table Data View");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
@@ -107,7 +107,8 @@ public class Input_CoolerController implements Initializable {
         Nama_CoolerText.requestFocus();
         Main_Menu2Controller.Database_Cooler.setCoolerModels(cs);;
         if (Changed_Data) {
-            if (Main_Menu2Controller.Database_Cooler.update()) {
+            
+            if (Main_Menu2Controller.Database_Cooler.insert()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Create Data Cooler Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_CoolerText.setEditable(true);

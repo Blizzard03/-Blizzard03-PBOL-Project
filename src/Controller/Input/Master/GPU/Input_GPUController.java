@@ -92,7 +92,7 @@ public class Input_GPUController implements Initializable {
 
         Main_Menu2Controller.Database_GPU.setGPUModels(gs);
         if (ChangedData) {
-            if (Main_Menu2Controller.Database_GPU.Update_Data()) {
+            if (Main_Menu2Controller.Database_GPU.Insert_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Insert Data GPU  Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_GPUText.setEditable(true);

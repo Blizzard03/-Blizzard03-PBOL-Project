@@ -187,7 +187,7 @@ public class TableView_RAMController implements Initializable {
             Parent root = (Parent) loader.load();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
-            stg.setTitle("Update CPU");
+            stg.setTitle("Update RAM");
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
@@ -240,8 +240,6 @@ public class TableView_RAMController implements Initializable {
         }
     }
 
-    @FXML
-    private void DataRAMSearchFinder(KeyEvent event) {
-    }
+   
     
 }
