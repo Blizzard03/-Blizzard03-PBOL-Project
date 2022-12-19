@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="788.0" maxWidth="912.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Making_BluePrint.Making_BluePrintController">
+<AnchorPane id="AnchorPane" maxHeight="788.0" maxWidth="912.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Making_BluePrint.Making_BluePrintController">
      <children>
-        <Label layoutX="87.0" layoutY="14.0" text="LETS MAKE YOUR PC BUILD BY WPA REBUILD PC SIMULATION">
+        <Label layoutX="159.0" layoutY="14.0" text="LETS MAKE YOUR PC BUILD BY WPA REBUILD PC SIMULATION">
             <font>
                 <Font name="Elephant" size="14.0" />
             </font>
         </Label>
       
-        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="297.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="349.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/Blizzard_03.png" />
             </image>
         </ImageView>
         
-        <Label layoutX="308.0" layoutY="146.0" text="WPA TEAM">
+        <Label layoutX="360.0" layoutY="146.0" text="WPA TEAM">
             <font>
                 <Font name="Elephant" size="12.0" />
             </font>
@@ -115,7 +115,7 @@
          </font>
       </Label>
       <Button fx:id="Order_Button" layoutX="153.0" layoutY="600.0" mnemonicParsing="false" onAction="#Order_Buton" style="-fx-cursor: hand;" text="Order" />
-      <Label layoutX="44.0" layoutY="190.0" text="User                 : ">
+      <Label layoutX="44.0" layoutY="228.0" text="User                 : ">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
@@ -125,9 +125,9 @@
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Separator layoutY="560.0" prefHeight="15.0" prefWidth="694.0" style="-fx-background-color: Gold;" />
-      <TextField fx:id="User_Text" layoutX="142.0" layoutY="190.0" prefHeight="25.0" prefWidth="160.0" style="-fx-cursor: text;" />
-      <Button fx:id="Select_User" layoutX="313.0" layoutY="190.0" mnemonicParsing="false" onAction="#Select_User_Click" style="-fx-cursor: hand;" text="Select User" />
+      <Separator layoutY="560.0" prefHeight="15.0" prefWidth="821.0" style="-fx-background-color: Gold;" />
+      <TextField fx:id="User_Text" layoutX="142.0" layoutY="228.0" prefHeight="25.0" prefWidth="160.0" style="-fx-cursor: text;" />
+      <Button fx:id="Select_User" layoutX="313.0" layoutY="228.0" mnemonicParsing="false" onAction="#Select_User_Click" style="-fx-cursor: hand;" text="Select User" />
       <Button fx:id="Select_CPU" layoutX="313.0" layoutY="265.0" mnemonicParsing="false" onAction="#Select_CPU_Click" style="-fx-cursor: hand;" text="Select CPU" />
       <TextField fx:id="CPU_Text" layoutX="142.0" layoutY="265.0" prefHeight="25.0" prefWidth="160.0" style="-fx-cursor: text;" />
       <TextField fx:id="Mother_Board_Text" layoutX="142.0" layoutY="309.0" prefHeight="25.0" prefWidth="160.0" style="-fx-cursor: text;" />
@@ -154,11 +154,20 @@
       </Label>
       <Button fx:id="Cancel_Button" layoutX="34.0" layoutY="600.0" mnemonicParsing="false" onAction="#Cancel_Buton_Click" style="-fx-cursor: hand;" text="Cancel" />
       <Button fx:id="Reset_Button" layoutX="97.0" layoutY="600.0" mnemonicParsing="false" onAction="#Reset_Buton_Click" style="-fx-cursor: hand;" text="Reset" />
-      <Label layoutX="411.0" layoutY="190.0" text="Nomor Transaksi   : ">
+      <Label layoutX="7.0" layoutY="190.0" text="Transaction Number :">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="Transaksi_Text" layoutX="534.0" layoutY="184.0" prefHeight="25.0" prefWidth="145.0" />
+      <TextField fx:id="Transaksi_Text" layoutX="142.0" layoutY="190.0" prefHeight="25.0" prefWidth="145.0" style="-fx-cursor: text;" text="TRS_00" />
+      <Button layoutX="694.0" layoutY="272.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add CPU" />
+      <Button layoutX="694.0" layoutY="311.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add Mother Board" />
+      <Button layoutX="694.0" layoutY="348.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add Cooler" />
+      <Button layoutX="692.0" layoutY="388.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add GPU" />
+      <Button layoutX="692.0" layoutY="426.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add SSD" />
+      <Button layoutX="692.0" layoutY="468.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add RAM" />
+      <Button layoutX="692.0" layoutY="511.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add Power Supply" />
+      <DatePicker fx:id="Tanggal_Transaksi" layoutX="547.0" layoutY="190.0" promptText="Input Date" style="-fx-cursor: hand;" />
+      <Label layoutX="432.0" layoutY="194.0" text="Date Transcation   :" />
      </children>
 </AnchorPane>

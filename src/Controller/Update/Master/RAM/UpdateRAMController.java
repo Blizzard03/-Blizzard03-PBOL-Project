@@ -28,7 +28,8 @@ import javafx.stage.Stage;
  * @author mariq
  */
 public class UpdateRAMController implements Initializable {
-   public boolean Changed_Data;
+
+    public boolean Changed_Data;
 
     @FXML
     private Button SaveButton;
@@ -60,19 +61,20 @@ public class UpdateRAMController implements Initializable {
     }
 
     public void execute(RAMModels rs) {
-       if(!rs.getID_RAM().isEmpty()){
-           Changed_Data = true;
-           ID_RAMText.setText(rs.getID_RAM());
-        Nama_RamText.setText(rs.getNama_RAM());
-        DDRText.setText(String.valueOf(rs.getDDR()));
-        FrequencyText.setText(rs.getFrequency());
-        CapacityText.setText(rs.getCapacity());
-        CLText.setText(rs.getCL());
-        PriceText.setText(String.valueOf(rs.getHarga()));
-        ID_RAMText.setEditable(false);
-        Nama_RamText.requestFocus();
+        if (!rs.getID_RAM().isEmpty()) {
+            Changed_Data = true;
+            ID_RAMText.setText(rs.getID_RAM());
+            Nama_RamText.setText(rs.getNama_RAM());
+            DDRText.setText(String.valueOf(rs.getDDR()));
+            FrequencyText.setText(rs.getFrequency());
+            CapacityText.setText(rs.getCapacity());
+            CLText.setText(rs.getCL());
+            PriceText.setText(String.valueOf(rs.getHarga()));
+            ID_RAMText.setEditable(false);
+            Nama_RamText.requestFocus();
+        }
     }
-    }
+
     @FXML
     private void CancelButtonClick(ActionEvent event) {
         try {
@@ -117,7 +119,7 @@ public class UpdateRAMController implements Initializable {
         rs.setHarga(Integer.parseInt(PriceText.getText()));
         Main_Menu2Controller.Database_RAM.setRAMModels(rs);
         if (Changed_Data) {
-            if (Main_Menu2Controller.Database_GPU.Update_Data()) {
+            if (Main_Menu2Controller.Database_RAM.Update_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data RAM Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_RAMText.setEditable(true);
@@ -145,4 +147,5 @@ public class UpdateRAMController implements Initializable {
             }
         }
     }
+
 }

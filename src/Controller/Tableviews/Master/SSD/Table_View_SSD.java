@@ -196,6 +196,8 @@ public class Table_View_SSD implements Initializable {
           try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/SSD/UpdateSSD.fxml"));
             Parent root = (Parent) loader.load();
+            UpdateSSDController isidt = (UpdateSSDController)loader.getController();
+            isidt.execute(ssd);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.setTitle("Update SSD");

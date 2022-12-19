@@ -101,13 +101,13 @@ public class DataBase_MotherBoard {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update mother_board set ID_MOTHER_BOARD=?,Vendor=?,Nama_Mother_Board=?,Type=?,Socket=?,Harga=? ");
-            con.preparedStatement.setString(1, getMother_Board_Models().getID_MOTHER_BOARD());
-            con.preparedStatement.setString(2, getMother_Board_Models().getVendor());
-            con.preparedStatement.setString(3, getMother_Board_Models().getNama_Mother_Board());
-            con.preparedStatement.setString(4, getMother_Board_Models().getType());
-            con.preparedStatement.setString(5, getMother_Board_Models().getSocket());
-            con.preparedStatement.setInt(6, getMother_Board_Models().getHarga());
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update mother_board set Vendor=?,Nama_Mother_Board=?,Type=?,Socket=?,Harga=? where ID_MOTHER_BOARD=?");
+            con.preparedStatement.setString(1, getMother_Board_Models().getVendor());
+            con.preparedStatement.setString(2, getMother_Board_Models().getNama_Mother_Board());
+            con.preparedStatement.setString(3, getMother_Board_Models().getType());
+            con.preparedStatement.setString(4, getMother_Board_Models().getSocket());
+            con.preparedStatement.setInt(5, getMother_Board_Models().getHarga());
+            con.preparedStatement.setString(6, getMother_Board_Models().getID_MOTHER_BOARD());
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {

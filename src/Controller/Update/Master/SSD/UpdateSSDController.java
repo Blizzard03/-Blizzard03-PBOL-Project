@@ -94,7 +94,7 @@ public class UpdateSSDController implements Initializable {
         ssd.setHarga(Integer.parseInt(PriceText.getText()));
 
         Main_Menu2Controller.Database_SSD.setSSDModels(ssd);
-        if (Changed_Data) {
+        if(Changed_Data){
             if (Main_Menu2Controller.Database_SSD.update()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data SSD Successed", ButtonType.OK);
                 a.showAndWait();
@@ -121,8 +121,8 @@ public class UpdateSSDController implements Initializable {
                 a.showAndWait();
                 Nama_SSDText.requestFocus();
             }
-        }
-    }
+        
+    }}
 
     @FXML
     private void CancelButtonClick(ActionEvent event) {

@@ -113,8 +113,7 @@ public class UpdateCoolerController implements Initializable {
             cs.setHarga(Integer.parseInt(PriceText.getText()));
             Nama_CoolerText.requestFocus();
             Main_Menu2Controller.Database_Cooler.setCoolerModels(cs);;
-            if (Changed_Data) {
-                if (Main_Menu2Controller.Database_Cooler.update()) {
+                   if (Main_Menu2Controller.Database_Cooler.update()) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data Cooler Successed", ButtonType.OK);
                     a.showAndWait();
                     ID_CoolerText.setEditable(true);
@@ -143,4 +142,4 @@ public class UpdateCoolerController implements Initializable {
             }
         }
 
-    }
+    

@@ -127,14 +127,14 @@ public boolean TextEdit;
         cpu.setHarga(Integer.parseInt(PriceText.getText()));
         
         Main_Menu2Controller.Database_CPU.SetCPUModels(cpu);;
-        if (TextEdit) {
+       
             if (Main_Menu2Controller.Database_CPU.Update_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Create Data CPU Successed", ButtonType.OK);
                 a.showAndWait();
                 ID_CPUText.setEditable(true);
                 ResetButtonClick(event);
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/Cooler/Tableview_Cooler.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/CPU/TableDataCPU.fxml"));
                     Parent root = (Parent) loader.load();
                     Scene scene = new Scene(root);
                     Stage stg = new Stage();
@@ -155,5 +155,5 @@ public boolean TextEdit;
                 Nama_CPUText.requestFocus();
             }
         }
-    }
+    
 }

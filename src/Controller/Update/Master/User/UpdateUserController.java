@@ -77,14 +77,13 @@ public class UpdateUserController implements Initializable {
         ss.setNomor_Telepon_User(NomorTeleponText.getText());
         ss.setPassword(PasswordText.getText());
         Main_Menu2Controller.Database_User.setUserModels(ss);
-        if (ChangeData) {
-           
+                 
             if (Main_Menu2Controller.Database_User.Update_Data()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Update Data User Successed", ButtonType.OK);
                 a.showAndWait();
-                
                 ResetButtonClick(event);
-                /*try {
+                
+                try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tableviews/Master/User/TableDataUser.fxml"));
                     Parent root = (Parent) loader.load();
                     Scene scene = new Scene(root);
@@ -98,14 +97,14 @@ public class UpdateUserController implements Initializable {
                     SaveButton.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
 
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Update Data User Failed", ButtonType.OK);
                 a.showAndWait();
                 NamaText.requestFocus();
             }
-        }
+        
     }
 
     @FXML

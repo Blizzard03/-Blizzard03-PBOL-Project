@@ -103,14 +103,14 @@ public class DataBase_RAM {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update ram set ID_RAM=?,Nama_RAM=?,DDR=?,Frequency=?,Capacity=?,CL=?,Harga=? ");
-            con.preparedStatement.setString(1, getRAMModels().getID_RAM());
-            con.preparedStatement.setString(2, getRAMModels().getNama_RAM());
-            con.preparedStatement.setInt(3, getRAMModels().getDDR());
-            con.preparedStatement.setString(4, getRAMModels().getFrequency());
-            con.preparedStatement.setString(5, getRAMModels().getCapacity());
-            con.preparedStatement.setString(6, getRAMModels().getCL());
-            con.preparedStatement.setInt(7, getRAMModels().getHarga());
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update ram set Nama_RAM=?,DDR=?,Frequency=?,Capacity=?,CL=?,Harga=? where ID_RAM=?");
+            con.preparedStatement.setString(1, getRAMModels().getNama_RAM());
+            con.preparedStatement.setInt(2, getRAMModels().getDDR());
+            con.preparedStatement.setString(3, getRAMModels().getFrequency());
+            con.preparedStatement.setString(4, getRAMModels().getCapacity());
+            con.preparedStatement.setString(5, getRAMModels().getCL());
+            con.preparedStatement.setInt(6, getRAMModels().getHarga());
+            con.preparedStatement.setString(7, getRAMModels().getID_RAM());
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {

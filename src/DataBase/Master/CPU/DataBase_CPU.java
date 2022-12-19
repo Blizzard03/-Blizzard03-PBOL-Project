@@ -178,7 +178,7 @@ public class DataBase_CPU {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update cpu set Nama_CPU =?, Socket = ?, Base_Clock=?, Max_Turbo_Clock=?, Cores=?, Thread,TDP, Harga  where  ID_CPU = ? ");
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update cpu set Nama_CPU =?, Socket = ?, Base_Clock=?, Max_Turbo_Clock=?, Cores=?, Thread=?,TDP=?, Harga=?  where  ID_CPU = ? ");
             con.preparedStatement.setString(1, GetModel().getNama_CPU());
             con.preparedStatement.setString(2, GetModel().getSocket());
             con.preparedStatement.setString(3, GetModel().getBase_Clock());
@@ -187,7 +187,7 @@ public class DataBase_CPU {
             con.preparedStatement.setInt(6, GetModel().getThread());
             con.preparedStatement.setString(7, GetModel().getTDP());
             con.preparedStatement.setInt(8, GetModel().getHarga());
-            con.preparedStatement.setString(9, GetModel().getID_CPU());
+            con.preparedStatement.setString(9, GetModel().getID_CPU());           
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {

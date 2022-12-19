@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SelectData.SSD.FXMLSelectionSSDController">
+    <children>
+        <Label layoutX="29.0" layoutY="23.0" text="Cooler Selection">
+            <font>
+                <Font name="Elephant" size="21.0" />
+            </font>
+        </Label>
+        <TableView fx:id="TableViewSSD" layoutX="29.0" layoutY="90.0" prefHeight="200.0" prefWidth="536.0" style="-fx-cursor: hand;">
+            <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+            </columns>
+        </TableView>
+        <TextField fx:id="SSDText" layoutX="360.0" layoutY="52.0" promptText="Search SSD" style="-fx-alignment: center; -fx-cursor: text;" />
+        <Button fx:id="SearchButton" layoutX="513.0" layoutY="52.0" mnemonicParsing="false" onAction="#SearchClick" style="-fx-cursor: hand;" text="Search" />
+        <Button fx:id="CancelButton" layoutX="513.0" layoutY="303.0" mnemonicParsing="false" onAction="#CancelClick" style="-fx-cursor: hand;" text="Cancel" />
+        <Button fx:id="SelectButton" layoutX="450.0" layoutY="303.0" mnemonicParsing="false" onAction="#SelectClick" style="-fx-cursor: hand;" text="Select" />
+        <ComboBox fx:id="SSD_selection" layoutX="31.0" layoutY="59.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>

@@ -99,12 +99,12 @@ public class DataBase_Cooler {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update cooler set ID_COOLER=?,Nama_Cooler=?,Type=?,Socket=?,Harga=? ");
-            con.preparedStatement.setString(1, getCoolerModels().getID_COOLER());
-            con.preparedStatement.setString(2, getCoolerModels().getNama_Cooler());
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update cooler set Nama_Cooler=?,Type=?,Socket=?,Harga=? WHERE ID_COOLER=?");
+            con.preparedStatement.setString(1, getCoolerModels().getNama_Cooler());
+            con.preparedStatement.setString(2, getCoolerModels().getType());
             con.preparedStatement.setString(3, getCoolerModels().getType());
-            con.preparedStatement.setString(4, getCoolerModels().getType());
-            con.preparedStatement.setInt(5, getCoolerModels().getHarga());
+            con.preparedStatement.setInt(4, getCoolerModels().getHarga());
+            con.preparedStatement.setString(5, getCoolerModels().getID_COOLER());
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {

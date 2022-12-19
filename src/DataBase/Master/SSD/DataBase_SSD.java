@@ -107,16 +107,16 @@ public class DataBase_SSD {
         Database_Connection con = new Database_Connection();
         try {
             con.Open_Connection();
-            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update ssd set ID_SSD=?,Vendor=?,Nama_SSD=?,Type=?,Capacity=?,TBW=?,Read=?,Write=?,Harga=? ");
-            con.preparedStatement.setString(1, getSSDModels().getID_SSD());
-            con.preparedStatement.setString(2, getSSDModels().getVendor());
-            con.preparedStatement.setString(3, getSSDModels().getNama_SSD());
-            con.preparedStatement.setString(4, getSSDModels().getType());
-            con.preparedStatement.setString(5, getSSDModels().getCapacity());
-            con.preparedStatement.setInt(6, getSSDModels().getTBW());
-            con.preparedStatement.setString(7, getSSDModels().getRead());
-            con.preparedStatement.setString(8, getSSDModels().getWrite());
-            con.preparedStatement.setInt(9, getSSDModels().getHarga());
+            con.preparedStatement = con.Database_UTS_Conection.prepareStatement("update ssd set Vendor=?, Nama_SSD=?, Type=?, Capacity=?, TBW=?, Read=?, Write=?, Harga=? where ID_SSD=?");
+            con.preparedStatement.setString(1, getSSDModels().getVendor());
+            con.preparedStatement.setString(2, getSSDModels().getNama_SSD());
+            con.preparedStatement.setString(3, getSSDModels().getType());
+            con.preparedStatement.setString(4, getSSDModels().getCapacity());
+            con.preparedStatement.setInt(5, getSSDModels().getTBW());
+            con.preparedStatement.setString(6, getSSDModels().getRead());
+            con.preparedStatement.setString(7, getSSDModels().getWrite());
+            con.preparedStatement.setInt(8, getSSDModels().getHarga());
+            con.preparedStatement.setString(9, getSSDModels().getID_SSD());
             con.preparedStatement.executeUpdate();
             Success = true;
         } catch (Exception e) {

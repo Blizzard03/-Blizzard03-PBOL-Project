@@ -5,6 +5,7 @@
 package Controller.Tableviews.Master.RAM;
 
 import Controller.MainMenu.Main_Menu2Controller;
+import Controller.Update.Master.RAM.UpdateRAMController;
 import Models.Master.RAM.RAMModels;
 import java.io.IOException;
 import java.net.URL;
@@ -97,7 +98,8 @@ public class TableView_RAMController implements Initializable {
         }
     }
 
-    private void DataCPUSearchFinder(KeyEvent event) {
+    @FXML
+    private void DataRAMSearchFinder(KeyEvent event) {
         RAMModels rs = new RAMModels();
         String key = DataRAMSearch.getText();
         if (key != "") {
@@ -182,9 +184,13 @@ public class TableView_RAMController implements Initializable {
 
     @FXML
     private void UpdateButtonClick(ActionEvent event) {
+    RAMModels rm = new RAMModels();
+    rm  = TableViewRAM.getSelectionModel().getSelectedItem();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/RAM/UpdateRAM.fxml"));
             Parent root = (Parent) loader.load();
+            UpdateRAMController isidt = (UpdateRAMController)loader.getController();
+            isidt.execute(rm);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.setTitle("Update RAM");
@@ -193,10 +199,12 @@ public class TableView_RAMController implements Initializable {
             stg.setIconified(false);
             stg.setScene(scene);
             stg.show();
-            MainMenuButtoon.getScene().getWindow().hide();
+            UpdateButton.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DataShows();
+        FirstButtonClick(event);
 
     }
 
@@ -240,6 +248,7 @@ public class TableView_RAMController implements Initializable {
         }
     }
 
+   
    
     
 }

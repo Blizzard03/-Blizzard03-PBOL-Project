@@ -118,9 +118,7 @@ public class Tableview_CoolerController implements Initializable {
         }
     }
 
-    private void DataUserSearchFinder(KeyEvent event) {
-      
-    }
+   
 
     @FXML
     private void MainMenuButtonClick(ActionEvent event) {
@@ -146,7 +144,7 @@ public class Tableview_CoolerController implements Initializable {
         CoolerModels cs = new CoolerModels();
         cs = TableViewCooler.getSelectionModel().getSelectedItem();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML.Update.Master.Cooler/UpdateCooler.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Update/Master/Cooler/UpdateCooler.fxml"));
             Parent root = (Parent) loader.load();
             UpdateCoolerController isidt = (UpdateCoolerController) loader.getController();
             isidt.execute(cs);
@@ -219,5 +217,21 @@ public class Tableview_CoolerController implements Initializable {
 
     @FXML
     private void AddButtonClick(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Input/Master/Cooler/Input_Cooler.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Add Cooler");
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            AddButton.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 }

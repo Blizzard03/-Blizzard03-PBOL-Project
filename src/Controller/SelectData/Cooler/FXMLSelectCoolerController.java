@@ -4,6 +4,7 @@
  */
 package Controller.SelectData.Cooler;
 
+import Models.Master.Cooler.CoolerModels;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -22,7 +23,7 @@ import javafx.scene.control.TextField;
 public class FXMLSelectCoolerController implements Initializable {
 
     @FXML
-    private TableView<?> TableViewCooler;
+    private TableView<CoolerModels> TableViewCooler;
     @FXML
     private TextField CoolerText;
     @FXML
@@ -32,7 +33,7 @@ public class FXMLSelectCoolerController implements Initializable {
     @FXML
     private Button SelectButton;
     @FXML
-    private ComboBox<?> CPU_selection;
+    private ComboBox<String> Cooler_selection;
 
     /**
      * Initializes the controller class.
