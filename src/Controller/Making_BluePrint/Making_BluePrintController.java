@@ -642,7 +642,7 @@ public class Making_BluePrintController implements Initializable {
             d.setQuantity(Integer.parseInt(GPUQTY.getText()));
 
             Main_Menu2Controller.Database_Detail_GPU.setDetail_GPU_Models(d);
-            if (Main_Menu2Controller.Database_Detail_CPU.Insert_Data()) {
+            if (Main_Menu2Controller.Database_Detail_GPU.Insert_Data()) {
                 Alert a = new Alert(
                         Alert.AlertType.INFORMATION, "GPU Succes to Added", ButtonType.OK);
                 a.showAndWait();
