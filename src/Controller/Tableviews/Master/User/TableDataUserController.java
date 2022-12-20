@@ -124,7 +124,8 @@ public class TableDataUserController implements Initializable {
     private void DataUserSearchFinder(KeyEvent event) {
         UsersModels s = new UsersModels();
         String key = DataUserSearch.getText();
-        if (key != "") {
+       
+        if (key !="") {
             ObservableList<UsersModels> data = Main_Menu2Controller.Database_User.CariUser(key, key);
             if (data != null) {
                 TableViewUser.getColumns().clear();

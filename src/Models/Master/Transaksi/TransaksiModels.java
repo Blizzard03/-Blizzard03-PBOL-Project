@@ -4,18 +4,18 @@
  */
 package Models.Master.Transaksi;
 
-
 import java.sql.Date;
-import java.sql.Time;
+
+
 /**
  *
  * @author mariq
  */
 public class TransaksiModels {
+
     private int ID_User;
     private String Nomor_Transaksi;
     private Date Tanggal_Transaksi;
-    private Time Waktu_Transaksi;
 
     public int getID_User() {
         return ID_User;
@@ -24,8 +24,6 @@ public class TransaksiModels {
     public void setID_User(int ID_User) {
         this.ID_User = ID_User;
     }
-
-      
 
     public String getNomor_Transaksi() {
         return Nomor_Transaksi;
@@ -43,13 +41,4 @@ public class TransaksiModels {
         this.Tanggal_Transaksi = Tanggal_Transaksi;
     }
 
-    public Time getWaktu_Transaksi() {
-        return Waktu_Transaksi;
-    }
-
-    public void setWaktu_Transaksi(Time Waktu_Transaksi) {
-        this.Waktu_Transaksi = Waktu_Transaksi;
-    }
-           
-    
 }

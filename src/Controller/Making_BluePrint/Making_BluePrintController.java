@@ -4,9 +4,13 @@
  */
 package Controller.Making_BluePrint;
 
+import Models.Master.Transaksi.TransaksiModels;
+import Controller.SelectData.Customer.FXMLCustomersController;
 import java.io.IOException;
 
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -18,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.TextField;
@@ -32,7 +37,6 @@ import javafx.stage.Stage;
  */
 public class Making_BluePrintController implements Initializable {
 
-   
     /*
      * Buttons
      */
@@ -177,35 +181,63 @@ public class Making_BluePrintController implements Initializable {
     //TextField Power Supply
     @FXML
     private TextField Power_Supply_Text;
-    
+
     //TextField Transaksi
     @FXML
     private TextField Transaksi_Text;
+    @FXML
+    private Label Name_User;
+
+//Date Picker
+    @FXML
+    private DatePicker Tanggal_Transaksi;
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
+    //Save Transcitions
     @FXML
     private void Order_Buton(ActionEvent event) {
+        TransaksiModels tm = new TransaksiModels();
+        tm.setNomor_Transaksi(Transaksi_Text.getText());
+        tm.setTanggal_Transaksi(Date.valueOf(Tanggal_Transaksi.getValue()));
+        tm.setID_User(Integer.parseInt(User_Text.getText()));
+        
     }
 
     @FXML
     private void Select_User_Click(ActionEvent event) {
         User_Text.setEditable(false);
-        
-        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/Costumer/FXMLCustomers.fxml"));
+            Parent root = (Parent) loader.load();
+            FXMLCustomersController isidt = (FXMLCustomersController) loader.getController();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+            if (isidt.getResult() == 1) {
+                User_Text.setText(String.valueOf(isidt.getID_Userhasil()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
     private void Select_CPU_Click(ActionEvent event) {
         CPU_Text.setEditable(false);
-        //CPU_Price.set
+        //CPU_Price.setTex
     }
 
     @FXML
     private void Select_Mother_Board_Click(ActionEvent event) {
-        
+
     }
 
     @FXML
@@ -265,7 +297,7 @@ public class Making_BluePrintController implements Initializable {
         SSD_Text.setText("");
         RAM_Text.setText("");
         Power_Supply_Text.setText("");
-        Transaksi_Text.setText("");
+        Transaksi_Text.setText("TRS_00");
     }
 
 }
