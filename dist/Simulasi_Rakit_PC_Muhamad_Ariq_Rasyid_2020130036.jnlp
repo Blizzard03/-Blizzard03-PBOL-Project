@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036.jar" size="11950661" download="eager" />
+    <jar href="Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036.jar" size="11955393" download="eager" />
     <jar href="lib\ant-junit-1.10.12.jar" size="139915" download="eager" />
     <jar href="lib\commons-beanutils-1.9.4.jar" size="246918" download="eager" />
     <jar href="lib\commons-collections4-4.2.jar" size="752798" download="eager" />

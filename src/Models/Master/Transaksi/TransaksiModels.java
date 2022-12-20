@@ -14,7 +14,15 @@ import java.sql.Date;
 public class TransaksiModels {
 
     private int ID_User;
-    private String Nomor_Transaksi;
+    private String Nomor_Transaksi,Nama_User;
+
+    public String getNama_User() {
+        return Nama_User;
+    }
+
+    public void setNama_User(String Nama_User) {
+        this.Nama_User = Nama_User;
+    }
     private Date Tanggal_Transaksi;
 
     public int getID_User() {

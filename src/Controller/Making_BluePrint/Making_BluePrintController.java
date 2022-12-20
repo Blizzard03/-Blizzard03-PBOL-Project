@@ -4,9 +4,18 @@
  */
 package Controller.Making_BluePrint;
 
-import Models.Master.Transaksi.TransaksiModels;
+import Controller.MainMenu.Main_Menu2Controller;
+
+/*
+ * Controller Select Data
+ */
+
 import Controller.SelectData.Customer.FXMLCustomersController;
+import Controller.SelectData.CPU.FXMLSelectCPUController;
+import Controller.SelectData.Cooler.FXMLSelectCoolerController;
 import java.io.IOException;
+
+import Models.Master.Transaksi.TransaksiModels;
 
 import java.net.URL;
 import java.sql.Date;
@@ -203,6 +212,7 @@ public class Making_BluePrintController implements Initializable {
         tm.setNomor_Transaksi(Transaksi_Text.getText());
         tm.setTanggal_Transaksi(Date.valueOf(Tanggal_Transaksi.getValue()));
         tm.setID_User(Integer.parseInt(User_Text.getText()));
+        //Main_Menu2Controller.
         
     }
 
@@ -232,7 +242,25 @@ public class Making_BluePrintController implements Initializable {
     @FXML
     private void Select_CPU_Click(ActionEvent event) {
         CPU_Text.setEditable(false);
-        //CPU_Price.setTex
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/CPU/FXMLSelectCPU.fxml"));
+            Parent root = (Parent) loader.load();
+            FXML isidt = (FXMLCustomersController) loader.getController();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+            if (isidt.getResult() == 1) {
+                User_Text.setText(String.valueOf(isidt.getID_Userhasil()));
+                CPU_Price.setTex(String.valueOf(0));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML
