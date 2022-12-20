@@ -25,7 +25,7 @@ public class Database_Detail_RAM {
         return (dramm);
     }
 
-    public void Detail_RAM_Models(Detail_RAM_Models drm) {
+    public void SetDetail_RAM_Models(Detail_RAM_Models drm) {
         dramm = drm;
     }
 

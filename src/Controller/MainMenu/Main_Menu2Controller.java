@@ -13,6 +13,7 @@ import DataBase.Master.Mother_Board.DataBase_MotherBoard;
 import DataBase.Master.PSU.DataBase_PowerSupply;
 import DataBase.Master.RAM.DataBase_RAM;
 import DataBase.Master.SSD.DataBase_SSD;
+import DataBase.Master.Transaksi.Database_Transaksi;
 
 //import Data Base Slave Class
 import DataBase.Slave.Detail_CPU.DataBase_Detail_CPU;
@@ -57,7 +58,9 @@ public class Main_Menu2Controller implements Initializable {
     public static DataBase_PowerSupply Database_PSU = new DataBase_PowerSupply();
     public static DataBase_SSD Database_SSD = new DataBase_SSD();
     public static DataBase_RAM Database_RAM = new DataBase_RAM();
-
+    public static Database_Transaksi Database_Transaksi = new Database_Transaksi();
+    
+    
     //Slave Database    
     public static DataBase_Detail_CPU Database_Detail_CPU = new DataBase_Detail_CPU();
     public static DataBase_Detail_Cooler Database_Detail_Cooler = new DataBase_Detail_Cooler();

@@ -4,17 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Models/Master/RAM/RAMModels.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/DataBase/Master/User/DataBase_User.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/MainMenu/Main_Menu2Controller.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/Making_BluePrint/Making_BluePrintController.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/DataBase/Slave/Detail_CPU/DataBase_Detail_CPU.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/SelectData/MotherBoard/FXMLSelectionMotherBoardController.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/SelectData/Customer/FXMLCustomersController.java</file>
             <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/SelectData/CPU/FXMLSelectCPUController.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Main_Class/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/DataBase/Master/SSD/DataBase_SSD.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/Input/Master/SSD/Input_SSDController.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Models/Master/User/UsersModels.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/Tableviews/Master/Mother_Board/TableView_Mother_BoardController.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/SelectData/RAM/FXMLRAMSellectionController.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/DataBase/Master/Cooler/DataBase_Cooler.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/Tableviews/Master/GPU/TableDataGPUController.java</file>
             <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/DataBase/Master/Transaksi/Database_Transaksi.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/Tableviews/Master/User/TableDataUserController.java</file>
-            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Controller/Tableviews/Master/RAM/TableView_RAMController.java</file>
+            <file>file:/C:/Users/Muhamad%20Ariq%20Rasyid/Documents/Project/S5/PBOL/Netbeans/Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036/src/Models/Slave/Detail_Mother_Board/Detail_Mother_Board_Models.java</file>
         </group>
     </open-files>
 </project-private>

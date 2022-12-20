@@ -24,11 +24,6 @@
               <MenuItem fx:id="MakeBuild" mnemonicParsing="false" onAction="#BlueprintMaker" style="-fx-cursor: hand;" text="Blue Print" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Report">
-              <items>
-                <MenuItem fx:id="BlueprintMake" mnemonicParsing="false" onAction="#BlueprintMaked" style="-fx-cursor: hand;" text="Blue Print Make" />
-              </items>
-            </Menu>
           <Menu mnemonicParsing="false" text="Data">
             <items>
                   <SeparatorMenuItem mnemonicParsing="false" />

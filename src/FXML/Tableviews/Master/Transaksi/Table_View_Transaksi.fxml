@@ -1,11 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Tableviews.Master.Transaksi.Table_View_TransaksiController">
-    
-</AnchorPane>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane prefHeight="1065.0" prefWidth="1921.0">
+         <children>
+            <Label layoutX="20.0" layoutY="14.0" text="Table Data Transaction">
+               <font>
+                  <Font name="Elephant" size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="TableDatTrans" layoutX="20.0" layoutY="72.0" prefHeight="200.0" prefWidth="807.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Label layoutX="20.0" layoutY="301.0" text="Table Data Detail GPU">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="TableDataDetailgpu" layoutX="14.0" layoutY="333.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <TableView fx:id="TableDataDetailMobo" layoutX="14.0" layoutY="574.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <Label layoutX="20.0" layoutY="547.0" text="Table Data Detail Mother Board">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="797.0" text="Table Data Detail Power Supply">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="TableDataDetailPSU" layoutX="14.0" layoutY="829.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <TableView fx:id="TableDataDetailSSD" layoutX="851.0" layoutY="828.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <TableView fx:id="TableDataDetailRAM" layoutX="844.0" layoutY="574.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <Label layoutX="851.0" layoutY="547.0" text="Table Data Detail RAM">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="TableDataDetailCooler" layoutX="844.0" layoutY="333.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <Label layoutX="844.0" layoutY="301.0" text="Table Data Detail Cooler">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="TableDataDetailCPU" layoutX="851.0" layoutY="72.0" prefHeight="200.0" prefWidth="807.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <Label layoutX="851.0" layoutY="46.0" text="Table Data Detail CPU">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="849.0" layoutY="797.0" text="Table Data Detail SSD">
+               <font>
+                  <Font name="Elephant" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

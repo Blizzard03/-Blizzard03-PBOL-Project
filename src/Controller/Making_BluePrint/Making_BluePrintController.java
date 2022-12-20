@@ -4,18 +4,33 @@
  */
 package Controller.Making_BluePrint;
 
+/*
+ * FXML CONTROLLER
+ */
 import Controller.MainMenu.Main_Menu2Controller;
 
-/*
- * Controller Select Data
- */
 
+/*
+ * Controller Select Data Class
+ */
 import Controller.SelectData.Customer.FXMLCustomersController;
 import Controller.SelectData.CPU.FXMLSelectCPUController;
 import Controller.SelectData.Cooler.FXMLSelectCoolerController;
-import java.io.IOException;
+import Controller.SelectData.GPU.FXMLSelectionGPUController;
+import Controller.SelectData.MotherBoard.FXMLSelectionMotherBoardController;
+import Controller.SelectData.PowerSupply.FXMLSelectionPoweSupplyController;
+import Controller.SelectData.RAM.FXMLRAMSellectionController;
+import Controller.SelectData.SSD.FXMLSelectionSSDController;
 
+import java.io.IOException;
 import Models.Master.Transaksi.TransaksiModels;
+import Models.Slave.Detail_CPU.Detail_CPU_Models;
+import Models.Slave.Detail_Cooler.Detail_Cooler_Models;
+import Models.Slave.Detail_GPU.Detail_GPU_Models;
+import Models.Slave.Detail_Mother_Board.Detail_Mother_Board_Models;
+import Models.Slave.Detail_RAM.Detail_RAM_Models;
+import Models.Slave.Detail_SSD.Detail_SSD_Models;
+import Models.Slave.Detail_PSU.Detail_PSU_Models;
 
 import java.net.URL;
 import java.sql.Date;
@@ -30,7 +45,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
@@ -46,6 +63,7 @@ import javafx.stage.Stage;
  */
 public class Making_BluePrintController implements Initializable {
 
+    boolean Make_Order = false;
     /*
      * Buttons
      */
@@ -92,6 +110,34 @@ public class Making_BluePrintController implements Initializable {
     //Button Select RAM
     @FXML
     private Button Selection_RAM_Button;
+
+    //Button Add CPU
+    @FXML
+    private Button AddCPU;
+
+    //Button Add Mother Board
+    @FXML
+    private Button AddMoboButton;
+
+    //Button Add Cooler 
+    @FXML
+    private Button AddCoolerButton;
+
+    //Add GPU
+    @FXML
+    private Button AddGPUButton;
+
+    //Add SSD
+    @FXML
+    private Button AddSSDButton;
+
+    //Add RAM
+    @FXML
+    private Button AddRAMButton;
+
+    //Add PSU
+    @FXML
+    private Button AddPSUButton;
 
     /*
      * Labels
@@ -200,20 +246,64 @@ public class Making_BluePrintController implements Initializable {
 //Date Picker
     @FXML
     private DatePicker Tanggal_Transaksi;
+    @FXML
+    private Button DeleteCPU;
+    @FXML
+    private Button DeleteMotherBoard;
+    @FXML
+    private Button DeleteCoolerButton;
+    @FXML
+    private Button DeleteGPU;
+    @FXML
+    private Button DeleteSSDButton;
+    @FXML
+    private Button RAM;
+    @FXML
+    private Button DeletePSUClick;
+    @FXML
+    private Label TotalPower_Supply_Price;
+    @FXML
+    private Label TotalRAM_Price;
+    @FXML
+    private Label TotalSSD_Price;
+    @FXML
+    private Label TotalGPU_Price;
+    @FXML
+    private Label TotalCooler_Price;
+    @FXML
+    private Label TotalMobo_Price;
+    @FXML
+    private Label TotalCPU_Price;
+
+   
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
     }
 
-    //Save Transcitions
+
+
+//Save Transcitions
     @FXML
     private void Order_Buton(ActionEvent event) {
         TransaksiModels tm = new TransaksiModels();
         tm.setNomor_Transaksi(Transaksi_Text.getText());
         tm.setTanggal_Transaksi(Date.valueOf(Tanggal_Transaksi.getValue()));
         tm.setID_User(Integer.parseInt(User_Text.getText()));
-        //Main_Menu2Controller.
-        
+        Main_Menu2Controller.Database_Transaksi.setJualModel(tm);
+        if (Main_Menu2Controller.Database_Transaksi.insert()) {
+            Make_Order = true;
+            Alert a = new Alert(Alert.AlertType.INFORMATION,
+                    "Transaction is successfully created", ButtonType.OK);
+            a.showAndWait();
+            //batalklik();
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Transaction failed to be created", ButtonType.OK);
+            a.showAndWait();
+        }
+
     }
 
     @FXML
@@ -241,11 +331,100 @@ public class Making_BluePrintController implements Initializable {
 
     @FXML
     private void Select_CPU_Click(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+            CPU_Text.setEditable(false);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/CPU/FXMLSelectCPU.fxml"));
+                Parent root = (Parent) loader.load();
+                FXMLSelectCPUController isidt = (FXMLSelectCPUController) loader.getController();
+                Scene scene = new Scene(root);
+                Stage stg = new Stage();
+                stg.initModality(Modality.APPLICATION_MODAL);
+                stg.setResizable(false);
+                stg.setIconified(false);
+                stg.setScene(scene);
+                stg.showAndWait();
+                if (isidt.getResult() == 1) {
+                    CPU_Text.setText(isidt.GetIDCPUResult());
+                    CPU_Price.setText(String.valueOf(isidt.GetPrice()));
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    @FXML
+    private void Select_Mother_Board_Click(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+            CPU_Text.setEditable(false);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/Mother_Board/FXMLSelectionMotherBoard.fxml"));
+                Parent root = (Parent) loader.load();
+                FXMLSelectionMotherBoardController isidt = (FXMLSelectionMotherBoardController) loader.getController();
+                Scene scene = new Scene(root);
+                Stage stg = new Stage();
+                stg.initModality(Modality.APPLICATION_MODAL);
+                stg.setResizable(false);
+                stg.setIconified(false);
+                stg.setScene(scene);
+                stg.showAndWait();
+                if (isidt.GetResult() == 1) {
+                    Mother_Board_Text.setText(isidt.getIDMotherBaord());
+                    Mobo_Price.setText(String.valueOf(isidt.Price()));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    private void Select_Cooler_Click(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+            Cooler_Text.setEditable(false);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/Cooler/FXMLSelectCooler.fxml"));
+                Parent root = (Parent) loader.load();
+                FXMLSelectCoolerController isidt = (FXMLSelectCoolerController) loader.getController();
+                Scene scene = new Scene(root);
+                Stage stg = new Stage();
+                stg.initModality(Modality.APPLICATION_MODAL);
+                stg.setResizable(false);
+                stg.setIconified(false);
+                stg.setScene(scene);
+                stg.showAndWait();
+                if (isidt.getResult() == 1) {
+                    Cooler_Text.setText(isidt.getIDCoolerResult());
+                    Cooler_Price.setText(String.valueOf(isidt.getPrice()));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    private void Select_GPU_Click(ActionEvent event) {
         CPU_Text.setEditable(false);
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/CPU/FXMLSelectCPU.fxml"));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/GPU/FXMLSelectionGPU.fxml"));
             Parent root = (Parent) loader.load();
-            FXML isidt = (FXMLCustomersController) loader.getController();
+            FXMLSelectionGPUController isidt = (FXMLSelectionGPUController) loader.getController();
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.initModality(Modality.APPLICATION_MODAL);
@@ -254,38 +433,81 @@ public class Making_BluePrintController implements Initializable {
             stg.setScene(scene);
             stg.showAndWait();
             if (isidt.getResult() == 1) {
-                User_Text.setText(String.valueOf(isidt.getID_Userhasil()));
-                CPU_Price.setTex(String.valueOf(0));
+                GPU_Text.setText(isidt.ID_GPU());
+                GPU_Price.setText(String.valueOf(isidt.GetPrice()));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-    }
-
-    @FXML
-    private void Select_Mother_Board_Click(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void Select_Cooler_Click(ActionEvent event) {
-    }
-
-    @FXML
-    private void Select_GPU_Click(ActionEvent event) {
     }
 
     @FXML
     private void Selection_SSD_Click(ActionEvent event) {
+        CPU_Text.setEditable(false);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/SSD/FXMLSelectionSSD.fxml"));
+            Parent root = (Parent) loader.load();
+            FXMLSelectionSSDController isidt = (FXMLSelectionSSDController) loader.getController();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+            if (isidt.getResult() == 1) {
+                SSD_Text.setText(String.valueOf(isidt.getIDSSDResult()));
+                SSD_Price.setText(String.valueOf(isidt.getPrice()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void Selection_RAM_Click(ActionEvent event) {
+        CPU_Text.setEditable(false);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/RAM/FXMLRAMSellection.fxml"));
+            Parent root = (Parent) loader.load();
+            FXMLRAMSellectionController isidt = (FXMLRAMSellectionController) loader.getController();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+            if (isidt.getResult() == 1) {
+                RAM_Text.setText(String.valueOf(isidt.getRAMResult()));
+                RAM_Price.setText(String.valueOf(isidt.getPrice()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void Selection_Power_Supply_Click(ActionEvent event) {
+        CPU_Text.setEditable(false);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Select/Power_Supply/FXMLSelectionPoweSupply.fxml"));
+            Parent root = (Parent) loader.load();
+            FXMLSelectionPoweSupplyController isidt = (FXMLSelectionPoweSupplyController) loader.getController();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+            if (isidt.getResult() == 1) {
+                Power_Supply_Text.setText(isidt.getPSUResult());
+                Power_Supply_Price.setText(String.valueOf(isidt.getPrice()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Cancel Button -> Back To Main Menu
@@ -326,6 +548,216 @@ public class Making_BluePrintController implements Initializable {
         RAM_Text.setText("");
         Power_Supply_Text.setText("");
         Transaksi_Text.setText("TRS_00");
+    }
+
+    @FXML
+    private void AddCPUCLick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_CPU_Models d = new Detail_CPU_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_CPU(CPU_Text.getText());
+            d.setQuantity(Integer.parseInt(CPUQTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_CPU.setDetail_CPU_Models(d);
+            if (Main_Menu2Controller.Database_Detail_CPU.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "CPU Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "CPU Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void AddMoboCllick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_Mother_Board_Models d = new Detail_Mother_Board_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_MOTHER_BOARD(Mother_Board_Text.getText());
+            d.setQuantity(Integer.parseInt(MoboQTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_Mother_Board.setDetail_Mother_Board_Models(d);
+            if (Main_Menu2Controller.Database_Detail_Mother_Board.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "Mother Board Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Mother Board Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void AddCoolerClick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_Cooler_Models d = new Detail_Cooler_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_COOLER(Cooler_Text.getText());
+            d.setQuantity(Integer.parseInt(CoolerQTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_Cooler.setDetail_Cooler_Model(d);
+            if (Main_Menu2Controller.Database_Detail_Cooler.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "Cooler Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Cooler Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void AddGPUClick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_GPU_Models d = new Detail_GPU_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_GPU(GPU_Text.getText());
+            d.setQuantity(Integer.parseInt(GPUQTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_GPU.setDetail_GPU_Models(d);
+            if (Main_Menu2Controller.Database_Detail_CPU.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "GPU Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "GPU Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void AddSSDButtonClick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_SSD_Models d = new Detail_SSD_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_SSD(SSD_Text.getText());
+            d.setQuantity(Integer.parseInt(SSD_QTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_SSD.SetDetail_SSD_Models(d);
+            if (Main_Menu2Controller.Database_Detail_SSD.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "SSD Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "SSD Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void AddRAMButtonCllick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_RAM_Models d = new Detail_RAM_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_RAM(RAM_Text.getText());
+            d.setQuantity(Integer.parseInt(RAM_QTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_RAM.SetDetail_RAM_Models(d);
+            if (Main_Menu2Controller.Database_Detail_RAM.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "RAM Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "RAM Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void AddPSUClick(ActionEvent event) {
+        if (!Make_Order) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "Please Click Order For Transaction!", ButtonType.OK);
+            a.showAndWait();
+        } else {
+
+            Detail_PSU_Models d = new Detail_PSU_Models();
+            d.setNomor_Transaksi(Transaksi_Text.getText());
+            d.setID_PSU(Power_Supply_Text.getText());
+            d.setQuantity(Integer.parseInt(Power_Supply_QTY.getText()));
+
+            Main_Menu2Controller.Database_Detail_PSU.setDetail_PSU_Models(d);
+            if (Main_Menu2Controller.Database_Detail_PSU.Insert_Data()) {
+                Alert a = new Alert(
+                        Alert.AlertType.INFORMATION, "Power Supply Succes to Added", ButtonType.OK);
+                a.showAndWait();
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Power Supply Fail to Added", ButtonType.OK);
+                a.showAndWait();
+            }
+
+        }
+    }
+
+    @FXML
+    private void DelteCPUCLick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DeleteMotherBoardCLick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DeleteCoolerButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DeleteGPUClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DeleteSSDButtonClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DeleteRAMClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void DeletePSUCLICK(ActionEvent event) {
     }
 
 }

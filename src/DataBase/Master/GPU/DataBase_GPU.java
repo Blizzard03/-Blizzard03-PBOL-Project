@@ -140,7 +140,7 @@ public boolean Delete_Data(String ID) {
         }
     }
 
-    public ObservableList<GPUModels> CariUser(String kode, String nama) {
+    public ObservableList<GPUModels> CariGPU(String kode, String nama) {
         try {
             ObservableList<GPUModels> tableData;
             tableData = FXCollections.observableArrayList();

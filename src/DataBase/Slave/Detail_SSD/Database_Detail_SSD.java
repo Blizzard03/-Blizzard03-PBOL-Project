@@ -26,7 +26,7 @@ public class Database_Detail_SSD {
         return (dssd);
     }
 
-    public void Detail_SSD_Models(Detail_SSD_Models dsm) {
+    public void SetDetail_SSD_Models(Detail_SSD_Models dsm) {
         dssd = dsm;
     }
 

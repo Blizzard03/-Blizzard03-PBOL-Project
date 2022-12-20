@@ -146,7 +146,7 @@ public class DataBase_SSD {
     }
     
     
-    public ObservableList<SSDModels> CariUser(String kode, String nama) {
+    public ObservableList<SSDModels> CariSSD(String kode, String nama) {
         try {
             ObservableList<SSDModels> tableData;
             tableData = FXCollections.observableArrayList();

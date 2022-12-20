@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="788.0" maxWidth="912.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Making_BluePrint.Making_BluePrintController">
+<AnchorPane id="AnchorPane" maxHeight="788.0" maxWidth="1155.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Making_BluePrint.Making_BluePrintController">
      <children>
-        <Label layoutX="159.0" layoutY="14.0" text="LETS MAKE YOUR PC BUILD BY WPA REBUILD PC SIMULATION">
+        <Label layoutX="257.0" layoutY="14.0" text="LETS MAKE YOUR PC BUILD BY WPA REBUILD PC SIMULATION">
             <font>
                 <Font name="Elephant" size="14.0" />
             </font>
         </Label>
       
-        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="349.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="106.0" fitWidth="169.0" layoutX="458.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Images/Blizzard_03.png" />
             </image>
         </ImageView>
         
-        <Label layoutX="360.0" layoutY="146.0" text="WPA TEAM">
+        <Label layoutX="469.0" layoutY="146.0" text="WPA TEAM">
             <font>
                 <Font name="Elephant" size="12.0" />
             </font>
@@ -125,7 +125,7 @@
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Label>
-      <Separator layoutY="560.0" prefHeight="15.0" prefWidth="821.0" style="-fx-background-color: Gold;" />
+      <Separator layoutY="560.0" prefHeight="15.0" prefWidth="1155.0" style="-fx-background-color: Gold;" />
       <TextField fx:id="User_Text" layoutX="142.0" layoutY="228.0" prefHeight="25.0" prefWidth="160.0" style="-fx-cursor: text;" />
       <Button fx:id="Select_User" layoutX="313.0" layoutY="228.0" mnemonicParsing="false" onAction="#Select_User_Click" style="-fx-cursor: hand;" text="Select User" />
       <Button fx:id="Select_CPU" layoutX="313.0" layoutY="265.0" mnemonicParsing="false" onAction="#Select_CPU_Click" style="-fx-cursor: hand;" text="Select CPU" />
@@ -160,14 +160,56 @@
          </font>
       </Label>
       <TextField fx:id="Transaksi_Text" layoutX="142.0" layoutY="190.0" prefHeight="25.0" prefWidth="145.0" style="-fx-cursor: text;" text="TRS_00" />
-      <Button layoutX="694.0" layoutY="272.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add CPU" />
-      <Button layoutX="694.0" layoutY="311.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add Mother Board" />
-      <Button layoutX="694.0" layoutY="348.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add Cooler" />
-      <Button layoutX="692.0" layoutY="388.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add GPU" />
-      <Button layoutX="692.0" layoutY="426.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add SSD" />
-      <Button layoutX="692.0" layoutY="468.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add RAM" />
-      <Button layoutX="692.0" layoutY="511.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Add Power Supply" />
-      <DatePicker fx:id="Tanggal_Transaksi" layoutX="547.0" layoutY="190.0" promptText="Input Date" style="-fx-cursor: hand;" />
-      <Label layoutX="432.0" layoutY="194.0" text="Date Transcation   :" />
+      <Button fx:id="AddCPU" layoutX="849.0" layoutY="270.0" mnemonicParsing="false" onAction="#AddCPUCLick" style="-fx-cursor: hand;" text="Add CPU" />
+      <Button fx:id="AddMoboButton" layoutX="849.0" layoutY="309.0" mnemonicParsing="false" onAction="#AddMoboCllick" style="-fx-cursor: hand;" text="Add Mother Board" />
+      <Button fx:id="AddCoolerButton" layoutX="849.0" layoutY="346.0" mnemonicParsing="false" onAction="#AddCoolerClick" style="-fx-cursor: hand;" text="Add Cooler" />
+      <Button fx:id="AddGPUButton" layoutX="847.0" layoutY="386.0" mnemonicParsing="false" onAction="#AddGPUClick" style="-fx-cursor: hand;" text="Add GPU" />
+      <Button fx:id="AddSSDButton" layoutX="847.0" layoutY="424.0" mnemonicParsing="false" onAction="#AddSSDButtonClick" style="-fx-cursor: hand;" text="Add SSD" />
+      <Button fx:id="AddRAMButton" layoutX="847.0" layoutY="466.0" mnemonicParsing="false" onAction="#AddRAMButtonCllick" style="-fx-cursor: hand;" text="Add RAM" />
+      <Button fx:id="AddPSUButton" layoutX="847.0" layoutY="509.0" mnemonicParsing="false" onAction="#AddPSUClick" style="-fx-cursor: hand;" text="Add Power Supply" />
+      <DatePicker fx:id="Tanggal_Transaksi" layoutX="787.0" layoutY="190.0" promptText="Input Date" style="-fx-cursor: hand;" />
+      <Label layoutX="672.0" layoutY="194.0" text="Date Transcation   :" />
+      <Button fx:id="DeleteCPU" layoutX="1000.0" layoutY="267.0" mnemonicParsing="false" onAction="#DelteCPUCLick" style="-fx-cursor: hand;" text="Delete CPU" />
+      <Button fx:id="DeleteMotherBoard" layoutX="1000.0" layoutY="306.0" mnemonicParsing="false" onAction="#DeleteMotherBoardCLick" style="-fx-cursor: hand;" text="Delete Mother Board" />
+      <Button fx:id="DeleteCoolerButton" layoutX="1000.0" layoutY="343.0" mnemonicParsing="false" onAction="#DeleteCoolerButtonClick" style="-fx-cursor: hand;" text="Delete Cooler" />
+      <Button fx:id="DeleteGPU" layoutX="1000.0" layoutY="383.0" mnemonicParsing="false" onAction="#DeleteGPUClick" style="-fx-cursor: hand;" text="Delete GPU" />
+      <Button fx:id="DeleteSSDButton" layoutX="1000.0" layoutY="421.0" mnemonicParsing="false" onAction="#DeleteSSDButtonClick" style="-fx-cursor: hand;" text="Delete SSD" />
+      <Button fx:id="RAM" layoutX="1000.0" layoutY="463.0" mnemonicParsing="false" onAction="#DeleteRAMClick" style="-fx-cursor: hand;" text="Delete RAM " />
+      <Button fx:id="DeletePSUClick" layoutX="1000.0" layoutY="506.0" mnemonicParsing="false" onAction="#DeletePSUCLICK" style="-fx-cursor: hand;" text="Delete Power Supply" />
+      <Label fx:id="TotalPower_Supply_Price" layoutX="672.0" layoutY="508.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalRAM_Price" layoutX="672.0" layoutY="465.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalSSD_Price" layoutX="672.0" layoutY="423.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalGPU_Price" layoutX="672.0" layoutY="385.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalCooler_Price" layoutX="672.0" layoutY="345.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalMobo_Price" layoutX="672.0" layoutY="306.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TotalCPU_Price" layoutX="672.0" layoutY="269.0" style="-fx-cursor: hand;" text="Rp ">
+         <font>
+            <Font name="Dubai Regular" size="14.0" />
+         </font>
+      </Label>
      </children>
 </AnchorPane>

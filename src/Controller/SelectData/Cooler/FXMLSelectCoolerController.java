@@ -46,26 +46,27 @@ public class FXMLSelectCoolerController implements Initializable {
     private int Price;
 
     //Get Item
-    public int getResult(){
+    public int getResult() {
         return (Val);
     }
-    
+
     //Get Id
-    public String getIDCoolerHasil(){
+    public String getIDCoolerResult() {
         return (ID);
     }
+
     //Get Price
-    public int getPrice(){
+    public int getPrice() {
         return (Price);
     }
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Cooler_selection.setItems(FXCollections.observableArrayList("ID_COOLER","Nama_Cooler"));
+        Cooler_selection.setItems(FXCollections.observableArrayList("ID_COOLER", "Nama_Cooler"));
         Cooler_selection.getSelectionModel().select(0);
         DataShows("ID_COOLER", "");
     }
@@ -77,7 +78,7 @@ public class FXMLSelectCoolerController implements Initializable {
 
     @FXML
     private void CancelClick(ActionEvent event) {
-        Val=0;
+        Val = 0;
         CancelButton.getScene().getWindow().hide();
     }
 
@@ -90,12 +91,11 @@ public class FXMLSelectCoolerController implements Initializable {
         SelectButton.getScene().getWindow().hide();
     }
 
-    public void DataShows(String aa,String bb) {
+    public void DataShows(String aa, String bb) {
         ObservableList<CoolerModels> data = Main_Menu2Controller.Database_Cooler.SearchCooler(aa, bb);
-        if(data.isEmpty()){
+        if (data.isEmpty()) {
             data = Main_Menu2Controller.Database_Cooler.Load();
             CoolerText.setText("");
-            
         }
         if (data != null) {
             TableViewCooler.getColumns().clear();
@@ -115,13 +115,13 @@ public class FXMLSelectCoolerController implements Initializable {
             col = new TableColumn("Harga");
             col.setCellValueFactory(new PropertyValueFactory<CoolerModels, String>("Harga"));
             TableViewCooler.getColumns().addAll(col);
-
             TableViewCooler.setItems(data);
+
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Data kosong", ButtonType.OK);
             a.showAndWait();
             TableViewCooler.getScene().getWindow().hide();;
         }
     }
-    
+
 }
