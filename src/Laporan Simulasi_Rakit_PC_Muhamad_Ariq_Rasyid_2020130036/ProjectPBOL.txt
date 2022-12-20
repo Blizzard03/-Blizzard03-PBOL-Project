@@ -1,5 +1,5 @@
 Project File :
-https://github.com/Blizzard03/PBOL-Project
+https://github.com/Blizzard03/PBOL-Project.git
 
 SQL File Source 
 ...\Laporan Simulasi_Rakit_PC_Muhamad_Ariq_Rasyid_2020130036\SQL_File\Database.sql
